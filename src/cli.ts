@@ -1,6 +1,7 @@
 import { ExitCode } from './exit-codes.js';
 import { VERSION } from './version.js';
 
+/** Supplies output functions used by the CLI. */
 export interface CliIO {
   stdout(s: string): void;
   stderr(s: string): void;
@@ -24,6 +25,7 @@ Options:
 
 const COMMANDS = new Set(['init', 'check', 'review']);
 
+/** Runs the CLI command and returns its process exit code. */
 export async function main(argv: string[], io: CliIO = {
   stdout: (s) => process.stdout.write(s),
   stderr: (s) => process.stderr.write(s),

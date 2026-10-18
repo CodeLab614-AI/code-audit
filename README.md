@@ -1,13 +1,7 @@
 # code-audit
 
-`code-audit` checks project changes against project-specific policies and rules.
+code-audit checks branch changes against project rules. The repository currently includes a command line skeleton, a YAML frontmatter reader, a build script, and a documentation checker.
 
-## Development
-
-- Node.js 20 or newer
-- `npm install`
-- `npm test`
-- `npm run typecheck`
-- `npm run build`
-
-The build creates the standalone CLI at `skills/code-audit/code-audit.mjs`.
+- [Documentation in English](docs/en/README.md)
+- [Documentación en español](docs/es/README.md)
+- [Changelog](CHANGELOG.md)
