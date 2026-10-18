@@ -20,6 +20,8 @@ Part 3 · Page 7 of 13 · Previous: [Command line](020-cli.md) · Next: [Frontma
 
 ## Before reading the code
 
+This section explains the literal type and JSON import used by these modules.
+
 ### `as const`
 
 This keeps object values as numeric literals, so `ExitCode.USAGE` has the type `1` rather than the broader `number`. The actual CLI returned this value for an unknown command:
@@ -81,6 +83,8 @@ export const VERSION: string = packageJson.version;
 ```
 
 ## Examples with real data
+
+These commands show the version and error response from the built CLI.
 
 ### Normal case
 

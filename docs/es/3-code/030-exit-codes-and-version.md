@@ -20,6 +20,8 @@ Parte 3 · Página 7 de 13 · Anterior: [Línea de comandos](020-cli.md) · Sigu
 
 ## Antes de leer el código
 
+Esta sección explica el tipo literal y la importación JSON que usan estos módulos.
+
 ### `as const`
 
 Conserva los valores del objeto como números literales: `ExitCode.USAGE` tiene tipo `1`, no el tipo más amplio `number`. El CLI devolvió este valor real para un comando desconocido:
@@ -82,6 +84,8 @@ export const VERSION: string = packageJson.version;
 
 ## Ejemplos con datos reales
 
+Estos comandos muestran la versión y el error del CLI compilado.
+
 ### Caso normal
 
 La compilación actual lee la versión `0.1.0` del paquete:
@@ -121,4 +125,6 @@ Sin `as const`, TypeScript ampliaría los valores y los consumidores perderían 
 - [`src/version.ts`](030-exit-codes-and-version.md) lee `package.json` en la línea 1.
 
 ## Pruebas
+
+El archivo de pruebas comprueba la versión y las respuestas del CLI.
 Parte 3 · Página 7 de 13 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)

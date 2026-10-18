@@ -20,6 +20,8 @@ Part 4 · Page 10 of 13 · Previous: [Development](10-development.md) · Next: [
 
 ## Before reading the code
 
+This section explains how the build chooses its input and output paths.
+
 ### Entry point and output directory
 
 An entry point is the source file from which a build starts. Here it is `src/bin.ts`; by default the output directory is `skills/code-audit`. The actual command `bun run build` exited with code `0` and the produced CLI printed:
@@ -101,6 +103,8 @@ if (import.meta.main) {
 ```
 
 ## Examples with real data
+
+These examples show the built command and the build test's result.
 
 ### Normal case
 

@@ -22,6 +22,8 @@ El lector recibe una cadena y devuelve `{ data, body }`. Markdown es un formato 
 
 ## Antes de leer el código
 
+Esta sección define el formato de datos y los finales de línea que procesa el lector.
+
 ### YAML y frontmatter
 
 YAML es un formato de texto para valores con nombre y listas. Frontmatter es un bloque YAML al inicio de un archivo Markdown, entre líneas que contienen `---`. El primer ejemplo de abajo interpreta un encabezado de regla como campos.
@@ -119,6 +121,8 @@ export function parseFrontmatter(text: string): {
 ```
 
 ## Ejemplos con datos reales
+
+Estos ejemplos muestran la salida del lector con entradas válidas e inválidas.
 
 ### Caso normal
 

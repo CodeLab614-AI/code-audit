@@ -19,7 +19,7 @@ Parte 4 · Página 13 de 13 · Anterior: [Estándar de documentación](20-docume
 
 ## Plan 4: Sesiones y skill
 
-
+**Planeado:** abrir nuevas sesiones de revisión y verificación con el mismo agente que inicia la skill; avisar cuando un cambio sea grande; entregar las instrucciones `SKILL.md` y las pruebas de la skill.
 
 Consulta la [página del comprobador de documentación](17-docs-check.md) para ver sus comprobaciones y ejemplos.
 Parte 4 · Página 13 de 13 · Anterior: [Estándar de documentación](20-documentation-standard.md) (última) · [Índice](../README.md)

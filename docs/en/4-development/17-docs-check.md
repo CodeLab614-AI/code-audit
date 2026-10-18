@@ -1,10 +1,10 @@
 Part 4 · Page 11 of 13 · Previous: [Build script](15-build-script.md) · Next: [Documentation standard](20-documentation-standard.md) · [Index](../README.md)
 # Documentation checker
 
-**File:** `scripts/check-docs.ts` · 353 lines · **Status:** available
+**File:** `scripts/check-docs.ts` · 397 lines · **Status:** available
 
 
-`scripts/check-docs.ts` checks the English and Spanish indexes, pages, source cards, and code comments. It returns a list of `{ file, message }` problems.
+`scripts/check-docs.ts` checks the English and Spanish indexes, pages, source cards, nonempty headings, and code comments. It returns a list of `{ file, message }` problems.
 
 ## Page index
 
@@ -22,6 +22,8 @@ Part 4 · Page 11 of 13 · Previous: [Build script](15-build-script.md) · Next:
 The checker takes a repository root and reports documentation problems. Without it, broken links, mismatched reading routes, missing source pages, or outdated line counts could pass unnoticed. The `docs:check` package command runs it and exits with an error when it finds a problem.
 
 ## Before reading the code
+
+This section defines the Markdown and TypeScript terms used below.
 
 ### Markdown links and titles
 
@@ -87,6 +89,8 @@ export async function checkDocs(root: string): Promise<DocProblem[]> {
   const add = (file: string, message: string): void => { problems.push({ file, message }); };
   const docsRoot = join(base, 'docs');
   const sequences = new Map<string, string[]>();
+  const documentationFiles = await listMarkdown(docsRoot);
+  await checkEmptyHeadings([join(base, 'README.md'), ...documentationFiles], base, add);
 
   for (const lang of LANGUAGES) {
     const langRoot = join(docsRoot, lang);
@@ -140,6 +144,53 @@ export async function checkDocs(root: string): Promise<DocProblem[]> {
   return problems;
 }
 
+/** Finds headings with no body before the next heading or page end. */
+```
+
+Block 2 of 5:
+
+```ts
+async function checkEmptyHeadings(
+  files: string[], root: string, add: (file: string, message: string) => void,
+): Promise<void> {
+  for (const file of files) {
+    const content = await readText(file);
+    if (content === undefined) continue;
+    const lines = content.split(/\r?\n/);
+    let heading: string | undefined;
+    let hasContent = false;
+    let fence: string | undefined;
+    /** Reports a heading that has no body text. */
+    const reportEmpty = (): void => {
+      if (heading && !hasContent) {
+        add(toPosix(relative(root, file)), `heading has no content: ${heading}`);
+      }
+    };
+    for (const line of lines) {
+      const marker = line.match(/^\s*(```+|~~~+)/)?.[1];
+      if (fence) {
+        if (marker?.[0] === fence) fence = undefined;
+        else if (line.trim() !== '') hasContent = true;
+        continue;
+      }
+      if (marker) {
+        fence = marker[0];
+        continue;
+      }
+      if (/^(?:Part \d+ · Page \d+ of \d+|Parte \d+ · Página \d+ de \d+)/.test(line)) continue;
+      const match = line.match(/^(#{2,6})\s+.+$/);
+      if (match) {
+        reportEmpty();
+        heading = line;
+        hasContent = false;
+      } else if (heading && line.trim() !== '') {
+        hasContent = true;
+      }
+    }
+    reportEmpty();
+  }
+}
+
 /** Parses the part and numeric order from a documentation page path. */
 function parsePage(path: string): Page | undefined {
   const match = path.match(/^([1-4]-[^/]+)\/(\d+)-[^/]+\.md$/);
@@ -148,11 +199,6 @@ function parsePage(path: string): Page | undefined {
   if (match[1] !== PARTS[part - 1]) return undefined;
   return {
     path,
-```
-
-Block 2 of 5:
-
-```ts
     part,
     number: Number(match[2]),
   };
@@ -184,6 +230,11 @@ async function checkNavigation(
 ): Promise<void> {
   const total = sequence.length;
   for (let i = 0; i < total; i += 1) {
+```
+
+Block 3 of 5:
+
+```ts
     const file = sequence[i];
     const text = await readText(file);
     if (text === undefined) continue;
@@ -238,11 +289,6 @@ async function checkLocalLinks(
       if ((file.startsWith(docsRoot) || file === join(root, 'README.md')) && !(await exists(target))) {
         add(toPosix(relative(root, file)), `relative link target does not exist: ${href}`);
       }
-```
-
-Block 3 of 5:
-
-```ts
     }
   }
 }
@@ -269,6 +315,11 @@ async function checkSourcePages(
     .flat().filter((file) => !file.endsWith('.test.ts'));
   for (const lang of LANGUAGES) {
     const seq = sequences.get(lang) ?? [];
+```
+
+Block 4 of 5:
+
+```ts
     const declarations = new Map<string, string[]>();
     for (const pagePath of seq) {
       const text = await readText(pagePath);
@@ -328,11 +379,6 @@ async function checkJSDoc(root: string, add: (file: string, message: string) => 
       if (ts.isInterfaceDeclaration(node) && exported(node)) check(node, `interface ${node.name.text}`);
       if (ts.isTypeAliasDeclaration(node) && exported(node)) check(node, `type ${node.name.text}`);
       if (ts.isVariableStatement(node)) {
-```
-
-Block 4 of 5:
-
-```ts
         for (const declaration of node.declarationList.declarations) {
           if (!ts.isIdentifier(declaration.name)) continue;
           if (exported(node)) check(node, `constant ${declaration.name.text}`);
@@ -354,6 +400,11 @@ function checkCodeSections(
 ): void {
   const sections = lang === 'es'
     ? [
+```
+
+Block 5 of 5:
+
+```ts
       '## Índice de la página', '## ¿Qué es y para qué sirve?', '## Antes de leer el código',
       '## Cómo encaja', '## El código completo, comentado', '## Ejemplos con datos reales',
       '## Resumen de comportamientos', '## Dónde se usa', '## Pruebas',
@@ -418,11 +469,6 @@ function resolveLink(from: string, href: string): string {
 
 /** Converts a platform path to slash-separated form. */
 function toPosix(path: string): string { return path.split(sep).join('/'); }
-```
-
-Block 5 of 5:
-
-```ts
 
 /** Counts source lines without counting a final line terminator as a line. */
 function lineCount(text: string): number {
@@ -439,6 +485,8 @@ if (import.meta.main) {
 ```
 
 ## Examples with real data
+
+These examples show the checker's real success and failure output.
 
 ### Normal case
 
@@ -474,6 +522,7 @@ If the entry point used `process.cwd()`, running the checker from `/tmp` would s
 
 - **Both language routes match:** continue to page, link, and source checks.
 - **A page title or navigation label is wrong:** report the page and mismatch.
+- **A level-two through level-six heading has no content:** report the page and heading.
 - **A source file is missing or its line count is wrong:** report its card.
 - **A declaration needs JSDoc:** report its file and declaration name.
 - **No problem is found:** print the success message and exit `0`.
@@ -485,5 +534,5 @@ If the entry point used `process.cwd()`, running the checker from `/tmp` would s
 
 ## Tests
 
-- `scripts/check-docs.test.ts`: `accepts the real repository with no documentation problems`, `rejects different English and Spanish reading sequences`, `rejects missing linked pages and orphan Markdown pages`, `rejects duplicate numbers and decreasing page numbers within a folder`, `rejects incorrect page counts and navigation neighbors`, `requires a page title immediately after its navigation bar`, `requires previous and next navigation labels to match destination titles`, `rejects broken relative links in docs and the root README`, `rejects a missing source page and an incorrect available line count`, `rejects documentation cards with an unsupported status`, `rejects source files declared more than once or missing from disk`, `rejects undocumented declarations and named functions using the TypeScript AST`, `rejects missing or out-of-order code page sections`, `checks any development page that contains a file card`, `finds the repository root from its own file when run outside the repository`.
+- `scripts/check-docs.test.ts`: `accepts the real repository with no documentation problems`, `rejects different English and Spanish reading sequences`, `rejects missing linked pages and orphan Markdown pages`, `rejects duplicate numbers and decreasing page numbers within a folder`, `rejects incorrect page counts and navigation neighbors`, `requires a page title immediately after its navigation bar`, `requires previous and next navigation labels to match destination titles`, `rejects broken relative links in docs and the root README`, `rejects a missing source page and an incorrect available line count`, `rejects documentation cards with an unsupported status`, `rejects source files declared more than once or missing from disk`, `rejects undocumented declarations and named functions using the TypeScript AST`, `rejects missing or out-of-order code page sections`, `checks any development page that contains a file card`, `rejects headings with no content before the next heading or page end`, `finds the repository root from its own file when run outside the repository`.
 Part 4 · Page 11 of 13 · Previous: [Build script](15-build-script.md) · Next: [Documentation standard](20-documentation-standard.md) · [Index](../README.md)

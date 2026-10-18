@@ -22,6 +22,8 @@ export async function checkDocs(root: string): Promise<DocProblem[]> {
   const add = (file: string, message: string): void => { problems.push({ file, message }); };
   const docsRoot = join(base, 'docs');
   const sequences = new Map<string, string[]>();
+  const documentationFiles = await listMarkdown(docsRoot);
+  await checkEmptyHeadings([join(base, 'README.md'), ...documentationFiles], base, add);
 
   for (const lang of LANGUAGES) {
     const langRoot = join(docsRoot, lang);
@@ -73,6 +75,48 @@ export async function checkDocs(root: string): Promise<DocProblem[]> {
   await checkSourcePages(base, sequences, add);
   await checkJSDoc(base, add);
   return problems;
+}
+
+/** Finds headings with no body before the next heading or page end. */
+async function checkEmptyHeadings(
+  files: string[], root: string, add: (file: string, message: string) => void,
+): Promise<void> {
+  for (const file of files) {
+    const content = await readText(file);
+    if (content === undefined) continue;
+    const lines = content.split(/\r?\n/);
+    let heading: string | undefined;
+    let hasContent = false;
+    let fence: string | undefined;
+    /** Reports a heading that has no body text. */
+    const reportEmpty = (): void => {
+      if (heading && !hasContent) {
+        add(toPosix(relative(root, file)), `heading has no content: ${heading}`);
+      }
+    };
+    for (const line of lines) {
+      const marker = line.match(/^\s*(```+|~~~+)/)?.[1];
+      if (fence) {
+        if (marker?.[0] === fence) fence = undefined;
+        else if (line.trim() !== '') hasContent = true;
+        continue;
+      }
+      if (marker) {
+        fence = marker[0];
+        continue;
+      }
+      if (/^(?:Part \d+ · Page \d+ of \d+|Parte \d+ · Página \d+ de \d+)/.test(line)) continue;
+      const match = line.match(/^(#{2,6})\s+.+$/);
+      if (match) {
+        reportEmpty();
+        heading = line;
+        hasContent = false;
+      } else if (heading && line.trim() !== '') {
+        hasContent = true;
+      }
+    }
+    reportEmpty();
+  }
 }
 
 /** Parses the part and numeric order from a documentation page path. */

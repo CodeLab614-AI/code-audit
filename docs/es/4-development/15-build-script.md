@@ -20,6 +20,8 @@ Parte 4 · Página 10 de 13 · Anterior: [Desarrollo](10-development.md) · Sigu
 
 ## Antes de leer el código
 
+Esta sección explica cómo la compilación elige las rutas de entrada y salida.
+
 ### Punto de entrada y carpeta de salida
 
 Un punto de entrada es el archivo fuente desde el que comienza una compilación. Aquí es `src/bin.ts`; la carpeta de salida predeterminada es `skills/code-audit`. El comando real `bun run build` terminó con código `0` y el CLI generado imprimió:
@@ -102,6 +104,8 @@ if (import.meta.main) {
 
 ## Ejemplos con datos reales
 
+Estos ejemplos muestran el comando compilado y el resultado de su prueba.
+
 ### Caso normal
 
 `bun run build` imprimió `$ bun scripts/build.ts`, terminó con código `0` y el archivo compilado imprimió:
@@ -133,4 +137,6 @@ Sin el bloque `finally`, quien importe `buildArtifact` permanecería en la raíz
 - El archivo compilado queda en `skills/code-audit/code-audit.mjs`.
 
 ## Pruebas
+
+La prueba del script comprueba que el archivo compilado no incluya rutas locales absolutas.
 Parte 4 · Página 10 de 13 · Anterior: [Desarrollo](10-development.md) · Siguiente: [Comprobador de documentación](17-docs-check.md) · [Índice](../README.md)

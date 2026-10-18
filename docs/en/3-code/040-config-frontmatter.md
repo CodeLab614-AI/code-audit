@@ -22,6 +22,8 @@ The reader takes a string and returns `{ data, body }`. The data is a JavaScript
 
 ## Before reading the code
 
+This section defines the data format and line endings the reader handles.
+
 ### YAML and frontmatter
 
 YAML is a text format for named values and lists. Frontmatter is a YAML block at the start of a Markdown file, between lines containing `---`. The first example below parses a rule header into fields.
@@ -119,6 +121,8 @@ export function parseFrontmatter(text: string): {
 ```
 
 ## Examples with real data
+
+These examples show the reader's output for valid and invalid input.
 
 ### Normal case
 

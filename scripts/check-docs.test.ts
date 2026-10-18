@@ -33,7 +33,7 @@ async function fixture(): Promise<string> {
     const sections = lang === 'es'
       ? ['Índice de la página', '¿Qué es y para qué sirve?', 'Antes de leer el código', 'Cómo encaja', 'El código completo, comentado', 'Ejemplos con datos reales', 'Resumen de comportamientos', 'Dónde se usa', 'Pruebas']
       : ['Page index', 'What is it and what is it for?', 'Before reading the code', 'How it fits', 'The complete, commented code', 'Examples with real data', 'Behavior summary', 'Where it is used', 'Tests'];
-    const headings = sections.map((section) => `## ${section}`).join('\n\n');
+    const headings = sections.map((section) => `## ${section}\n\nSection content.`).join('\n\n');
     await writeFile(join(docs, '3-code/010-a.md'), `${firstNav}\n\n# A\n\n${card}\n\n${headings}\n\n${firstNav}\n`);
     await writeFile(join(docs, '4-development/17-a.md'), `${lastNav}\n\n# Build\n\n${buildCard}\n\n${headings}\n\n${lastNav}\n`);
   }
@@ -208,7 +208,10 @@ describe('checkDocs', () => {
       text = text.replace('## Tests', '## Extra');
       await writeFile(page, text);
       expect((await checkDocs(root)).some((problem) => problem.message.includes('missing section: ## Tests'))).toBe(true);
-      text = text.replace('## Extra', '## Tests').replace('## Page index\n\n## What is it and what is it for?', '## What is it and what is it for?\n\n## Page index');
+      text = text.replace('## Extra', '## Tests').replace(
+        '## Page index\n\nSection content.\n\n## What is it and what is it for?\n\nSection content.',
+        '## What is it and what is it for?\n\nSection content.\n\n## Page index\n\nSection content.',
+      );
       await writeFile(page, text);
       expect((await checkDocs(root)).some((problem) => problem.message.includes('sections are out of order'))).toBe(true);
     } finally { await clean(root); }
@@ -221,6 +224,21 @@ describe('checkDocs', () => {
       const text = (await readFile(page, 'utf8')).replace('## Tests', '## Missing');
       await writeFile(page, text);
       expect((await checkDocs(root)).some((problem) => problem.file === 'docs/en/4-development/17-a.md' && problem.message.includes('missing section: ## Tests'))).toBe(true);
+    } finally { await clean(root); }
+  });
+
+  it('rejects headings with no content before the next heading or page end', async () => {
+    const root = await fixture();
+    try {
+      const page = join(root, 'docs/en/3-code/010-a.md');
+      const text = (await readFile(page, 'utf8'))
+        .replace('## Tests\n\nSection content.', '## Empty before next heading\n\n## Tests\n\nSection content.\n\n## Empty at page end');
+      await writeFile(page, text);
+      const problems = await checkDocs(root);
+      expect(problems.some((problem) => problem.file === 'docs/en/3-code/010-a.md'
+        && problem.message.includes('heading has no content: ## Empty before next heading'))).toBe(true);
+      expect(problems.some((problem) => problem.file === 'docs/en/3-code/010-a.md'
+        && problem.message.includes('heading has no content: ## Empty at page end'))).toBe(true);
     } finally { await clean(root); }
   });
 

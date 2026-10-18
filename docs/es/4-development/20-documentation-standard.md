@@ -49,7 +49,7 @@ La página describe el archivo tal como existe hoy. No narra tareas ni cambios h
 
 ## 6. Enlaces, diagramas y tablas
 
-Cada archivo mencionado enlaza a su página de documentación. Los diagramas usan Mermaid, una sintaxis de texto para dibujar diagramas de flujo. Las tablas tienen como máximo tres columnas, una línea por celda y no contienen código.
+Cada archivo mencionado enlaza a su página de documentación. Los diagramas usan Mermaid, una sintaxis de texto para dibujar diagramas de flujo. Todo encabezado de nivel dos a seis tiene contenido antes del siguiente encabezado o del final de la página. Las tablas tienen como máximo tres columnas, una línea por celda y no contienen código.
 
 ## 7. Comentarios JSDoc en el código
 
@@ -60,6 +60,8 @@ En el código del repositorio, cada función, clase y constante exportada lleva 
 Solo se documenta lo que ya existe; lo pendiente vive únicamente en la hoja de ruta; cada tarea agrega o actualiza en la misma rama las páginas de lo que construye, en inglés y español.
 
 ## 9. Plantillas
+
+Usa estos modelos como punto de partida para una página de código o de tipos.
 
 ### Plantilla: página de código
 

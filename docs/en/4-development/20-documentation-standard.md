@@ -49,7 +49,7 @@ Describe each file as it exists today. Do not narrate tasks or historical change
 
 ## 6. Links, diagrams, and tables
 
-Link every mentioned file to its documentation page. Use Mermaid for diagrams. Tables have at most three columns, one line per cell, and no code.
+Link every mentioned file to its documentation page. Use Mermaid for diagrams. Give every level-two through level-six heading content before the next heading or page end. Tables have at most three columns, one line per cell, and no code.
 
 ## 7. JSDoc comments in code
 
@@ -60,6 +60,8 @@ In repository code, every exported function, class, and constant has a short one
 Only document existing behavior; keep missing work in the roadmap; each task adds or updates the pages for what it builds, in both languages on the same branch. The automated check must pass.
 
 ## 9. Templates
+
+Use these starting points when adding a code page or a type page.
 
 ### Template: code page
 

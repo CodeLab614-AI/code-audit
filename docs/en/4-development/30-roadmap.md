@@ -19,7 +19,7 @@ Part 4 · Page 13 of 13 · Previous: [Documentation standard](20-documentation-s
 
 ## Plan 4: Sessions and skill
 
-
+**Planned:** Open new review and verification sessions with the same agent that launches the skill; report when a change is large; provide the skill's `SKILL.md` instructions and tests.
 
 See the [documentation checker page](17-docs-check.md) for its checks and examples.
 Part 4 · Page 13 of 13 · Previous: [Documentation standard](20-documentation-standard.md) (last) · [Index](../README.md)
