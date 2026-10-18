@@ -1,6 +1,5 @@
 import { ExitCode } from './exit-codes.js';
 import { VERSION } from './version.js';
-import { pathToFileURL } from 'node:url';
 
 export interface CliIO {
   stdout(s: string): void;
@@ -71,14 +70,4 @@ export async function main(argv: string[], io: CliIO = {
 
   io.stderr(`${command} is not available yet\n`);
   return ExitCode.USAGE;
-}
-
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main(process.argv.slice(2)).then((code) => {
-    process.exitCode = code;
-  }).catch((error: unknown) => {
-    const message = error instanceof Error ? error.message : String(error);
-    process.stderr.write(`${message}\n`);
-    process.exitCode = ExitCode.INTERNAL;
-  });
 }

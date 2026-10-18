@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 import { main } from '../src/cli.js';
 import { VERSION } from '../src/version.js';
 import { ExitCode } from '../src/exit-codes.js';

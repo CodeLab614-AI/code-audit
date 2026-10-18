@@ -8,7 +8,6 @@ var ExitCode = {
   NOT_A_REPO: 3,
   INTERNAL: 10
 };
-
 // package.json
 var package_default = {
   name: "code-audit",
@@ -16,15 +15,14 @@ var package_default = {
   private: true,
   type: "module",
   scripts: {
-    build: "node scripts/build.mjs",
-    test: "vitest run",
+    build: "bun scripts/build.ts",
+    test: "bun test",
     typecheck: "tsc --noEmit"
   },
   devDependencies: {
-    "@types/node": "^22.19.0",
-    esbuild: "^0.25.11",
-    typescript: "^5.9.3",
-    vitest: "^3.2.4"
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.5",
+    typescript: "^5.9.3"
   }
 };
 
@@ -32,7 +30,6 @@ var package_default = {
 var VERSION = package_default.version;
 
 // src/cli.ts
-import { pathToFileURL } from "node:url";
 var HELP = `code-audit ${VERSION}
 
 Usage: code-audit <command> [options]
@@ -48,7 +45,7 @@ Options:
   --json              Print machine-readable output
   --help              Show this help
   --version           Show the version`;
-var COMMANDS = /* @__PURE__ */ new Set(["init", "check", "review"]);
+var COMMANDS = new Set(["init", "check", "review"]);
 async function main(argv, io = {
   stdout: (s) => process.stdout.write(s),
   stderr: (s) => process.stderr.write(s)
@@ -69,9 +66,10 @@ async function main(argv, io = {
 `);
     return ExitCode.USAGE;
   }
-  for (let index = 0; index < options.length; index += 1) {
+  for (let index = 0;index < options.length; index += 1) {
     const option = options[index];
-    if (option === "--json") continue;
+    if (option === "--json")
+      continue;
     if (option === "--root" || option === "--language") {
       if (!options[index + 1] || options[index + 1].startsWith("--")) {
         io.stderr(`Missing value for ${option}
@@ -91,23 +89,21 @@ async function main(argv, io = {
     return ExitCode.USAGE;
   }
   if (command === "review") {
-    io.stderr("review is not available yet\n");
+    io.stderr(`review is not available yet
+`);
     return ExitCode.USAGE;
   }
   io.stderr(`${command} is not available yet
 `);
   return ExitCode.USAGE;
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main(process.argv.slice(2)).then((code) => {
-    process.exitCode = code;
-  }).catch((error) => {
-    const message = error instanceof Error ? error.message : String(error);
-    process.stderr.write(`${message}
+
+// src/bin.ts
+try {
+  process.exitCode = await main(process.argv.slice(2));
+} catch (error) {
+  const message = error instanceof Error ? error.message : String(error);
+  process.stderr.write(`${message}
 `);
-    process.exitCode = ExitCode.INTERNAL;
-  });
+  process.exitCode = ExitCode.INTERNAL;
 }
-export {
-  main
-};

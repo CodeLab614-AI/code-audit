@@ -4,14 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "test": "vitest run",
+    "build": "bun scripts/build.ts",
+    "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^22.19.0",
-    "esbuild": "^0.25.11",
-    "typescript": "^5.9.3",
-    "vitest": "^3.2.4"
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.5",
+    "typescript": "^5.9.3"
   }
 }
