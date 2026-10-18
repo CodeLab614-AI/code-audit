@@ -1,5 +1,6 @@
 import { parse as parseYaml, YAMLParseError } from 'yaml';
 
+/** Error raised when a Markdown frontmatter block is missing or invalid. */
 export class FrontmatterError extends Error {
   constructor(message: string) {
     super(message);
@@ -7,12 +8,14 @@ export class FrontmatterError extends Error {
   }
 }
 
+/** Parses a YAML frontmatter block and returns its data and Markdown body. */
 export function parseFrontmatter(text: string): {
   data: Record<string, unknown>;
   body: string;
 } {
   const normalized = text.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
   const lines = normalized.split('\n');
+  /** Checks whether a line is a delimiter with optional trailing whitespace. */
   const isDelimiter = (line: string): boolean => /^---[ \t]*$/.test(line);
 
   if (!isDelimiter(lines[0])) {

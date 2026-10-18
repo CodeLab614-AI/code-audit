@@ -1,3 +1,4 @@
+/** Stable process exit codes returned by the command line interface. */
 export const ExitCode = {
   OK: 0,
   USAGE: 1,

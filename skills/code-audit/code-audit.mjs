@@ -17,7 +17,8 @@ var package_default = {
   scripts: {
     build: "bun scripts/build.ts",
     test: "bun test",
-    typecheck: "tsc --noEmit"
+    typecheck: "tsc --noEmit",
+    "docs:check": "bun scripts/check-docs.ts"
   },
   devDependencies: {
     "@types/bun": "^1.4.2",

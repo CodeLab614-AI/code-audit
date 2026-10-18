@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
+/** Builds the standalone Node.js CLI artifact into the output directory. */
 export async function buildArtifact(
   outputDirectory = resolve(root, 'skills/code-audit'),
 ): Promise<string> {
