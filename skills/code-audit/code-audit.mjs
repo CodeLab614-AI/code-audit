@@ -23,6 +23,9 @@ var package_default = {
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.5",
     typescript: "^5.9.3"
+  },
+  dependencies: {
+    yaml: "^2.9.1"
   }
 };
 

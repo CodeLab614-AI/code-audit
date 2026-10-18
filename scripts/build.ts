@@ -3,20 +3,37 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const outfile = resolve(root, 'skills/code-audit/code-audit.mjs');
-await mkdir(dirname(outfile), { recursive: true });
 
-const result = await Bun.build({
-  entrypoints: ['src/bin.ts'],
-  target: 'node',
-  format: 'esm',
-  banner: '#!/usr/bin/env node',
-  outdir: 'skills/code-audit',
-  naming: { entry: 'code-audit.mjs' },
-});
+export async function buildArtifact(
+  outputDirectory = resolve(root, 'skills/code-audit'),
+): Promise<string> {
+  const originalDirectory = process.cwd();
+  const outdir = resolve(outputDirectory);
+  const outfile = resolve(outdir, 'code-audit.mjs');
 
-if (!result.success) {
-  throw new AggregateError(result.logs, 'Failed to build code-audit');
+  await mkdir(dirname(outfile), { recursive: true });
+  try {
+    process.chdir(root);
+    const result = await Bun.build({
+      entrypoints: ['src/bin.ts'],
+      target: 'node',
+      format: 'esm',
+      banner: '#!/usr/bin/env node',
+      outdir,
+      naming: { entry: 'code-audit.mjs' },
+    });
+
+    if (!result.success) {
+      throw new AggregateError(result.logs, 'Failed to build code-audit');
+    }
+
+    await chmod(outfile, 0o755);
+    return outfile;
+  } finally {
+    process.chdir(originalDirectory);
+  }
 }
 
-await chmod(outfile, 0o755);
+if (import.meta.main) {
+  await buildArtifact();
+}
