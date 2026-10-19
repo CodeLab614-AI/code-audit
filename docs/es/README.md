@@ -31,15 +31,19 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 6. [Línea de comandos](3-code/020-cli.md) — Interpreta argumentos y escribe resultados.
 7. [Códigos de salida y versión](3-code/030-exit-codes-and-version.md) — Define los códigos y lee la versión del paquete.
 8. [Lector de frontmatter](3-code/040-config-frontmatter.md) — Interpreta un encabezado YAML y el cuerpo Markdown.
+9. [Rutas de configuración](3-code/050-config-paths.md) — Nombra carpetas y tipos de configuración.
+10. [Tipos de configuración](3-code/060-config-types.md) — Define las formas de configuración, regla y problema.
+11. [Cargador de configuración del proyecto](3-code/070-config-config.md) — Lee y valida config.md.
+12. [Cargador de reglas](3-code/080-config-rules.md) — Carga y valida reglas Markdown.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-9. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-10. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-11. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-12. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-13. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+13. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+14. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+15. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+16. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+17. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.

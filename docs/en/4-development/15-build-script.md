@@ -1,4 +1,4 @@
-Part 4 · Page 10 of 13 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
+Part 4 · Page 14 of 17 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
 # Build script
 
 **File:** `scripts/build.ts` · 40 lines · **Status:** available
@@ -20,7 +20,6 @@ Part 4 · Page 10 of 13 · Previous: [Development](10-development.md) · Next: [
 
 ## Before reading the code
 
-This section explains how the build chooses its input and output paths.
 
 ### Entry point and output directory
 
@@ -139,4 +138,4 @@ Without the `finally` block, callers importing `buildArtifact` would remain in t
 ## Tests
 
 - `src/build.test.ts`: `does not contain absolute local paths`.
-Part 4 · Page 10 of 13 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
+Part 4 · Page 14 of 17 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)

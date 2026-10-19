@@ -1,4 +1,4 @@
-Part 3 · Page 7 of 13 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+Part 3 · Page 7 of 17 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
 # Exit codes and version
 
 **File:** `src/exit-codes.ts`, `src/version.ts` · 12 lines · **Status:** available
@@ -20,7 +20,6 @@ Part 3 · Page 7 of 13 · Previous: [Command line](020-cli.md) · Next: [Frontma
 
 ## Before reading the code
 
-This section explains the literal type and JSON import used by these modules.
 
 ### `as const`
 
@@ -84,7 +83,6 @@ export const VERSION: string = packageJson.version;
 
 ## Examples with real data
 
-These commands show the version and error response from the built CLI.
 
 ### Normal case
 
@@ -127,4 +125,4 @@ Without `as const`, TypeScript would widen the values and callers would lose the
 ## Tests
 
 - `src/cli.test.ts`: `prints the version and returns success`, `rejects unknown commands`, `reports that review is not available yet`.
-Part 3 · Page 7 of 13 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+Part 3 · Page 7 of 17 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)

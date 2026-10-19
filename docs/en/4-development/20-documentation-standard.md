@@ -1,4 +1,4 @@
-Part 4 · Page 12 of 13 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+Part 4 · Page 16 of 17 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
 # Documentation standard
 
 Rules and templates for maintaining this documentation.
@@ -140,7 +140,7 @@ Part N · Page X of M · Previous: [Title](../README.md) · Next: [Title](../REA
 
 ### `TypeName`
 
-#### `field: Type`
+#### `field` — `Type`
 
 - **Required or default:** condition.
 - **Purpose:** field effect.
@@ -153,4 +153,4 @@ Part N · Page X of M · Previous: [Title](../README.md) · Next: [Title](../REA
 
 ## Tests
 ```
-Part 4 · Page 12 of 13 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+Part 4 · Page 16 of 17 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)

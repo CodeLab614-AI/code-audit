@@ -1,4 +1,4 @@
-Parte 4 · Página 9 de 13 · Anterior: [Lector de frontmatter](../3-code/040-config-frontmatter.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
+Parte 4 · Página 13 de 17 · Anterior: [Cargador de reglas](../3-code/080-config-rules.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
 # Desarrollo
 
 ## Requisitos y comandos
@@ -22,4 +22,4 @@ Los archivos de `src/` usan módulos de Node con prefijo `node:`. Las interfaces
 ## Ramas y solicitudes de integración
 
 El trabajo se hace en una rama de funcionalidad; después de ejecutar estas comprobaciones, se abre una solicitud de integración para revisar los cambios antes de incorporarlos. El propietario crea los commits y sube la rama. Cada cambio de código actualiza su documentación en inglés y español dentro de la misma rama, para revisar juntos el código y su guía.
-Parte 4 · Página 9 de 13 · Anterior: [Lector de frontmatter](../3-code/040-config-frontmatter.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
+Parte 4 · Página 13 de 17 · Anterior: [Cargador de reglas](../3-code/080-config-rules.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)

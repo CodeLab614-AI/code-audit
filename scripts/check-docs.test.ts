@@ -227,6 +227,34 @@ describe('checkDocs', () => {
     } finally { await clean(root); }
   });
 
+  it('validates type-only source pages against the type-page template', async () => {
+    const root = await fixture();
+    try {
+      await writeFile(join(root, 'src/a.ts'), '/** A public shape. */\nexport interface A {\n  value: string;\n}\n');
+      for (const lang of ['en', 'es']) {
+        const page = join(root, 'docs', lang, '3-code/010-a.md');
+        const nav = lang === 'es'
+          ? 'Parte 3 · Página 1 de 2 · Siguiente: [Build](../4-development/17-a.md) · [Índice](../README.md)'
+          : 'Part 3 · Page 1 of 2 · Next: [Build](../4-development/17-a.md) · [Index](../README.md)';
+        const lastNav = lang === 'es'
+          ? 'Parte 3 · Página 1 de 2 · Siguiente: [Build](../4-development/17-a.md) · [Índice](../README.md)'
+          : 'Part 3 · Page 1 of 2 · Next: [Build](../4-development/17-a.md) · [Index](../README.md)';
+        const card = lang === 'es'
+          ? '**Archivo:** `src/a.ts` · 4 líneas · **Estado:** disponible'
+          : '**File:** `src/a.ts` · 4 lines · **Status:** available';
+        const title = lang === 'es' ? 'Tipos' : 'Types';
+        const pageIndex = lang === 'es' ? 'Índice de la página' : 'Page index';
+        const what = lang === 'es' ? '¿Qué es y para qué sirve?' : 'What is it and what is it for?';
+        const where = lang === 'es' ? 'Dónde se usa' : 'Where it is used';
+        const tests = lang === 'es' ? 'Pruebas' : 'Tests';
+        await writeFile(page, `${nav}\n\n# A\n\n${card}\n\n## ${pageIndex}\n\n- ${title}\n\n## ${what}\n\nA public type.\n\n## ${title}\n\n### \`A\`\n\n#### \`value: string\`\n\n- **Required or default:** required.\n- **Purpose:** value.\n- **Values:** string.\n- **Filled by:** caller.\n- **Read by:** consumer.\n- **Example:** \`{ value: 'x' }\`.\n\n## ${where}\n\n- Consumer.\n\n## ${tests}\n\n- No runtime tests.\n\n${lastNav}\n`);
+      }
+      const problems = await checkDocs(root);
+      expect(problems.some((problem) => problem.message.includes('missing section: ## Before reading the code'))).toBe(false);
+      expect(problems.some((problem) => problem.message.includes('missing type-page section'))).toBe(false);
+    } finally { await clean(root); }
+  });
+
   it('rejects headings with no content before the next heading or page end', async () => {
     const root = await fixture();
     try {
@@ -239,6 +267,19 @@ describe('checkDocs', () => {
         && problem.message.includes('heading has no content: ## Empty before next heading'))).toBe(true);
       expect(problems.some((problem) => problem.file === 'docs/en/3-code/010-a.md'
         && problem.message.includes('heading has no content: ## Empty at page end'))).toBe(true);
+    } finally { await clean(root); }
+  });
+
+  it('accepts a section heading followed directly by a deeper subheading', async () => {
+    const root = await fixture();
+    try {
+      const page = join(root, 'docs/en/3-code/010-a.md');
+      const text = (await readFile(page, 'utf8')).replace(
+        '## Page index\n\nSection content.',
+        '## Page index\n\n### First item\n\nSection content.',
+      );
+      await writeFile(page, text);
+      expect(await checkDocs(root)).toEqual([]);
     } finally { await clean(root); }
   });
 

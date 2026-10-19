@@ -108,6 +108,8 @@ async function checkEmptyHeadings(
       if (/^(?:Part \d+ · Page \d+ of \d+|Parte \d+ · Página \d+ de \d+)/.test(line)) continue;
       const match = line.match(/^(#{2,6})\s+.+$/);
       if (match) {
+        const previousDepth = heading?.match(/^#+/)?.[0].length ?? 0;
+        if (heading && match[1].length > previousDepth) hasContent = true;
         reportEmpty();
         heading = line;
         hasContent = false;
@@ -254,7 +256,6 @@ async function checkSourcePages(
         add(toPosix(relative(root, pagePath)), 'code page must declare its file, line count, and available status');
         continue;
       }
-      checkCodeSections(text, lang, toPosix(relative(root, pagePath)), add);
       const declaredFiles = [card[1], card[2]].filter(Boolean) as string[];
       for (const declared of declaredFiles) {
         declarations.set(declared, [...(declarations.get(declared) ?? []), pagePath]);
@@ -262,6 +263,10 @@ async function checkSourcePages(
         if (!(await exists(source))) add(toPosix(relative(root, pagePath)), `available source file is missing: ${declared}`);
       }
       const sourceExists = await Promise.all(declaredFiles.map((declared) => exists(join(root, declared))));
+      const reportFile = toPosix(relative(root, pagePath));
+      const typePage = sourceExists.every(Boolean) && await areTypeFiles(root, declaredFiles);
+      if (typePage) checkTypeSections(text, lang, reportFile, add);
+      else checkCodeSections(text, lang, reportFile, add);
       if (sourceExists.every(Boolean)) {
         const actualLines = (await Promise.all(declaredFiles.map(async (declared) => lineCount((await readText(join(root, declared)))!))))
           .reduce((sum, count) => sum + count, 0);
@@ -273,6 +278,34 @@ async function checkSourcePages(
       const matching = declarations.get(rel) ?? [];
       if (matching.length !== 1) add(`docs/${lang}/3-code`, `${rel} must appear in exactly one code page; found ${matching.length}`);
     }
+  }
+}
+
+/** Checks whether every declared source file contains only type declarations. */
+async function areTypeFiles(root: string, files: string[]): Promise<boolean> {
+  for (const file of files) {
+    const path = join(root, file);
+    const source = ts.createSourceFile(path, (await readText(path)) ?? '', ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+    if (source.statements.length === 0 || source.statements.some((statement) =>
+      !ts.isInterfaceDeclaration(statement) && !ts.isTypeAliasDeclaration(statement))) return false;
+  }
+  return true;
+}
+
+/** Checks the required sections on a page documenting type declarations. */
+function checkTypeSections(
+  content: string, lang: string, file: string, add: (file: string, message: string) => void,
+): void {
+  const sections = lang === 'es'
+    ? ['## Índice de la página', '## ¿Qué es y para qué sirve?', '## Tipos', '## Dónde se usa', '## Pruebas']
+    : ['## Page index', '## What is it and what is it for?', '## Types', '## Where it is used', '## Tests'];
+  const headings = [...content.matchAll(/^## .+$/gm)].map((match) => match[0]);
+  let cursor = -1;
+  for (const section of sections) {
+    const position = headings.indexOf(section);
+    if (position === -1) add(file, `missing type-page section: ${section}`);
+    else if (position <= cursor) add(file, `type-page sections are out of order at: ${section}`);
+    else cursor = position;
   }
 }
 
