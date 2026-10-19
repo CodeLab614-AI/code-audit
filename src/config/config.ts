@@ -24,7 +24,7 @@ export async function loadConfig(root: string): Promise<{ config: Config; proble
   try {
     text = await readFile(path, 'utf8');
   } catch {
-    return { config: createDefaultConfig(), problems: [{ level: 'error', file, message: 'config.md not found' }] };
+    return { config: createDefaultConfig(), problems: [{ level: 'error', file, message: 'config.md not found; run code-audit init first' }] };
   }
 
   let data: Record<string, unknown>;
@@ -48,7 +48,11 @@ export async function loadConfig(root: string): Promise<{ config: Config; proble
   // Validate each known key independently and retain defaults on errors.
   const config = createDefaultConfig();
   if (data.structure_version !== undefined) {
-    if (data.structure_version !== 1) add('error', `structure_version must be 1; received ${String(data.structure_version)}`);
+    if (typeof data.structure_version !== 'number' || !Number.isInteger(data.structure_version)) {
+      add('error', `structure_version must be an integer; received ${JSON.stringify(data.structure_version)}`);
+    } else if (data.structure_version !== 1) {
+      add('warning', `structure_version is ${data.structure_version}; this code-audit understands structure version 1`);
+    }
   }
   if (data.language !== undefined) {
     if (typeof data.language === 'string' && data.language.length > 0) config.language = data.language;

@@ -1,4 +1,4 @@
-Parte 3 · Página 10 de 22 · Anterior: [Rutas de configuración](050-config-paths.md) · Siguiente: [Cargador de configuración del proyecto](070-config-config.md) · [Índice](../README.md)
+Parte 3 · Página 10 de 23 · Anterior: [Rutas de configuración](050-config-paths.md) · Siguiente: [Cargador de configuración del proyecto](070-config-config.md) · [Índice](../README.md)
 # Tipos de configuración
 
 **Archivo:** `src/config/types.ts` · 38 líneas · **Estado:** disponible
@@ -260,4 +260,4 @@ Hoy ningún módulo de producción consume esos resultados; las pruebas indicada
 - `src/config/config.test.ts`: valores predeterminados y validación de configuración.
 - `src/config/rules.test.ts`: normalización de reglas y diagnósticos.
 
-Parte 3 · Página 10 de 22 · Anterior: [Rutas de configuración](050-config-paths.md) · Siguiente: [Cargador de configuración del proyecto](070-config-config.md) · [Índice](../README.md)
+Parte 3 · Página 10 de 23 · Anterior: [Rutas de configuración](050-config-paths.md) · Siguiente: [Cargador de configuración del proyecto](070-config-config.md) · [Índice](../README.md)

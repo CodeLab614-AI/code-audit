@@ -1,4 +1,4 @@
-Part 3 · Page 8 of 22 · Previous: [Exit codes and version](030-exit-codes-and-version.md) · Next: [Configuration paths](050-config-paths.md) · [Index](../README.md)
+Part 3 · Page 8 of 23 · Previous: [Exit codes and version](030-exit-codes-and-version.md) · Next: [Configuration paths](050-config-paths.md) · [Index](../README.md)
 # Frontmatter reader
 
 **File:** `src/config/frontmatter.ts` · 53 lines · **Status:** available
@@ -196,4 +196,4 @@ Without BOM removal, the first delimiter check sees an invisible character befor
 ## Tests
 
 - `src/config/frontmatter.test.ts`: `parses YAML metadata and returns the body`, `parses CRLF line endings`, `ignores an initial UTF-8 BOM`, `rejects text without a frontmatter delimiter`, `includes a line number when the YAML is invalid`, `does not emit warnings from YAML parsing`, `accepts delimiters followed by spaces or tabs`, `rejects an unclosed frontmatter block`, `rejects YAML that is not a mapping`, `returns an empty mapping for an empty frontmatter block`.
-Part 3 · Page 8 of 22 · Previous: [Exit codes and version](030-exit-codes-and-version.md) · Next: [Configuration paths](050-config-paths.md) · [Index](../README.md)
+Part 3 · Page 8 of 23 · Previous: [Exit codes and version](030-exit-codes-and-version.md) · Next: [Configuration paths](050-config-paths.md) · [Index](../README.md)

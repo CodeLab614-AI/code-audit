@@ -1,6 +1,7 @@
 import { ExitCode } from './exit-codes.js';
-import { NotARepoError } from './git/git.js';
+import { findRepoRoot, GitError, NotARepoError } from './git/git.js';
 import { initProject, InvalidLanguageError } from './init/init.js';
+import { checkProject } from './check/check.js';
 import { VERSION } from './version.js';
 
 /** Supplies output functions used by the CLI. */
@@ -101,6 +102,32 @@ export async function main(argv: string[], io: CliIO = {
     return ExitCode.USAGE;
   }
 
+  if (command === 'check') {
+    let root = process.cwd();
+    let json = false;
+    for (let index = 0; index < options.length; index += 1) {
+      const option = options[index];
+      if (option === '--json') json = true;
+      else if (option === '--root') root = options[++index]!;
+      else if (option === '--language') index += 1;
+    }
+    try {
+      const repoRoot = await findRepoRoot(root);
+      const result = await checkProject(repoRoot);
+      if (json) io.stdout(`${JSON.stringify(result)}\n`);
+      else io.stdout(formatCheckResult(result));
+      return result.problems.some((problem) => problem.level === 'error') ? ExitCode.CONFIG_INVALID : ExitCode.OK;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      if (error instanceof NotARepoError || (error instanceof GitError && ['git-unavailable', 'directory'].includes(error.reason))) {
+        io.stderr(`${message}\n`);
+        return ExitCode.NOT_A_REPO;
+      }
+      io.stderr(`check failed: ${message}\n`);
+      return ExitCode.INTERNAL;
+    }
+  }
+
   io.stderr(`${command} is not available yet\n`);
   return ExitCode.USAGE;
 }
@@ -110,5 +137,14 @@ function formatInitResult(result: { created: string[]; skipped: string[]; gitign
   const lines = [`Created ${result.created.length} file(s).`, `Skipped ${result.skipped.length} existing file(s).`];
   if (result.gitignoreUpdated) lines.push('Updated .gitignore.');
   else lines.push('.gitignore already contains the required entries.');
+  return `${lines.join('\n')}\n`;
+}
+
+/** Formats validation problems and their summary for terminal output. */
+function formatCheckResult(result: { problems: Array<{ level: 'error' | 'warning'; file: string; message: string }>; ruleCount: number; policyCount: number }): string {
+  const errors = result.problems.filter((problem) => problem.level === 'error');
+  const warnings = result.problems.filter((problem) => problem.level === 'warning');
+  const lines = result.problems.map((problem) => `${problem.level.padEnd(7)} ${problem.file}: ${problem.message}`);
+  lines.push(`${result.ruleCount} ${result.ruleCount === 1 ? 'rule' : 'rules'} (${result.policyCount} ${result.policyCount === 1 ? 'policy' : 'policies'}). ${errors.length} ${errors.length === 1 ? 'error' : 'errors'}, ${warnings.length} ${warnings.length === 1 ? 'warning' : 'warnings'}.`);
   return `${lines.join('\n')}\n`;
 }

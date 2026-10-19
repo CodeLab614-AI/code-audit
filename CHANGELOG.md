@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Added the `check` command with rule ID, file-pattern, policy-count, and configuration diagnostics; bundled `picomatch` in the standalone CLI.
+- Made unsupported integer structure versions a warning and clarified the missing-config recovery message.
+- Added bilingual checker documentation and marked Plan 1 Task 7 complete.
+- Preserved the written case of duplicate rule IDs in diagnostics, clarified missing severity and quoted structure-version errors, and refreshed compiled examples.
+
+
 - Recognized the English task heading `Notes and decisions` and retained its notes in loaded tasks.
 - Preserved validated `--language` values in generated config, selected Spanish for `es` variants, and rejected malformed values before writing.
 - Fixed `.gitignore` updates when the existing file ends in a lone carriage return.

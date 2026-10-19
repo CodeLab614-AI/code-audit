@@ -72,7 +72,16 @@ describe('loadRules', () => {
     try {
       await rule(root, 'rules', 'unknown.md', header('id: R\ntitle: Unknown\nseverity: urgent\napplies_to: src/**'));
       const result = await loadRules(root);
-      expect(result.problems[0]?.message).toContain('critical, major, minor, grave, importante, menor');
+      expect(result.problems[0]?.message).toBe('severity must be one of: critical, major, minor, grave, importante, menor');
+    } finally { await rm(root, { recursive: true, force: true }); }
+  });
+
+  it('requires a missing severity value', async () => {
+    const root = await project();
+    try {
+      await rule(root, 'rules', 'missing.md', header('id: R\ntitle: Missing\napplies_to: src/**'));
+      const result = await loadRules(root);
+      expect(result.problems).toContainEqual({ level: 'error', file: `${CONFIG_DIR}/rules/missing.md`, message: 'severity is required' });
     } finally { await rm(root, { recursive: true, force: true }); }
   });
 
