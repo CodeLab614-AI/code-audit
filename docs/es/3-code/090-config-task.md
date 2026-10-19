@@ -1,4 +1,4 @@
-Parte 3 · Página 13 de 20 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
+Parte 3 · Página 13 de 22 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
 # Cargador de fichas de tarea
 
 **Archivo:** `src/config/task.ts` · 167 líneas · **Estado:** disponible
@@ -51,7 +51,7 @@ El resultado contiene un criterio: `Primera línea continuación`.
 | criteria | Criterios de aceptación | Acceptance criteria |
 | out of scope | Fuera de alcance | Out of scope |
 | expected areas | Áreas que se espera tocar | Expected areas |
-| notes | Notas y decisiones; Notas | Notes |
+| notes | Notas y decisiones; Notas | Notes; Notes and decisions |
 
 La comparación ignora mayúsculas, acentos, espacios repetidos, notas entre paréntesis al final y los dos puntos finales.
 
@@ -79,7 +79,7 @@ import { isAbsolute, relative, resolve, sep } from 'node:path';
 import { FrontmatterError, parseFrontmatter } from './frontmatter.js';
 import type { Problem } from './types.js';
 
-/** Guarda una ficha de tarea normalizada. */
+/** Stores one normalized task specification. */
 export interface Task {
   file: string;
   source?: string;
@@ -95,10 +95,10 @@ const SECTION_FIELDS = new Map<string, keyof Pick<Task, 'objective' | 'criteria'
   ['criterios de aceptacion', 'criteria'], ['acceptance criteria', 'criteria'],
   ['fuera de alcance', 'outOfScope'], ['out of scope', 'outOfScope'],
   ['areas que se espera tocar', 'expectedAreas'], ['expected areas', 'expectedAreas'],
-  ['notas y decisiones', 'notes'], ['notas', 'notes'], ['notes', 'notes'],
+  ['notas y decisiones', 'notes'], ['notas', 'notes'], ['notes', 'notes'], ['notes and decisions', 'notes'],
 ]);
 
-/** Lee y valida una ficha de tarea en Markdown. */
+/** Loads and validates a Markdown task specification. */
 export async function loadTask(root: string, taskPath: string): Promise<{ task?: Task; problems: Problem[] }> {
   const absolute = isAbsolute(taskPath) ? taskPath : resolve(root, taskPath);
   const file = toTaskPath(root, absolute);
@@ -123,7 +123,7 @@ export async function loadTask(root: string, taskPath: string): Promise<{ task?:
   }
 
   const problems: Problem[] = [];
-  /** Asocia un diagnóstico con el archivo de tarea actual. */
+  /** Adds a diagnostic tied to the current task file. */
   const add = (level: Problem['level'], message: string): void => { problems.push({ level, file, message }); };
   for (const key of Object.keys(data)) {
     if (key !== 'source') add('warning', `unknown field: ${key}`);
@@ -158,7 +158,7 @@ interface Section {
   text: string;
 }
 
-/** Extrae secciones de nivel dos e informa las desconocidas o repetidas. */
+/** Extracts recognized level-two sections and reports unknown or repeated ones. */
 function parseSections(body: string, add: (level: Problem['level'], message: string) => void): Map<string, Section> {
   const sections = new Map<string, Section>();
   const lines = body.split('\n');
@@ -168,7 +168,7 @@ function parseSections(body: string, add: (level: Problem['level'], message: str
   let fenceChar: string | undefined;
   let fenceLength = 0;
 
-  /** Guarda la sección activa tras recortar líneas vacías externas. */
+  /** Saves the active section after trimming its outer blank lines. */
   const save = (): void => {
     if (!currentField) return;
     const text = currentLines.join('\n').trim();
@@ -208,13 +208,13 @@ function parseSections(body: string, add: (level: Problem['level'], message: str
   return sections;
 }
 
-/** Normaliza mayúsculas, acentos, espacios y paréntesis finales. */
+/** Normalizes a heading for case, accents, spacing, and trailing parentheticals. */
 function normalizeHeading(title: string): string {
   return title.replace(/\s*\([^)]*\)\s*$/, '').replace(/\s*:\s*$/, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
-/** Interpreta criterios numerados y une continuaciones con sangría. */
+/** Parses numbered criteria and joins indented continuation lines. */
 function parseCriteria(text: string | undefined): string[] | undefined {
   if (text === undefined || text.length === 0) return undefined;
   const criteria: string[] = [];
@@ -234,7 +234,7 @@ function parseCriteria(text: string | undefined): string[] | undefined {
   return criteria.length > 0 ? criteria : undefined;
 }
 
-/** Convierte una ruta absoluta en relativa al repositorio cuando puede. */
+/** Converts an absolute path to a repository-relative task path when possible. */
 function toTaskPath(root: string, absolute: string): string {
   const path = relative(resolve(root), resolve(absolute));
   return path === '..' || path.startsWith(`..${sep}`) || isAbsolute(path)
@@ -390,6 +390,8 @@ console.log(JSON.stringify(await loadTask(root, 'colonHeading.md'), null, 2));
 - **Sección desconocida:** agrega una advertencia e ignora su texto.
 - **Sección repetida:** agrega un error y omite la ficha.
 - **Sección opcional vacía:** no aparece en la ficha devuelta.
+- **Notes and decisions:** se reconoce y se devuelve como `task.notes`.
+- **Notes and decisions:** se devuelve como `task.notes`.
 - **YAML roto o `source` inválido:** agrega un error y omite la ficha.
 - **Ruta de ficha:** es relativa al repositorio y usa `/`, o es absoluta si está fuera de la raíz.
 - **Archivo ausente:** informa un error que contiene la ruta recibida.
@@ -407,9 +409,9 @@ console.log(JSON.stringify(await loadTask(root, 'colonHeading.md'), null, 2));
 
 ## Pruebas
 
-- `src/config/task.test.ts`: encabezados en español e inglés, plantilla completa y secciones opcionales.
+- `src/config/task.test.ts`: encabezados en español e inglés, incluida la sección `Notes and decisions`, plantilla completa y secciones opcionales.
 - `src/config/task.test.ts`: validación de objetivo y criterios numerados, incluidas continuaciones.
 - `src/config/task.test.ts`: bloques cercados, secciones desconocidas o repetidas y YAML roto.
 - `src/config/task.test.ts`: BOM, CRLF, rutas relativas y externas a la raíz, y archivos ausentes.
 
-Parte 3 · Página 13 de 20 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
+Parte 3 · Página 13 de 22 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)

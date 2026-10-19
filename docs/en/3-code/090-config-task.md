@@ -1,4 +1,4 @@
-Part 3 · Page 13 of 20 · Previous: [Rule loader](080-config-rules.md) · Next: [Read-only Git interface](100-git-git.md) · [Index](../README.md)
+Part 3 · Page 13 of 22 · Previous: [Rule loader](080-config-rules.md) · Next: [Read-only Git interface](100-git-git.md) · [Index](../README.md)
 # Task loader
 
 **File:** `src/config/task.ts` · 167 lines · **Status:** available
@@ -51,7 +51,7 @@ The result contains one criterion: `First line continuation`.
 | criteria | Criterios de aceptación | Acceptance criteria |
 | out of scope | Fuera de alcance | Out of scope |
 | expected areas | Áreas que se espera tocar | Expected areas |
-| notes | Notas y decisiones; Notas | Notes |
+| notes | Notas y decisiones; Notas | Notes; Notes and decisions |
 
 Headings are compared without case, accents, repeated spaces, a trailing parenthetical note, or a final colon.
 
@@ -95,7 +95,7 @@ const SECTION_FIELDS = new Map<string, keyof Pick<Task, 'objective' | 'criteria'
   ['criterios de aceptacion', 'criteria'], ['acceptance criteria', 'criteria'],
   ['fuera de alcance', 'outOfScope'], ['out of scope', 'outOfScope'],
   ['areas que se espera tocar', 'expectedAreas'], ['expected areas', 'expectedAreas'],
-  ['notas y decisiones', 'notes'], ['notas', 'notes'], ['notes', 'notes'],
+  ['notas y decisiones', 'notes'], ['notas', 'notes'], ['notes', 'notes'], ['notes and decisions', 'notes'],
 ]);
 
 /** Loads and validates a Markdown task specification. */
@@ -390,6 +390,7 @@ console.log(JSON.stringify(await loadTask(root, 'colonHeading.md'), null, 2));
 - **Unknown section:** adds a warning and ignores its text.
 - **Repeated section:** adds an error and omits the task.
 - **Empty optional section:** is absent from the returned task.
+- **Notes and decisions:** is recognized and returned as `task.notes`.
 - **Malformed YAML or invalid source:** adds an error and omits the task.
 - **Task file path:** is repository-relative with `/`, or absolute when outside the root.
 - **Missing task file:** reports an error containing the path as received.
@@ -407,9 +408,9 @@ console.log(JSON.stringify(await loadTask(root, 'colonHeading.md'), null, 2));
 
 ## Tests
 
-- `src/config/task.test.ts`: Spanish and English headings, the complete template, and optional sections.
+- `src/config/task.test.ts`: Spanish and English headings, including `Notes and decisions`, both generated templates, and optional sections.
 - `src/config/task.test.ts`: objective and numbered-criteria validation, including continuation lines.
 - `src/config/task.test.ts`: fenced code, unknown and duplicate sections, and malformed YAML.
 - `src/config/task.test.ts`: BOM, CRLF, relative and outside-root paths, and missing files.
 
-Part 3 · Page 13 of 20 · Previous: [Rule loader](080-config-rules.md) · Next: [Read-only Git interface](100-git-git.md) · [Index](../README.md)
+Part 3 · Page 13 of 22 · Previous: [Rule loader](080-config-rules.md) · Next: [Read-only Git interface](100-git-git.md) · [Index](../README.md)

@@ -1,4 +1,4 @@
-Part 4 · Page 16 of 20 · Previous: [Temporary repository test helpers](../3-code/110-test-helpers-repo.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
+Part 4 · Page 18 of 22 · Previous: [Initialization templates](../3-code/130-init-templates.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
 # Development
 
 ## Requirements and commands
@@ -22,4 +22,4 @@ Files in `src/` use Node modules prefixed with `node:`. Bun-specific APIs belong
 ## Branches and pull requests
 
 Work on a feature branch, run the checks above, and open a pull request for review before integration. The repository owner creates commits and pushes the branch. Every code change updates its matching English and Spanish documentation in the same branch, so the code and its guide are reviewed together.
-Part 4 · Page 16 of 20 · Previous: [Temporary repository test helpers](../3-code/110-test-helpers-repo.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
+Part 4 · Page 18 of 22 · Previous: [Initialization templates](../3-code/130-init-templates.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)

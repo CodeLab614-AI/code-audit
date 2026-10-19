@@ -1,4 +1,4 @@
-Part 1 · Page 2 of 20 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+Part 1 · Page 2 of 22 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
 # Use code-audit today
 
 ## Requirements
@@ -12,6 +12,7 @@ bun install
 bun run build
 node skills/code-audit/code-audit.mjs --help
 node skills/code-audit/code-audit.mjs --version
+node skills/code-audit/code-audit.mjs init --root /path/to/project --language es
 ```
 
 The observed `bun install` output was:
@@ -52,4 +53,17 @@ Running `node skills/code-audit/code-audit.mjs --version` printed:
 ```text
 // → 0.1.0
 ```
-Part 1 · Page 2 of 20 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+
+## Initialize a project
+
+Run `init` from inside a Git repository or pass a path inside it with `--root`. The generated text is Spanish with `--language es`; the default and all other language values use English.
+
+```text
+$ node skills/code-audit/code-audit.mjs init --root /tmp/code-audit-t6-mzUNuI --language es
+Created 12 file(s).
+Skipped 0 existing file(s).
+Updated .gitignore.
+```
+
+To capture the paths as JSON, add `--json`. Running `init` again preserves the files and lists them as skipped. The [CLI architecture page](../2-architecture/20-cli.md) lists the current exit codes; the [initializer page](../3-code/120-init-init.md) shows the resulting tree and second-run output.
+Part 1 · Page 2 of 22 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)

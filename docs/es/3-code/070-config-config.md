@@ -1,4 +1,4 @@
-Parte 3 · Página 11 de 20 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
+Parte 3 · Página 11 de 22 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
 # Cargador de configuración del proyecto
 
 **Archivo:** `src/config/config.ts` · 84 líneas · **Estado:** disponible
@@ -201,4 +201,4 @@ Sin el archivo, devuelve los valores predeterminados y `config.md not found`.
 - `src/config/config.test.ts`: versión de estructura incompatible.
 - `src/config/config.test.ts`: error exacto de `agent`.
 - `src/config/config.test.ts`: límites cero y no numéricos.
-Parte 3 · Página 11 de 20 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
+Parte 3 · Página 11 de 22 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)

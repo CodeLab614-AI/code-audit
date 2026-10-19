@@ -64,6 +64,16 @@ describe('loadTask', () => {
     } finally { await rm(root, { recursive: true, force: true }); }
   });
 
+  it('recognizes the English Notes and decisions heading', async () => {
+    const root = await project();
+    try {
+      await saveTask(root, 'task.md', '## Objective\nGoal.\n## Acceptance criteria\n1. One.\n## Notes and decisions\nDesign agreement.');
+      const result = await loadTask(root, 'task.md');
+      expect(result.task?.notes).toBe('Design agreement.');
+      expect(result.problems).toEqual([]);
+    } finally { await rm(root, { recursive: true, force: true }); }
+  });
+
   it('requires a non-empty objective', async () => {
     const root = await project();
     try {

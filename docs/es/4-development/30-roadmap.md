@@ -1,4 +1,4 @@
-Parte 4 · Página 20 de 20 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
+Parte 4 · Página 22 de 22 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
 # Hoja de ruta
 
 - **Tarea 1 — Hecha:** configuración de Bun, esqueleto del CLI y compilación a un solo archivo.
@@ -6,7 +6,7 @@ Parte 4 · Página 20 de 20 · Anterior: [Estándar de documentación](20-docume
 - **Tarea 3 — Hecha:** cargar y validar la configuración del proyecto y sus reglas.
 - **Tarea 4 — Hecha:** cargar y validar una ficha de tarea en Markdown.
 - **Tarea 5 — Hecha:** ejecutar Git mediante una interfaz protegida de solo lectura.
-- **Tarea 6 — Planeada:** crear la configuración del proyecto sin sobrescribir archivos existentes.
+- **Tarea 6 — Hecha:** crear configuración bilingüe sin reemplazar archivos existentes y conectar `init` al CLI.
 - **Tarea 7 — Planeada:** validar configuración, IDs de reglas duplicados y patrones de archivos.
 
 ## Plan 2: Revisión sin IA
@@ -22,4 +22,4 @@ Parte 4 · Página 20 de 20 · Anterior: [Estándar de documentación](20-docume
 **Planeado:** abrir nuevas sesiones de revisión y verificación con el mismo agente que inicia la skill; avisar cuando un cambio sea grande; entregar las instrucciones `SKILL.md` y las pruebas de la skill.
 
 Consulta la [página del comprobador de documentación](17-docs-check.md) para ver sus comprobaciones y ejemplos.
-Parte 4 · Página 20 de 20 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
+Parte 4 · Página 22 de 22 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)

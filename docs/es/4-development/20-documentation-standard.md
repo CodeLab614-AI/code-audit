@@ -1,4 +1,4 @@
-Parte 4 · Página 19 de 20 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
+Parte 4 · Página 21 de 22 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
 # Estándar de documentación
 
 Las reglas y plantillas para mantener esta documentación.
@@ -153,4 +153,4 @@ Parte N · Página X de M · Anterior: [Título](../README.md) · Siguiente: [T�
 
 ## Pruebas
 ```
-Parte 4 · Página 19 de 20 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
+Parte 4 · Página 21 de 22 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
