@@ -1,4 +1,4 @@
-Parte 3 · Página 9 de 18 · Anterior: [Lector de frontmatter](040-config-frontmatter.md) · Siguiente: [Tipos de configuración](060-config-types.md) · [Índice](../README.md)
+Parte 3 · Página 9 de 20 · Anterior: [Lector de frontmatter](040-config-frontmatter.md) · Siguiente: [Tipos de configuración](060-config-types.md) · [Índice](../README.md)
 # Rutas de configuración
 
 **Archivo:** `src/config/paths.ts` · 13 líneas · **Estado:** disponible
@@ -122,4 +122,4 @@ bun -e 'import { CONFIG_DIR, RULE_DIRS } from "./src/config/paths.ts"; console.l
 ## Pruebas
 
 - `src/config/config.test.ts`: valores predeterminados cuando falta el archivo.
-Parte 3 · Página 9 de 18 · Anterior: [Lector de frontmatter](040-config-frontmatter.md) · Siguiente: [Tipos de configuración](060-config-types.md) · [Índice](../README.md)
+Parte 3 · Página 9 de 20 · Anterior: [Lector de frontmatter](040-config-frontmatter.md) · Siguiente: [Tipos de configuración](060-config-types.md) · [Índice](../README.md)

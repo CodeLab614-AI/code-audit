@@ -36,15 +36,17 @@ By the end of this part, you will understand how the existing modules work toget
 11. [Project configuration loader](3-code/070-config-config.md) — Reads and validates config.md.
 12. [Rule loader](3-code/080-config-rules.md) — Loads and validates Markdown rules.
 13. [Task loader](3-code/090-config-task.md) — Loads and validates Markdown task briefs.
+14. [Read-only Git interface](3-code/100-git-git.md) — Guards allowed Git commands and options.
+15. [Temporary repository test helpers](3-code/110-test-helpers-repo.md) — Creates isolated Git fixtures for tests.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-14. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-15. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-16. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-17. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-18. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+16. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+17. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+18. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+19. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+20. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

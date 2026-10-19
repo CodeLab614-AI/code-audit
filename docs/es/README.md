@@ -36,15 +36,17 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 11. [Cargador de configuración del proyecto](3-code/070-config-config.md) — Lee y valida config.md.
 12. [Cargador de reglas](3-code/080-config-rules.md) — Carga y valida reglas Markdown.
 13. [Cargador de fichas de tarea](3-code/090-config-task.md) — Carga y valida fichas de tareas en Markdown.
+14. [Interfaz Git de solo lectura](3-code/100-git-git.md) — Protege los comandos Git y sus opciones permitidos.
+15. [Ayudantes de prueba para repositorios temporales](3-code/110-test-helpers-repo.md) — Crea repositorios Git aislados para las pruebas.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-14. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-15. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-16. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-17. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-18. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+16. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+17. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+18. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+19. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+20. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.
