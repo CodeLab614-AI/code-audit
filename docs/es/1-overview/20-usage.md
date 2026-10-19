@@ -1,4 +1,4 @@
-Parte 1 · Página 2 de 17 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
+Parte 1 · Página 2 de 18 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
 # Uso de code-audit hoy
 
 ## Requisitos
@@ -52,4 +52,4 @@ Options:
 ```text
 // → 0.1.0
 ```
-Parte 1 · Página 2 de 17 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
+Parte 1 · Página 2 de 18 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)

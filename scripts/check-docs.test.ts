@@ -51,6 +51,22 @@ describe('checkDocs', () => {
     expect(await checkDocs(root)).toEqual([]);
   });
 
+  it('rejects BOM characters at the start or within documentation files', async () => {
+    const root = await fixture();
+    try {
+      const englishIndex = join(root, 'docs/en/README.md');
+      const spanishPage = join(root, 'docs/es/3-code/010-a.md');
+      await writeFile(englishIndex, `\uFEFF${await readFile(englishIndex, 'utf8')}`);
+      const spanish = await readFile(spanishPage, 'utf8');
+      await writeFile(spanishPage, spanish.replace('Section content.', 'Contains \uFEFF inside the page.'));
+      const problems = await checkDocs(root);
+      expect(problems.some((problem) => problem.file === 'docs/en/README.md'
+        && problem.message.includes('documentation contains a BOM character'))).toBe(true);
+      expect(problems.some((problem) => problem.file === 'docs/es/3-code/010-a.md'
+        && problem.message.includes('documentation contains a BOM character'))).toBe(true);
+    } finally { await clean(root); }
+  });
+
   it('rejects different English and Spanish reading sequences', async () => {
     const root = await fixture();
     try {
@@ -280,6 +296,50 @@ describe('checkDocs', () => {
       );
       await writeFile(page, text);
       expect(await checkDocs(root)).toEqual([]);
+    } finally { await clean(root); }
+  });
+
+
+
+  it('rejects a fenced code closing marker that shares a line with text', async () => {
+    const root = await fixture();
+    try {
+      const page = join(root, 'docs/en/3-code/010-a.md');
+      const text = (await readFile(page, 'utf8')).replace(
+        '## Tests\n\nSection content.',
+        '## Tests\n\n```json\n{}\n}```\n\nSection content.',
+      );
+      await writeFile(page, text);
+      expect((await checkDocs(root)).some((problem) => problem.file === 'docs/en/3-code/010-a.md'
+        && problem.message.includes('closing fence must be alone on its line'))).toBe(true);
+    } finally { await clean(root); }
+  });
+
+  it('rejects a fenced code marker with trailing text', async () => {
+    const root = await fixture();
+    try {
+      const page = join(root, 'docs/en/3-code/010-a.md');
+      const text = (await readFile(page, 'utf8')).replace(
+        '## Tests\n\nSection content.',
+        '## Tests\n\n```json\n{}\n``` trailing\nSection content.',
+      );
+      await writeFile(page, text);
+      expect((await checkDocs(root)).some((problem) => problem.file === 'docs/en/3-code/010-a.md'
+        && problem.message.includes('closing fence must be alone on its line'))).toBe(true);
+    } finally { await clean(root); }
+  });
+
+  it('rejects a fenced code block that is never closed', async () => {
+    const root = await fixture();
+    try {
+      const page = join(root, 'docs/en/3-code/010-a.md');
+      const text = (await readFile(page, 'utf8')).replace(
+        '## Tests\n\nSection content.',
+        '## Tests\n\n```json\n{}\n\nSection content.',
+      );
+      await writeFile(page, text);
+      expect((await checkDocs(root)).some((problem) => problem.file === 'docs/en/3-code/010-a.md'
+        && problem.message.includes('fenced code block is not closed'))).toBe(true);
     } finally { await clean(root); }
   });
 

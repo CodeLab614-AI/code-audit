@@ -1,4 +1,4 @@
-Parte 4 · Página 16 de 17 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
+Parte 4 · Página 17 de 18 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
 # Estándar de documentación
 
 Las reglas y plantillas para mantener esta documentación.
@@ -65,7 +65,7 @@ Usa estos modelos como punto de partida para una página de código o de tipos.
 
 ### Plantilla: página de código
 
-```markdown
+````markdown
 Parte N · Página X de M · Anterior: [Título](../README.md) · Siguiente: [Título](../README.md) · [Índice](../README.md)
 
 
@@ -122,7 +122,7 @@ flowchart TD
 ## Pruebas
 
 - `src/archivo.test.ts`: nombre de la prueba.
-```
+````
 
 ### Plantilla: página de tipos
 
@@ -153,4 +153,4 @@ Parte N · Página X de M · Anterior: [Título](../README.md) · Siguiente: [T�
 
 ## Pruebas
 ```
-Parte 4 · Página 16 de 17 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)
+Parte 4 · Página 17 de 18 · Anterior: [Comprobador de documentación](17-docs-check.md) · Siguiente: [Hoja de ruta](30-roadmap.md) · [Índice](../README.md)

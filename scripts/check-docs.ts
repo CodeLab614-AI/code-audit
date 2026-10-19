@@ -24,6 +24,8 @@ export async function checkDocs(root: string): Promise<DocProblem[]> {
   const sequences = new Map<string, string[]>();
   const documentationFiles = await listMarkdown(docsRoot);
   await checkEmptyHeadings([join(base, 'README.md'), ...documentationFiles], base, add);
+  await checkFencedCodeBlocks(documentationFiles, base, add);
+  await checkBOMCharacters(documentationFiles, base, add);
 
   for (const lang of LANGUAGES) {
     const langRoot = join(docsRoot, lang);
@@ -118,6 +120,57 @@ async function checkEmptyHeadings(
       }
     }
     reportEmpty();
+  }
+}
+
+/** Reports malformed or unclosed fenced code blocks in Markdown files. */
+async function checkFencedCodeBlocks(
+  files: string[], root: string, add: (file: string, message: string) => void,
+): Promise<void> {
+  for (const file of files) {
+    const content = await readText(file);
+    if (content === undefined) continue;
+    const lines = content.split(/\r?\n/);
+    let fenceChar: string | undefined;
+    let fenceLength = 0;
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index]!;
+      const marker = line.match(/^\s*(`{3,}|~{3,})/);
+      if (!fenceChar) {
+        if (marker) {
+          fenceChar = marker[1]![0]!;
+          fenceLength = marker[1]!.length;
+        }
+        continue;
+      }
+
+      const candidates = [
+        line.match(/^\s*([`~]{3,})/)?.[1],
+        line.match(/([`~]{3,})\s*$/)?.[1],
+      ].filter((run): run is string => run !== undefined && run[0] === fenceChar && run.length >= fenceLength);
+      if (candidates.length === 0) continue;
+      const trimmed = line.trim();
+      if ([...trimmed].every((char) => char === fenceChar)) {
+        fenceChar = undefined;
+        fenceLength = 0;
+      } else {
+        add(toPosix(relative(root, file)), `closing fence must be alone on its line at line ${index + 1}`);
+      }
+    }
+    if (fenceChar) add(toPosix(relative(root, file)), 'fenced code block is not closed');
+  }
+}
+
+/** Reports a UTF-8 BOM character anywhere in a documentation page. */
+async function checkBOMCharacters(
+  files: string[], root: string, add: (file: string, message: string) => void,
+): Promise<void> {
+  for (const file of files) {
+    const content = await readText(file);
+    const index = content?.indexOf('\uFEFF') ?? -1;
+    if (index < 0) continue;
+    const line = content!.slice(0, index).split(/\r?\n/).length;
+    add(toPosix(relative(root, file)), `documentation contains a BOM character at line ${line}`);
   }
 }
 

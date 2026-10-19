@@ -1,4 +1,4 @@
-Part 1 · Page 2 of 17 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+Part 1 · Page 2 of 18 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
 # Use code-audit today
 
 ## Requirements
@@ -52,4 +52,4 @@ Running `node skills/code-audit/code-audit.mjs --version` printed:
 ```text
 // → 0.1.0
 ```
-Part 1 · Page 2 of 17 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+Part 1 · Page 2 of 18 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
