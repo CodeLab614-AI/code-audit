@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- Recognized `Notas` and trailing colons in task headings, and expanded task-loader examples.
+- Added documentation checks for malformed and unclosed fenced code blocks.
+
+- Recognized `Notas` and trailing colons in task headings, and expanded task-loader examples.
+- Added documentation checks for malformed and unclosed fenced code blocks.
+
+- Added task brief loading with YAML metadata, bilingual headings, numbered criteria validation, and diagnostics.
+- Added bilingual documentation for the task loader and marked Plan 1 Task 4 complete.
+
 - Added project configuration and recursive rule loaders with validation, normalized severities, and diagnostics.
 - Added source pages for configuration paths, types, configuration loading, and rule loading in English and Spanish.
 - Updated the documentation checker to accept nested section headings and validate type-only pages against the type template.

@@ -1,4 +1,4 @@
-Part 4 · Page 16 of 17 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+Part 4 · Page 17 of 18 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
 # Documentation standard
 
 Rules and templates for maintaining this documentation.
@@ -65,7 +65,7 @@ Use these starting points when adding a code page or a type page.
 
 ### Template: code page
 
-```markdown
+````markdown
 Part N · Page X of M · Previous: [Title](../README.md) · Next: [Title](../README.md) · [Index](../README.md)
 
 
@@ -122,7 +122,7 @@ flowchart TD
 ## Tests
 
 - `src/file.test.ts`: test name.
-```
+````
 
 ### Template: type page
 
@@ -153,4 +153,4 @@ Part N · Page X of M · Previous: [Title](../README.md) · Next: [Title](../REA
 
 ## Tests
 ```
-Part 4 · Page 16 of 17 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+Part 4 · Page 17 of 18 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)

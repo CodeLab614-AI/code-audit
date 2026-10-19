@@ -35,15 +35,16 @@ By the end of this part, you will understand how the existing modules work toget
 10. [Configuration types](3-code/060-config-types.md) — Defines shared config, rule, and problem shapes.
 11. [Project configuration loader](3-code/070-config-config.md) — Reads and validates config.md.
 12. [Rule loader](3-code/080-config-rules.md) — Loads and validates Markdown rules.
+13. [Task loader](3-code/090-config-task.md) — Loads and validates Markdown task briefs.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-13. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-14. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-15. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-16. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-17. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+14. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+15. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+16. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+17. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+18. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

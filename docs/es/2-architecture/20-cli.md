@@ -1,4 +1,4 @@
-Parte 2 · Página 4 de 17 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
+Parte 2 · Página 4 de 18 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
 # Línea de comandos
 
 La interfaz de línea de comandos (CLI) lee el comando y las opciones escritas después del nombre del programa. Hoy `--help` y `--version` terminan correctamente. Los comandos `init`, `check` y `review` muestran que no están disponibles y devuelven el código `1`.
@@ -51,4 +51,4 @@ Un código de salida es el número que devuelve un comando para indicar al shell
 | 2 | Configuración inválida | Está definido en `ExitCode`; ningún comando actual lo devuelve |
 | 3 | No es un repositorio | Está definido en `ExitCode`; ningún comando actual lo devuelve |
 | 10 | Error interno | Un error inesperado llega a `src/bin.ts` |
-Parte 2 · Página 4 de 17 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
+Parte 2 · Página 4 de 18 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)

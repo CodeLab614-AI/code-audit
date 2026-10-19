@@ -1,4 +1,4 @@
-Part 2 · Page 4 of 17 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+Part 2 · Page 4 of 18 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
 # Command line
 
 The command line interface (CLI) reads the command and options supplied after the program name. Today, `--help` and `--version` succeed. The recognized commands `init`, `check`, and `review` each print that they are not available and return exit code `1`.
@@ -51,4 +51,4 @@ An exit code is the number a command returns to tell the shell whether it succee
 | 2 | Configuration invalid | Defined in `ExitCode`; no current command returns it |
 | 3 | Not a repository | Defined in `ExitCode`; no current command returns it |
 | 10 | Internal error | An unexpected error reaches `src/bin.ts` |
-Part 2 · Page 4 of 17 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+Part 2 · Page 4 of 18 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
