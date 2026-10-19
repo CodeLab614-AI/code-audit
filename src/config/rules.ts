@@ -83,6 +83,10 @@ function requiredText(data: Record<string, unknown>, field: string, add: (level:
 
 /** Resolves a severity name or alias after trimming whitespace and ignoring case. */
 function parseSeverity(value: unknown, add: (level: Problem['level'], message: string) => void): Severity | undefined {
+  if (value === undefined) {
+    add('error', 'severity is required');
+    return undefined;
+  }
   if (typeof value === 'string') {
     const severity = SEVERITIES[value.trim().toLowerCase()];
     if (severity) return severity;

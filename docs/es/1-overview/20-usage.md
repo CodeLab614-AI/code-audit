@@ -1,4 +1,4 @@
-Parte 1 · Página 2 de 22 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
+Parte 1 · Página 2 de 23 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
 # Uso de code-audit hoy
 
 ## Requisitos
@@ -13,13 +13,14 @@ bun run build
 node skills/code-audit/code-audit.mjs --help
 node skills/code-audit/code-audit.mjs --version
 node skills/code-audit/code-audit.mjs init --root /path/to/project --language es
+node skills/code-audit/code-audit.mjs check --root /path/to/project
 ```
 
 La salida observada de `bun install` fue:
 
 ```text
 bun install v1.4.2 (744846f84)
-Checked 7 installs across 8 packages (no changes) [4.00ms]
+Checked 9 installs across 10 packages (no changes) [6.00ms]
 ```
 
 `bun run build` terminó con código `0` y mostró:
@@ -66,4 +67,6 @@ Updated .gitignore.
 ```
 
 Agrega `--json` para recibir las rutas como JSON. En una segunda ejecución se conservan los archivos y se muestran como omitidos. La [página de arquitectura del CLI](../2-architecture/20-cli.md) enumera los códigos actuales; la [página del inicializador](../3-code/120-init-init.md) muestra el árbol resultante y la segunda salida.
-Parte 1 · Página 2 de 22 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
+
+Ejecuta `check` dentro de un repositorio Git o pasa con `--root` una ruta interna. Muestra cada error y aviso, y luego un resumen. Agrega `--json` para recibir el objeto completo. Devuelve 2 si hay errores, 0 si solo hay avisos o no hay problemas, y 3 fuera de un repositorio Git.
+Parte 1 · Página 2 de 23 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)

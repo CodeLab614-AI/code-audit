@@ -1,4 +1,4 @@
-Part 4 · Page 22 of 22 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+Part 4 · Page 23 of 23 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
 # Roadmap
 
 - **Task 1 — Done:** Bun project setup, CLI skeleton, and single-file build.
@@ -7,7 +7,7 @@ Part 4 · Page 22 of 22 · Previous: [Documentation standard](20-documentation-s
 - **Task 4 — Done:** Load and validate a Markdown task brief.
 - **Task 5 — Done:** Run Git commands through a read-only, guarded interface.
 - **Task 6 — Done:** Create bilingual project configuration without replacing existing files and connect `init` to the CLI.
-- **Task 7 — Planned:** Validate configuration, duplicate rule IDs, and file patterns.
+- **Task 7 — Done:** Validate configuration, duplicate rule IDs, and file patterns, then connect `check` to the CLI. Plan 1 is complete.
 
 ## Plan 2: Review without AI
 
@@ -22,4 +22,4 @@ Part 4 · Page 22 of 22 · Previous: [Documentation standard](20-documentation-s
 **Planned:** Open new review and verification sessions with the same agent that launches the skill; report when a change is large; provide the skill's `SKILL.md` instructions and tests.
 
 See the [documentation checker page](17-docs-check.md) for its checks and examples.
-Part 4 · Page 22 of 22 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+Part 4 · Page 23 of 23 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)

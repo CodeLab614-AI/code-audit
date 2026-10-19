@@ -1,4 +1,4 @@
-Parte 4 · Página 18 de 22 · Anterior: [Plantillas de inicialización](../3-code/130-init-templates.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
+Parte 4 · Página 19 de 23 · Anterior: [Comprobador del proyecto](../3-code/140-check-check.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
 # Desarrollo
 
 ## Requisitos y comandos
@@ -7,13 +7,17 @@ Bun es el entorno de desarrollo y el gestor de paquetes. TypeScript añade tipos
 
 | Comando | Propósito | Resultado real |
 |---|---|---|
-| `bun install` | Instalar dependencias | `Checked 7 installs across 8 packages (no changes) [4.00ms]` |
-| `bun test` | Ejecutar pruebas | `32 pass`, `0 fail`, `59 expect() calls` |
+| `bun install` | Instalar dependencias | `Checked 9 installs across 10 packages (no changes) [6.00ms]` |
+| `bun test` | Ejecutar pruebas | `121 pass`, `1 skip`, `0 fail`, `300 expect() calls` |
 | `bun run typecheck` | Comprobar TypeScript | `$ tsc --noEmit`, código 0 |
 | `bun run build` | Compilar el CLI independiente | `$ bun scripts/build.ts`, código 0 |
 | `bun run docs:check` | Comprobar docs y comentarios | `Documentation check passed: 0 problems.` |
 
 Las pruebas viven junto al archivo que cubren, como [src/cli.test.ts](../3-code/020-cli.md) y `src/config/frontmatter.test.ts`.
+
+## Dependencias
+
+`yaml` y `picomatch` son dependencias de ejecución incluidas en el `.mjs`; `@types/picomatch` solo aporta tipos durante el desarrollo.
 
 ## Límite del entorno de ejecución
 
@@ -22,4 +26,4 @@ Los archivos de `src/` usan módulos de Node con prefijo `node:`. Las interfaces
 ## Ramas y solicitudes de integración
 
 El trabajo se hace en una rama de funcionalidad; después de ejecutar estas comprobaciones, se abre una solicitud de integración para revisar los cambios antes de incorporarlos. El propietario crea los commits y sube la rama. Cada cambio de código actualiza su documentación en inglés y español dentro de la misma rama, para revisar juntos el código y su guía.
-Parte 4 · Página 18 de 22 · Anterior: [Plantillas de inicialización](../3-code/130-init-templates.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
+Parte 4 · Página 19 de 23 · Anterior: [Comprobador del proyecto](../3-code/140-check-check.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)

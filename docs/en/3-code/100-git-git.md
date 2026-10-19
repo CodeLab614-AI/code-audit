@@ -1,4 +1,4 @@
-Part 3 · Page 14 of 22 · Previous: [Task loader](090-config-task.md) · Next: [Temporary repository test helpers](110-test-helpers-repo.md) · [Index](../README.md)
+Part 3 · Page 14 of 23 · Previous: [Task loader](090-config-task.md) · Next: [Temporary repository test helpers](110-test-helpers-repo.md) · [Index](../README.md)
 # Read-only Git interface
 
 **File:** `src/git/git.ts` · 183 lines · **Status:** available
@@ -335,4 +335,4 @@ Some valid uses match the conservative safety checks and are rejected. `--text` 
 - `src/git/git.test.ts`: standard-input commands settle, invalid working directories, and test-only output limits.
 - A temporary Node probe separately confirms Node's maxBuffer error is translated to `GitError`.
 
-Part 3 · Page 14 of 22 · Previous: [Task loader](090-config-task.md) · Next: [Temporary repository test helpers](110-test-helpers-repo.md) · [Index](../README.md)
+Part 3 · Page 14 of 23 · Previous: [Task loader](090-config-task.md) · Next: [Temporary repository test helpers](110-test-helpers-repo.md) · [Index](../README.md)

@@ -1,7 +1,7 @@
-Parte 3 · Página 12 de 22 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+Parte 3 · Página 12 de 23 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
 # Cargador de reglas
 
-**Archivo:** `src/config/rules.ts` · 127 líneas · **Estado:** disponible
+**Archivo:** `src/config/rules.ts` · 131 líneas · **Estado:** disponible
 
 `loadRules(root)` recorre las cinco carpetas de reglas, interpreta cada encabezado Markdown, valida cada archivo por separado y devuelve reglas válidas en orden estable por ruta. Así devuelve reglas normalizadas sin exigir que quien la llama interprete YAML.
 
@@ -76,15 +76,15 @@ const SEVERITIES: Record<string, Severity> = {
   grave: 'critical', importante: 'major', menor: 'minor',
 };
 
-/** Carga reglas Markdown de forma recursiva desde las carpetas del proyecto. */
+/** Loads Markdown rules recursively from the project's rule directories. */
 export async function loadRules(root: string): Promise<{ rules: Rule[]; problems: Problem[] }> {
   const rules: Rule[] = [];
   const problems: Problem[] = [];
-  // Carga las categorías por separado para que un archivo roto no detenga el recorrido.
+  // Load categories separately so one malformed file cannot stop the scan.
   for (const [directory, kind] of Object.entries(RULE_DIRS) as [keyof typeof RULE_DIRS, RuleKind][]) {
     const folder = join(root, CONFIG_DIR, directory);
     const files = await markdownFiles(folder);
-    // Asocia cada diagnóstico con el archivo que lo produjo.
+    // Keep diagnostics attached to the file that produced them.
     for (const absolute of files) {
       const file = toRepoPath(relative(root, absolute));
       let parsed: { data: Record<string, unknown>; body: string };
@@ -97,9 +97,9 @@ export async function loadRules(root: string): Promise<{ rules: Rule[]; problems
       }
 
       const localProblems: Problem[] = [];
-      /** Agrega un diagnóstico para el archivo de regla actual. */
+      /** Adds a diagnostic for the current rule file. */
       const add = (level: Problem['level'], message: string): void => { localProblems.push({ level, file, message }); };
-      // Los metadatos desconocidos dan información útil, pero no invalidan la regla.
+      // Unknown metadata is useful feedback but does not invalidate a rule.
       for (const key of Object.keys(parsed.data)) {
         if (!RULE_FIELDS.has(key)) add('warning', `unknown field: ${key}`);
       }
@@ -109,7 +109,7 @@ export async function loadRules(root: string): Promise<{ rules: Rule[]; problems
       const severity = parseSeverity(parsed.data.severity, add);
       const appliesTo = parseAppliesTo(parsed.data.applies_to, directory === 'policies', add);
       const keywords = parsed.data.keywords === undefined ? [] : parseTextList(parsed.data.keywords, 'keywords', add);
-      // Las advertencias conservan la regla; cualquier error de validación la excluye.
+      // Warnings preserve the rule; any validation error excludes it.
       const hasErrors = localProblems.some((problem) => problem.level === 'error');
       problems.push(...localProblems);
       if (!hasErrors && id !== undefined && title !== undefined && severity !== undefined && appliesTo !== undefined && keywords !== undefined) {
@@ -117,19 +117,19 @@ export async function loadRules(root: string): Promise<{ rules: Rule[]; problems
       }
     }
   }
-  // La comparación por unidades de código conserva el orden entre configuraciones regionales.
+  // A code-unit comparison gives the same order across machine locales.
   rules.sort((a, b) => compareText(a.file, b.file));
-  // El ordenamiento estable conserva el orden de detección de los problemas de cada archivo.
+  // Stable sorting retains the order in which each file's issues were detected.
   problems.sort((a, b) => compareText(a.file, b.file));
   return { rules, problems };
 }
 
-/** Enumera archivos Markdown de forma recursiva sin seguir enlaces simbólicos. */
+/** Recursively lists Markdown files without following symbolic links. */
 async function markdownFiles(folder: string): Promise<string[]> {
   let entries;
   try { entries = await readdir(folder, { withFileTypes: true }); } catch { return []; }
   const files: string[] = [];
-  // Las comprobaciones de Dirent evitan recorrer enlaces simbólicos.
+  // Dirent checks prevent traversal through symbolic links.
   for (const entry of entries) {
     if (entry.isSymbolicLink()) continue;
     const path = join(folder, entry.name);
@@ -139,7 +139,7 @@ async function markdownFiles(folder: string): Promise<string[]> {
   return files;
 }
 
-/** Agrega un campo de texto obligatorio o informa el error específico. */
+/** Adds a required text field or reports the field-specific error. */
 function requiredText(data: Record<string, unknown>, field: string, add: (level: Problem['level'], message: string) => void): string | undefined {
   const value = data[field];
   if (typeof value === 'string' && value.length > 0) return value;
@@ -147,8 +147,12 @@ function requiredText(data: Record<string, unknown>, field: string, add: (level:
   return undefined;
 }
 
-/** Resuelve una gravedad o alias después de quitar espacios e ignorar mayúsculas. */
+/** Resolves a severity name or alias after trimming whitespace and ignoring case. */
 function parseSeverity(value: unknown, add: (level: Problem['level'], message: string) => void): Severity | undefined {
+  if (value === undefined) {
+    add('error', 'severity is required');
+    return undefined;
+  }
   if (typeof value === 'string') {
     const severity = SEVERITIES[value.trim().toLowerCase()];
     if (severity) return severity;
@@ -157,7 +161,7 @@ function parseSeverity(value: unknown, add: (level: Problem['level'], message: s
   return undefined;
 }
 
-/** Resuelve patrones de reglas y aplica el valor predeterminado de `policies/`. */
+/** Resolves rule file patterns and applies the policy-wide default. */
 function parseAppliesTo(value: unknown, policy: boolean, add: (level: Problem['level'], message: string) => void): string[] | undefined {
   if (value === undefined && policy) return ['**'];
   if (value === undefined) {
@@ -178,7 +182,7 @@ function parseAppliesTo(value: unknown, policy: boolean, add: (level: Problem['l
   return values;
 }
 
-/** Convierte texto o una lista de textos en una lista e informa valores inválidos. */
+/** Converts a text or text array to a list and reports invalid values. */
 function parseTextList(value: unknown, field: string, add: (level: Problem['level'], message: string) => void): string[] | undefined {
   if (typeof value === 'string') return [value];
   if (Array.isArray(value) && value.every((item) => typeof item === 'string')) return value;
@@ -186,10 +190,10 @@ function parseTextList(value: unknown, field: string, add: (level: Problem['leve
   return undefined;
 }
 
-/** Convierte separadores de ruta nativos a barras del repositorio. */
+/** Converts native path separators to repository-style forward slashes. */
 function toRepoPath(path: string): string { return path.split(sep).join('/'); }
 
-/** Compara cadenas por unidades Unicode con orden independiente de máquina. */
+/** Compares strings by Unicode code units for machine-independent ordering. */
 function compareText(a: string, b: string): number { return a < b ? -1 : a > b ? 1 : 0; }
 ```
 
@@ -240,12 +244,23 @@ Representa montos en centavos.
 
 El comando real produjo estos alias normalizados y reglas ordenadas por archivo.
 
+Una regla sin `severity` se excluye y muestra un error específico del campo. Esta salida se capturó con el CLI independiente en un repositorio Git temporal:
+
+```text
+$ node <standalone .mjs> check --root .
+error   .agents/code-audit/business/c.md: severity is required
+0 rules (0 policies). 1 error, 0 warnings.
+$ echo $?
+2
+```
+
 ## Resumen de comportamientos
 
 - **Carpeta ausente**: no produce un problema.
 - **README.md**: se omite en cualquier nivel.
 - **Encabezado Markdown roto**: reporta un error de encabezado YAML, incluida la línea.
 - **Campo desconocido**: agrega una advertencia: `unknown field: X`.
+- **Severity ausente**: informa `severity is required`; para un valor inválido conserva la lista de severities aceptadas.
 - **Regla con errores**: se informa y se excluye; las otras reglas se siguen cargando.
 - **Ruta de regla**: es relativa al repositorio y usa `/`.
 
@@ -261,4 +276,4 @@ El comando real produjo estos alias normalizados y reglas ordenadas por archivo.
 - `src/config/rules.test.ts`: alias de gravedad, espacios alrededor y nombres españoles.
 - `src/config/rules.test.ts`: campos obligatorios y patrones de `policies/`.
 - `src/config/rules.test.ts`: orden determinista, encabezados rotos, valores inválidos y campos desconocidos.
-Parte 3 · Página 12 de 22 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+Parte 3 · Página 12 de 23 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)

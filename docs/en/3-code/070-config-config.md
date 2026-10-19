@@ -1,7 +1,7 @@
-Part 3 · Page 11 of 22 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+Part 3 · Page 11 of 23 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
 # Project configuration loader
 
-**File:** `src/config/config.ts` · 84 lines · **Status:** available
+**File:** `src/config/config.ts` · 88 lines · **Status:** available
 
 `loadConfig(root)` reads `.agents/code-audit/config.md`, parses its header and returns normalized values with diagnostics. Without it, callers would parse values and defaults themselves.
 
@@ -91,7 +91,7 @@ export async function loadConfig(root: string): Promise<{ config: Config; proble
   try {
     text = await readFile(path, 'utf8');
   } catch {
-    return { config: createDefaultConfig(), problems: [{ level: 'error', file, message: 'config.md not found' }] };
+    return { config: createDefaultConfig(), problems: [{ level: 'error', file, message: 'config.md not found; run code-audit init first' }] };
   }
 
   let data: Record<string, unknown>;
@@ -115,7 +115,11 @@ export async function loadConfig(root: string): Promise<{ config: Config; proble
   // Validate each known key independently and retain defaults on errors.
   const config = createDefaultConfig();
   if (data.structure_version !== undefined) {
-    if (data.structure_version !== 1) add('error', `structure_version must be 1; received ${String(data.structure_version)}`);
+    if (typeof data.structure_version !== 'number' || !Number.isInteger(data.structure_version)) {
+      add('error', `structure_version must be an integer; received ${JSON.stringify(data.structure_version)}`);
+    } else if (data.structure_version !== 1) {
+      add('warning', `structure_version is ${data.structure_version}; this code-audit understands structure version 1`);
+    }
   }
   if (data.language !== undefined) {
     if (typeof data.language === 'string' && data.language.length > 0) config.language = data.language;
@@ -180,12 +184,23 @@ max_changed_lines: 250
 }
 ```
 
-Without the file, it returns defaults and `config.md not found`.
+Without the file, it returns defaults and `config.md not found; run code-audit init first`.
+
+A quoted numeric value is text in YAML. The standalone CLI reports it with quotes so the received type is clear:
+
+```text
+$ node <standalone .mjs> check --root .
+error   .agents/code-audit/config.md: structure_version must be an integer; received "1"
+0 rules (0 policies). 1 error, 0 warnings.
+$ echo $?
+2
+```
 
 ## Behavior summary
 
-- **Missing file**: returns defaults and `config.md not found`.
-- **Unsupported structure version**: reports the expected value, `1`.
+- **Missing file**: returns defaults and `config.md not found; run code-audit init first`.
+- **Different integer structure version**: returns a warning: `structure_version is <N>; this code-audit understands structure version 1`.
+- **Non-integer structure version**: returns an error and quotes text values, for example `received "1"`.
 - **Agent field**: reports the exact planned error message.
 - **Unknown field**: returns a warning: `unknown field: X`.
 - **Invalid threshold**: requires a positive integer.
@@ -198,7 +213,7 @@ Without the file, it returns defaults and `config.md not found`.
 ## Tests
 
 - `src/config/config.test.ts`: defaults and missing file.
-- `src/config/config.test.ts`: unsupported structure version.
+- `src/config/config.test.ts`: a different integer version warns; a non-integer is an error.
 - `src/config/config.test.ts`: exact `agent` error.
 - `src/config/config.test.ts`: zero and nonnumeric limits.
-Part 3 · Page 11 of 22 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+Part 3 · Page 11 of 23 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)

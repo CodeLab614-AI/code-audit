@@ -40,15 +40,16 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 15. [Ayudantes de prueba para repositorios temporales](3-code/110-test-helpers-repo.md) — Crea repositorios Git aislados para las pruebas.
 16. [Inicialización del proyecto](3-code/120-init-init.md) — Crea la configuración sin reemplazar archivos existentes.
 17. [Plantillas de inicialización](3-code/130-init-templates.md) — Define los archivos generados en inglés y español.
+18. [Comprobador del proyecto](3-code/140-check-check.md) — Valida la configuración, las reglas y los patrones de archivos.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-18. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-19. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-20. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-21. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-22. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+19. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+20. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+21. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+22. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+23. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.

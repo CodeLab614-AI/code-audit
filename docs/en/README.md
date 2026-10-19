@@ -40,15 +40,16 @@ By the end of this part, you will understand how the existing modules work toget
 15. [Temporary repository test helpers](3-code/110-test-helpers-repo.md) — Creates isolated Git fixtures for tests.
 16. [Project initialization](3-code/120-init-init.md) — Creates project configuration without replacing files.
 17. [Initialization templates](3-code/130-init-templates.md) — Defines generated project files in English and Spanish.
+18. [Project checker](3-code/140-check-check.md) — Validates configuration, rules, and file patterns.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-18. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-19. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-20. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-21. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-22. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+19. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+20. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+21. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+22. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+23. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

@@ -1,7 +1,7 @@
-Parte 3 · Página 11 de 22 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
+Parte 3 · Página 11 de 23 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
 # Cargador de configuración del proyecto
 
-**Archivo:** `src/config/config.ts` · 84 líneas · **Estado:** disponible
+**Archivo:** `src/config/config.ts` · 88 líneas · **Estado:** disponible
 
 `loadConfig(root)` lee `.agents/code-audit/config.md`, interpreta el encabezado YAML y devuelve valores normalizados con diagnósticos.
 
@@ -71,7 +71,7 @@ import { CONFIG_DIR } from './paths.js';
 import type { Config, Problem } from './types.js';
 import { FrontmatterError, parseFrontmatter } from './frontmatter.js';
 
-// Parte de valores predeterminados para que las claves omitidas sean previsibles.
+// Start from the documented defaults so omitted keys stay predictable.
 const DEFAULT_CONFIG: Config = {
   structureVersion: 1,
   language: 'en',
@@ -81,21 +81,21 @@ const DEFAULT_CONFIG: Config = {
 
 const CONFIG_FIELDS = new Set(['structure_version', 'language', 'base_branch', 'ignore', 'max_changed_lines']);
 
-/** Carga y valida el archivo config.md del proyecto. */
+/** Loads and validates the project's config.md file. */
 export async function loadConfig(root: string): Promise<{ config: Config; problems: Problem[] }> {
-  // Mantiene relativas las rutas reportadas y resuelve lecturas desde la raíz recibida.
+  // Keep reported paths relative while resolving reads from the supplied root.
   const file = `${CONFIG_DIR}/config.md`;
   const path = join(root, CONFIG_DIR, 'config.md');
   let text: string;
-  // El archivo ausente se reporta junto con valores predeterminados utilizables.
+  // A missing file is still reported alongside usable default values.
   try {
     text = await readFile(path, 'utf8');
   } catch {
-    return { config: createDefaultConfig(), problems: [{ level: 'error', file, message: 'config.md not found' }] };
+    return { config: createDefaultConfig(), problems: [{ level: 'error', file, message: 'config.md not found; run code-audit init first' }] };
   }
 
   let data: Record<string, unknown>;
-  // Reutiliza el lector YAML compartido y conserva el error con línea.
+  // Reuse the shared YAML reader and preserve its line-aware error.
   try {
     data = parseFrontmatter(text).data;
   } catch (error) {
@@ -104,18 +104,22 @@ export async function loadConfig(root: string): Promise<{ config: Config; proble
   }
 
   const problems: Problem[] = [];
-  /** Agrega un diagnóstico de configuración con ruta relativa al repositorio. */
+  /** Adds a config diagnostic with the repository-relative file path. */
   const add = (level: Problem['level'], message: string): void => { problems.push({ level, file, message }); };
-  // Las claves desconocidas pueden revelar erratas sin ocultar valores válidos.
+  // Unknown keys can reveal spelling mistakes without hiding valid values.
   for (const key of Object.keys(data)) {
     if (key === 'agent') add('error', 'agent must not be set: the agent that launches code-audit is always used');
     else if (!CONFIG_FIELDS.has(key)) add('warning', `unknown field: ${key}`);
   }
 
-  // Valida cada clave por separado y conserva valores predeterminados ante errores.
+  // Validate each known key independently and retain defaults on errors.
   const config = createDefaultConfig();
   if (data.structure_version !== undefined) {
-    if (data.structure_version !== 1) add('error', `structure_version must be 1; received ${String(data.structure_version)}`);
+    if (typeof data.structure_version !== 'number' || !Number.isInteger(data.structure_version)) {
+      add('error', `structure_version must be an integer; received ${JSON.stringify(data.structure_version)}`);
+    } else if (data.structure_version !== 1) {
+      add('warning', `structure_version is ${data.structure_version}; this code-audit understands structure version 1`);
+    }
   }
   if (data.language !== undefined) {
     if (typeof data.language === 'string' && data.language.length > 0) config.language = data.language;
@@ -138,12 +142,12 @@ export async function loadConfig(root: string): Promise<{ config: Config; proble
   return { config, problems };
 }
 
-/** Devuelve valores predeterminados con una lista nueva por consumidor. */
+/** Returns defaults with a fresh list for each caller. */
 function createDefaultConfig(): Config {
   return { ...DEFAULT_CONFIG, ignore: [...DEFAULT_CONFIG.ignore] };
 }
 
-/** Convierte un texto o una lista de textos en una lista nueva. */
+/** Converts one string or a list of strings to a fresh list. */
 function normalizeStringList(value: unknown): string[] | undefined {
   if (typeof value === 'string') return [value];
   if (Array.isArray(value) && value.every((item) => typeof item === 'string')) return value;
@@ -180,12 +184,23 @@ max_changed_lines: 250
 }
 ```
 
-Sin el archivo, devuelve los valores predeterminados y `config.md not found`.
+Sin el archivo, devuelve los valores predeterminados y `config.md not found; run code-audit init first`.
+
+En YAML, un valor numérico entre comillas es texto. El CLI independiente lo muestra con comillas para aclarar el tipo recibido:
+
+```text
+$ node <standalone .mjs> check --root .
+error   .agents/code-audit/config.md: structure_version must be an integer; received "1"
+0 rules (0 policies). 1 error, 0 warnings.
+$ echo $?
+2
+```
 
 ## Resumen de comportamientos
 
-- **Falta el archivo**: devuelve valores predeterminados y `config.md not found`.
-- **Versión de estructura incompatible**: informa el valor esperado, `1`.
+- **Falta el archivo**: devuelve valores predeterminados y `config.md not found; run code-audit init first`.
+- **Versión de estructura con otro entero**: devuelve un aviso: `structure_version is <N>; this code-audit understands structure version 1`.
+- **Versión de estructura no entera**: devuelve un error y entrecomilla los valores de texto, por ejemplo `received "1"`.
 - **Campo `agent`**: rechaza la clave e indica que se usa el agente que inició code-audit.
 - **Campo desconocido**: devuelve una advertencia: `unknown field: X`.
 - **Umbral inválido**: requiere un entero positivo.
@@ -198,7 +213,7 @@ Sin el archivo, devuelve los valores predeterminados y `config.md not found`.
 ## Pruebas
 
 - `src/config/config.test.ts`: valores predeterminados y archivo ausente.
-- `src/config/config.test.ts`: versión de estructura incompatible.
+- `src/config/config.test.ts`: otro entero genera un aviso; un valor no entero genera un error.
 - `src/config/config.test.ts`: error exacto de `agent`.
 - `src/config/config.test.ts`: límites cero y no numéricos.
-Parte 3 · Página 11 de 22 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
+Parte 3 · Página 11 de 23 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)

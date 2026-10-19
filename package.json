@@ -12,9 +12,11 @@
   "devDependencies": {
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.5",
+    "@types/picomatch": "^4.0.3",
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "picomatch": "^4.0.7",
     "yaml": "^2.9.1"
   }
 }

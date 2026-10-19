@@ -1,7 +1,7 @@
-Part 3 · Page 12 of 22 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 12 of 23 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
 # Rule loader
 
-**File:** `src/config/rules.ts` · 127 lines · **Status:** available
+**File:** `src/config/rules.ts` · 131 lines · **Status:** available
 
 `loadRules(root)` searches the five rule folders, parses each Markdown header, validates files independently and returns valid rules in stable path order with their diagnostics.
 
@@ -149,6 +149,10 @@ function requiredText(data: Record<string, unknown>, field: string, add: (level:
 
 /** Resolves a severity name or alias after trimming whitespace and ignoring case. */
 function parseSeverity(value: unknown, add: (level: Problem['level'], message: string) => void): Severity | undefined {
+  if (value === undefined) {
+    add('error', 'severity is required');
+    return undefined;
+  }
   if (typeof value === 'string') {
     const severity = SEVERITIES[value.trim().toLowerCase()];
     if (severity) return severity;
@@ -157,7 +161,7 @@ function parseSeverity(value: unknown, add: (level: Problem['level'], message: s
   return undefined;
 }
 
-/** Resolves rule file patterns and applies the default for the `policies/` folder. */
+/** Resolves rule file patterns and applies the policy-wide default. */
 function parseAppliesTo(value: unknown, policy: boolean, add: (level: Problem['level'], message: string) => void): string[] | undefined {
   if (value === undefined && policy) return ['**'];
   if (value === undefined) {
@@ -240,12 +244,23 @@ Representa montos en centavos.
 
 The actual command produced these normalized aliases and file-sorted rules.
 
+A rule without `severity` is excluded and reports a field-specific error. This output was captured with the standalone CLI in a temporary Git repository:
+
+```text
+$ node <standalone .mjs> check --root .
+error   .agents/code-audit/business/c.md: severity is required
+0 rules (0 policies). 1 error, 0 warnings.
+$ echo $?
+2
+```
+
 ## Behavior summary
 
 - **Missing folder**: does not produce a problem.
 - **README.md**: is skipped at every depth.
 - **Malformed Markdown header**: reports a YAML header error, including its line.
 - **Unknown field**: adds a warning: `unknown field: X`.
+- **Missing severity**: reports `severity is required`; an invalid value retains the list of accepted severities.
 - **Rule with errors**: is reported and excluded; other rules still load.
 - **Rule path**: is repository-relative and uses `/`.
 
@@ -261,4 +276,4 @@ The actual command produced these normalized aliases and file-sorted rules.
 - `src/config/rules.test.ts`: severity aliases, surrounding whitespace, and Spanish names.
 - `src/config/rules.test.ts`: required fields and `policies/` patterns.
 - `src/config/rules.test.ts`: deterministic problem ordering, malformed headers, invalid values, and unknown fields.
-Part 3 · Page 12 of 22 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 12 of 23 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
