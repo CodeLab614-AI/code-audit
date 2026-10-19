@@ -31,15 +31,19 @@ By the end of this part, you will understand how the existing modules work toget
 6. [Command line](3-code/020-cli.md) — Parses command-line arguments and writes output.
 7. [Exit codes and version](3-code/030-exit-codes-and-version.md) — Defines process codes and reads the package version.
 8. [Frontmatter reader](3-code/040-config-frontmatter.md) — Parses a YAML header and Markdown body.
+9. [Configuration paths](3-code/050-config-paths.md) — Names the configuration folders and kinds.
+10. [Configuration types](3-code/060-config-types.md) — Defines shared config, rule, and problem shapes.
+11. [Project configuration loader](3-code/070-config-config.md) — Reads and validates config.md.
+12. [Rule loader](3-code/080-config-rules.md) — Loads and validates Markdown rules.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-9. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-10. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-11. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-12. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-13. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+13. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+14. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+15. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+16. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+17. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

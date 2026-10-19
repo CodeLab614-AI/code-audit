@@ -1,4 +1,4 @@
-Parte 3 · Página 7 de 13 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+Parte 3 · Página 7 de 17 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
 # Códigos de salida y versión
 
 **Archivo:** `src/exit-codes.ts`, `src/version.ts` · 12 líneas · **Estado:** disponible
@@ -20,7 +20,6 @@ Parte 3 · Página 7 de 13 · Anterior: [Línea de comandos](020-cli.md) · Sigu
 
 ## Antes de leer el código
 
-Esta sección explica el tipo literal y la importación JSON que usan estos módulos.
 
 ### `as const`
 
@@ -84,7 +83,6 @@ export const VERSION: string = packageJson.version;
 
 ## Ejemplos con datos reales
 
-Estos comandos muestran la versión y el error del CLI compilado.
 
 ### Caso normal
 
@@ -127,4 +125,4 @@ Sin `as const`, TypeScript ampliaría los valores y los consumidores perderían 
 ## Pruebas
 
 El archivo de pruebas comprueba la versión y las respuestas del CLI.
-Parte 3 · Página 7 de 13 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+Parte 3 · Página 7 de 17 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
