@@ -19,7 +19,7 @@ const SECTION_FIELDS = new Map<string, keyof Pick<Task, 'objective' | 'criteria'
   ['criterios de aceptacion', 'criteria'], ['acceptance criteria', 'criteria'],
   ['fuera de alcance', 'outOfScope'], ['out of scope', 'outOfScope'],
   ['areas que se espera tocar', 'expectedAreas'], ['expected areas', 'expectedAreas'],
-  ['notas y decisiones', 'notes'], ['notas', 'notes'], ['notes', 'notes'],
+  ['notas y decisiones', 'notes'], ['notas', 'notes'], ['notes', 'notes'], ['notes and decisions', 'notes'],
 ]);
 
 /** Loads and validates a Markdown task specification. */

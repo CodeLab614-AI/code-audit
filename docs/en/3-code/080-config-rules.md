@@ -1,4 +1,4 @@
-Part 3 · Page 12 of 20 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 12 of 22 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
 # Rule loader
 
 **File:** `src/config/rules.ts` · 127 lines · **Status:** available
@@ -261,4 +261,4 @@ The actual command produced these normalized aliases and file-sorted rules.
 - `src/config/rules.test.ts`: severity aliases, surrounding whitespace, and Spanish names.
 - `src/config/rules.test.ts`: required fields and `policies/` patterns.
 - `src/config/rules.test.ts`: deterministic problem ordering, malformed headers, invalid values, and unknown fields.
-Part 3 · Page 12 of 20 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 12 of 22 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)

@@ -38,15 +38,17 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 13. [Cargador de fichas de tarea](3-code/090-config-task.md) — Carga y valida fichas de tareas en Markdown.
 14. [Interfaz Git de solo lectura](3-code/100-git-git.md) — Protege los comandos Git y sus opciones permitidos.
 15. [Ayudantes de prueba para repositorios temporales](3-code/110-test-helpers-repo.md) — Crea repositorios Git aislados para las pruebas.
+16. [Inicialización del proyecto](3-code/120-init-init.md) — Crea la configuración sin reemplazar archivos existentes.
+17. [Plantillas de inicialización](3-code/130-init-templates.md) — Define los archivos generados en inglés y español.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-16. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-17. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-18. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-19. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-20. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+18. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+19. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+20. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+21. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+22. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.

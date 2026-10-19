@@ -1,4 +1,4 @@
-Part 3 · Page 11 of 20 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+Part 3 · Page 11 of 22 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
 # Project configuration loader
 
 **File:** `src/config/config.ts` · 84 lines · **Status:** available
@@ -201,4 +201,4 @@ Without the file, it returns defaults and `config.md not found`.
 - `src/config/config.test.ts`: unsupported structure version.
 - `src/config/config.test.ts`: exact `agent` error.
 - `src/config/config.test.ts`: zero and nonnumeric limits.
-Part 3 · Page 11 of 20 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+Part 3 · Page 11 of 22 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
