@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added a guarded read-only Git interface, isolated Git test repositories, and bilingual documentation for Task 5.
 - Recognized `Notas` and trailing colons in task headings, and expanded task-loader examples.
 - Added documentation checks for malformed and unclosed fenced code blocks.
 

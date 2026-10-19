@@ -1,4 +1,4 @@
-Part 3 · Page 13 of 18 · Previous: [Rule loader](080-config-rules.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 13 of 20 · Previous: [Rule loader](080-config-rules.md) · Next: [Read-only Git interface](100-git-git.md) · [Index](../README.md)
 # Task loader
 
 **File:** `src/config/task.ts` · 167 lines · **Status:** available
@@ -412,4 +412,4 @@ console.log(JSON.stringify(await loadTask(root, 'colonHeading.md'), null, 2));
 - `src/config/task.test.ts`: fenced code, unknown and duplicate sections, and malformed YAML.
 - `src/config/task.test.ts`: BOM, CRLF, relative and outside-root paths, and missing files.
 
-Part 3 · Page 13 of 18 · Previous: [Rule loader](080-config-rules.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 13 of 20 · Previous: [Rule loader](080-config-rules.md) · Next: [Read-only Git interface](100-git-git.md) · [Index](../README.md)

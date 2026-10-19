@@ -1,4 +1,4 @@
-Parte 3 · Página 12 de 18 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+Parte 3 · Página 12 de 20 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
 # Cargador de reglas
 
 **Archivo:** `src/config/rules.ts` · 127 líneas · **Estado:** disponible
@@ -261,4 +261,4 @@ El comando real produjo estos alias normalizados y reglas ordenadas por archivo.
 - `src/config/rules.test.ts`: alias de gravedad, espacios alrededor y nombres españoles.
 - `src/config/rules.test.ts`: campos obligatorios y patrones de `policies/`.
 - `src/config/rules.test.ts`: orden determinista, encabezados rotos, valores inválidos y campos desconocidos.
-Parte 3 · Página 12 de 18 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+Parte 3 · Página 12 de 20 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
