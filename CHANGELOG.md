@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Added rule selection module (`selectRules`, `SelectedRule`, `SelectionReason`, `normalizeForKeywords`) matching rules by policy, applies_to file patterns with renames, and full-word keywords in changed lines and task specifications.
+- Added bilingual documentation for `src/review/select.ts` and marked Plan 2 Task 3 complete.
+
 - Fixed diff parsing in `readChangedLines` so text files containing the phrase "Binary files" retain their changes, restricting binary file detection to diff headers before hunk markers.
 - Added changed lines reader (`readChangedLines`, `ChangedLines`) using unified diffs against the working tree and direct reads for untracked files.
 - Added bilingual documentation for `src/review/changes.ts` and marked Plan 2 Task 2 complete.

@@ -1,4 +1,4 @@
-Parte 2 · Página 3 de 27 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+Parte 2 · Página 3 de 28 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
 # Arquitectura
 
 Bun es la herramienta de desarrollo: instala dependencias, ejecuta pruebas y scripts TypeScript, y empaqueta el CLI. Node.js ejecuta el archivo JavaScript compilado, así que el CLI no requiere Bun al usarse.
@@ -25,6 +25,11 @@ flowchart TD
     range --> configTypes["src/config/types.ts"]
     changes["src/review/changes.ts"] --> git
     changes --> reviewTypes
+    select["src/review/select.ts"] --> match
+    select --> configTypes
+    select --> task["src/config/task.ts"]
+    select --> changes
+    select --> reviewTypes
     checkTest["src/check/check.test.ts"] --> check
     checkTest --> repoHelper["src/test-helpers/repo.ts"]
     matchTest["src/config/match.test.ts"] --> match
@@ -33,6 +38,11 @@ flowchart TD
     changesTest["src/review/changes.test.ts"] --> changes
     changesTest --> range
     changesTest --> repoHelper
+    selectTest["src/review/select.test.ts"] --> select
+    selectTest --> configTypes
+    selectTest --> task
+    selectTest --> reviewTypes
+    selectTest --> changes
     initTest["src/init/init.test.ts"] --> init
     initTest --> rules["src/config/rules.ts"]
     initTest --> task["src/config/task.ts"]
@@ -60,11 +70,13 @@ flowchart TD
 
 [`src/review/changes.ts`](../3-code/180-review-changes.md) lee las líneas modificadas de cada archivo importando `src/git/git.ts` y [`src/review/types.ts`](../3-code/160-review-types.md). Hoy ningún comando de la línea de comandos la usa todavía.
 
+[`src/review/select.ts`](../3-code/190-review-select.md) selecciona qué reglas aplican a la revisión importando [`src/config/match.ts`](../3-code/150-config-match.md), [`src/config/types.ts`](../3-code/060-config-types.md), [`src/config/task.ts`](../3-code/090-config-task.md), [`src/review/types.ts`](../3-code/160-review-types.md) y [`src/review/changes.ts`](../3-code/180-review-changes.md). Hoy ningún comando de la línea de comandos la usa todavía.
+
 [`src/config/frontmatter.ts`](../3-code/040-config-frontmatter.md) interpreta un encabezado YAML y el cuerpo. Lo importan `src/config/rules.ts` y [`src/config/task.ts`](../3-code/090-config-task.md); las pruebas importan sus respectivos cargadores.
 
 El script de compilación agrupa el ejecutable que comienza en [`src/bin.ts`](../3-code/010-bin.md) dentro de un módulo JavaScript. Un módulo JavaScript (ESM) es un archivo que usa `import` y `export`. El comprobador valida las páginas en inglés y español.
 
-Las pruebas de Git, inicialización, rango y líneas cambiadas importan `src/git/git.ts` y [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` también comprueba los ejemplos generados con los cargadores de reglas y tareas. El ayudante ejecuta Git solo dentro de repositorios temporales de prueba. `src/config/match.test.ts`, `src/review/range.test.ts` y `src/review/changes.test.ts` prueban sus respectivos módulos de forma directa.
-Parte 2 · Página 3 de 27 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+Las pruebas de Git, inicialización, rango y líneas cambiadas importan `src/git/git.ts` y [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` también comprueba los ejemplos generados con los cargadores de reglas y tareas. El ayudante ejecuta Git solo dentro de repositorios temporales de prueba. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts` y `src/review/select.test.ts` prueban sus respectivos módulos de forma directa.
+Parte 2 · Página 3 de 28 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
 
 

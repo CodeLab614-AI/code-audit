@@ -1,4 +1,4 @@
-Parte 3 · Página 18 de 27 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Comparador de patrones](150-config-match.md) · [Índice](../README.md)
+Parte 3 · Página 18 de 28 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Comparador de patrones](150-config-match.md) · [Índice](../README.md)
 # Comprobador del proyecto
 
 **Archivo:** `src/check/check.ts` · 67 líneas · **Estado:** disponible
@@ -187,6 +187,6 @@ $ echo $?
 
 `src/check/check.test.ts`: inicialización en ambos idiomas, ids repetidos, archivos versionados y nuevos, archivos ignorados, espacios y acentos, nombres con salto de línea, patrones sin coincidencias, umbral de políticas y errores combinados de los cargadores. `src/cli.test.ts`: salida normal y JSON, y códigos 0, 2 y 3.
 
-Parte 3 · Página 18 de 27 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Comparador de patrones](150-config-match.md) · [Índice](../README.md)
+Parte 3 · Página 18 de 28 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Comparador de patrones](150-config-match.md) · [Índice](../README.md)
 
 
