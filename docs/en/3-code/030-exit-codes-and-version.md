@@ -1,7 +1,7 @@
-Part 3 · Page 7 of 23 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+Part 3 · Page 7 of 26 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
 # Exit codes and version
 
-**File:** `src/exit-codes.ts`, `src/version.ts` · 12 lines · **Status:** available
+**File:** `src/exit-codes.ts`, `src/version.ts` · 16 lines · **Status:** available
 
 ## Page index
 
@@ -68,6 +68,9 @@ export const ExitCode = {
   USAGE: 1,
   CONFIG_INVALID: 2,
   NOT_A_REPO: 3,
+  REVIEW_RANGE: 4,
+  REPO_CHANGED: 5,
+  FINDINGS_INVALID: 6,
   INTERNAL: 10,
 } as const;
 ```
@@ -106,13 +109,14 @@ Command: `node skills/code-audit/code-audit.mjs nope`
 
 ### Without the key line
 
-Without `as const`, TypeScript would widen the values and callers would lose their specific literal types. The runtime numbers would remain unchanged; this is a type-level consequence of the declaration at `src/exit-codes.ts:8`.
+Without `as const`, TypeScript would widen the values and callers would lose their specific literal types. The runtime numbers would remain unchanged; this is a type-level consequence of the declaration at `src/exit-codes.ts:11`.
 
 ## Behavior summary
 
 - **A command succeeds:** `ExitCode.OK` is `0`.
 - **Arguments are invalid or a command is unavailable:** `ExitCode.USAGE` is `1`.
-- **Codes `2` and `3`:** defined as `CONFIG_INVALID` and `NOT_A_REPO`; no current command returns them.
+- **Codes `2` and `3`:** defined as `CONFIG_INVALID` and `NOT_A_REPO`.
+- **Codes `4`, `5`, and `6`:** defined as `REVIEW_RANGE`, `REPO_CHANGED`, and `FINDINGS_INVALID`; currently no command returns them.
 - **An exception escapes the CLI:** `ExitCode.INTERNAL` is `10`.
 - **The CLI prints the version:** `VERSION` comes from `package.json`.
 
@@ -125,4 +129,5 @@ Without `as const`, TypeScript would widen the values and callers would lose the
 ## Tests
 
 - `src/cli.test.ts`: `prints the version and returns success`, `rejects unknown commands`, `reports that review is not available yet`.
-Part 3 · Page 7 of 23 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+Part 3 · Page 7 of 26 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+

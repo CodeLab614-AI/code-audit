@@ -1,4 +1,4 @@
-import picomatch from 'picomatch';
+import { createMatcher } from '../config/match.js';
 import { CONFIG_DIR } from '../config/paths.js';
 import { loadConfig } from '../config/config.js';
 import { loadRules } from '../config/rules.js';
@@ -35,13 +35,8 @@ export async function checkProject(root: string): Promise<{ problems: Problem[];
 
     if (rule.kind === 'policy') continue;
     for (const pattern of rule.appliesTo) {
-      let matches = false;
-      try {
-        const match = picomatch(pattern, { dot: true });
-        matches = files.some((file) => match(file));
-      } catch {
-        matches = false;
-      }
+      const matcher = createMatcher([pattern]);
+      const matches = files.some((file) => matcher(file) !== undefined);
       if (!matches) {
         problems.push({ level: 'warning', file: rule.file, message: `applies_to pattern matches no file: ${pattern}` });
       }

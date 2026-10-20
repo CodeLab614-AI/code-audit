@@ -1,7 +1,7 @@
-Parte 3 · Página 7 de 23 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+Parte 3 · Página 7 de 26 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
 # Códigos de salida y versión
 
-**Archivo:** `src/exit-codes.ts`, `src/version.ts` · 12 líneas · **Estado:** disponible
+**Archivo:** `src/exit-codes.ts`, `src/version.ts` · 16 líneas · **Estado:** disponible
 
 ## Índice de la página
 
@@ -68,6 +68,9 @@ export const ExitCode = {
   USAGE: 1,
   CONFIG_INVALID: 2,
   NOT_A_REPO: 3,
+  REVIEW_RANGE: 4,
+  REPO_CHANGED: 5,
+  FINDINGS_INVALID: 6,
   INTERNAL: 10,
 } as const;
 ```
@@ -106,13 +109,14 @@ Comando: `node skills/code-audit/code-audit.mjs nope`
 
 ### Sin la línea clave
 
-Sin `as const`, TypeScript ampliaría los valores y los consumidores perderían sus tipos literales específicos. Los números en tiempo de ejecución no cambiarían; es un efecto de tipos de la declaración en `src/exit-codes.ts:8`.
+Sin `as const`, TypeScript ampliaría los valores y los consumidores perderían sus tipos literales específicos. Los números en tiempo de ejecución no cambiarían; es un efecto de tipos de la declaración en `src/exit-codes.ts:11`.
 
 ## Resumen de comportamientos
 
 - **Un comando termina bien:** `ExitCode.OK` vale `0`.
 - **Los argumentos son inválidos o un comando no está disponible:** `ExitCode.USAGE` vale `1`.
-- **Códigos `2` y `3`:** están definidos como `CONFIG_INVALID` y `NOT_A_REPO`; ningún comando actual los devuelve.
+- **Códigos `2` y `3`:** están definidos como `CONFIG_INVALID` y `NOT_A_REPO`.
+- **Códigos `4`, `5` y `6`:** están definidos como `REVIEW_RANGE`, `REPO_CHANGED` y `FINDINGS_INVALID`; hoy ningún comando los devuelve.
 - **Una excepción escapa del CLI:** `ExitCode.INTERNAL` vale `10`.
 - **El CLI imprime la versión:** `VERSION` proviene de `package.json`.
 
@@ -125,4 +129,5 @@ Sin `as const`, TypeScript ampliaría los valores y los consumidores perderían 
 ## Pruebas
 
 El archivo de pruebas comprueba la versión y las respuestas del CLI.
-Parte 3 · Página 7 de 23 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+Parte 3 · Página 7 de 26 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+

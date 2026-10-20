@@ -41,15 +41,18 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 16. [Inicialización del proyecto](3-code/120-init-init.md) — Crea la configuración sin reemplazar archivos existentes.
 17. [Plantillas de inicialización](3-code/130-init-templates.md) — Define los archivos generados en inglés y español.
 18. [Comprobador del proyecto](3-code/140-check-check.md) — Valida la configuración, las reglas y los patrones de archivos.
+19. [Comparador de patrones](3-code/150-config-match.md) — Evalúa rutas de archivos contra patrones comodín.
+20. [Tipos de revisión](3-code/160-review-types.md) — Define los tipos de archivos cambiados y alcance de revisión.
+21. [Rango a revisar](3-code/170-review-range.md) — Determina los commits, archivos y líneas que entran en la revisión.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-19. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-20. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-21. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-22. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-23. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+22. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+23. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+24. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+25. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+26. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.

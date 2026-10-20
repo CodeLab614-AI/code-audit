@@ -1,4 +1,4 @@
-Parte 3 · Página 8 de 23 · Anterior: [Códigos de salida y versión](030-exit-codes-and-version.md) · Siguiente: [Rutas de configuración](050-config-paths.md) · [Índice](../README.md)
+Parte 3 · Página 8 de 26 · Anterior: [Códigos de salida y versión](030-exit-codes-and-version.md) · Siguiente: [Rutas de configuración](050-config-paths.md) · [Índice](../README.md)
 # Lector de frontmatter
 
 **Archivo:** `src/config/frontmatter.ts` · 53 líneas · **Estado:** disponible
@@ -196,4 +196,5 @@ Sin quitar el BOM, el primer delimitador ve el carácter invisible antes de `---
 ## Pruebas
 
 - `src/config/frontmatter.test.ts`: `parses YAML metadata and returns the body`, `parses CRLF line endings`, `ignores an initial UTF-8 BOM`, `rejects text without a frontmatter delimiter`, `includes a line number when the YAML is invalid`, `does not emit warnings from YAML parsing`, `accepts delimiters followed by spaces or tabs`, `rejects an unclosed frontmatter block`, `rejects YAML that is not a mapping`, `returns an empty mapping for an empty frontmatter block`.
-Parte 3 · Página 8 de 23 · Anterior: [Códigos de salida y versión](030-exit-codes-and-version.md) · Siguiente: [Rutas de configuración](050-config-paths.md) · [Índice](../README.md)
+Parte 3 · Página 8 de 26 · Anterior: [Códigos de salida y versión](030-exit-codes-and-version.md) · Siguiente: [Rutas de configuración](050-config-paths.md) · [Índice](../README.md)
+

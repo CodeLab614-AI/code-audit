@@ -1,4 +1,4 @@
-Parte 4 · Página 21 de 23 · Anterior: [Script de compilación](15-build-script.md) · Siguiente: [Estándar de documentación](20-documentation-standard.md) · [Índice](../README.md)
+Parte 4 · Página 24 de 26 · Anterior: [Script de compilación](15-build-script.md) · Siguiente: [Estándar de documentación](20-documentation-standard.md) · [Índice](../README.md)
 # Comprobador de documentación
 
 **Archivo:** `scripts/check-docs.ts` · 483 líneas · **Estado:** disponible
@@ -624,4 +624,5 @@ Si el punto de entrada usara `process.cwd()`, al ejecutar el comprobador desde `
 ## Pruebas
 
 - `scripts/check-docs.test.ts`: `accepts the real repository with no documentation problems`, `rejects BOM characters at the start or within documentation files`, `rejects different English and Spanish reading sequences`, `does not count the start-here link as another index page`, `rejects missing linked pages and orphan Markdown pages`, `rejects duplicate numbers and decreasing page numbers within a folder`, `rejects incorrect page counts and navigation neighbors`, `requires a page title immediately after its navigation bar`, `requires previous and next navigation labels to match destination titles`, `rejects broken relative links in docs and the root README`, `ignores Markdown links shown inside fenced examples`, `rejects a missing source page and an incorrect available line count`, `rejects documentation cards with an unsupported status`, `rejects source files declared more than once or missing from disk`, `rejects undocumented declarations and named functions using the TypeScript AST`, `rejects missing or out-of-order code page sections`, `checks any development page that contains a file card`, `validates type-only source pages against the type-page template`, `rejects headings with no content before the next heading or page end`, `accepts a section heading followed directly by a deeper subheading`, `rejects a fenced code closing marker that shares a line with text`, `rejects a fenced code marker with trailing text`, `rejects a fenced code block that is never closed`, `finds the repository root from its own file when run outside the repository`.
-Parte 4 · Página 21 de 23 · Anterior: [Script de compilación](15-build-script.md) · Siguiente: [Estándar de documentación](20-documentation-standard.md) · [Índice](../README.md)
+Parte 4 · Página 24 de 26 · Anterior: [Script de compilación](15-build-script.md) · Siguiente: [Estándar de documentación](20-documentation-standard.md) · [Índice](../README.md)
+

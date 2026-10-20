@@ -1,4 +1,4 @@
-Part 3 · Page 11 of 23 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+Part 3 · Page 11 of 26 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
 # Project configuration loader
 
 **File:** `src/config/config.ts` · 88 lines · **Status:** available
@@ -216,4 +216,5 @@ $ echo $?
 - `src/config/config.test.ts`: a different integer version warns; a non-integer is an error.
 - `src/config/config.test.ts`: exact `agent` error.
 - `src/config/config.test.ts`: zero and nonnumeric limits.
-Part 3 · Page 11 of 23 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+Part 3 · Page 11 of 26 · Previous: [Configuration types](060-config-types.md) · Next: [Rule loader](080-config-rules.md) · [Index](../README.md)
+

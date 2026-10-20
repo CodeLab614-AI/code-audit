@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Fixed review range decision order on the base branch so commits made between reviews without upstream are reviewed using since-run mode when lastRunHead is provided, corrected the empty range error message in documentation, and restored the base branch --since documentation example.
+- Fixed review range computation to use 3-dot diffs (`...`) in `unpushed`, `since-run`, and `since-ref` modes to avoid false deleted files from fetched upstream commits, allow reviewing uncommitted changes on the base branch without upstream, fail immediately when a configured `base_branch` does not exist in Git, and corrected `countFileLines` JSDoc.
+- Added review range computation (`computeRange`, `resolveBase`), review types (`ChangedFile`, `ReviewRange`, `ReviewRangeErrorReason`, `ReviewRangeError`), and `createMatcher` pattern matcher.
+- Added exit codes `REVIEW_RANGE: 4`, `REPO_CHANGED: 5`, and `FINDINGS_INVALID: 6`.
+- Refactored `check` to use `createMatcher` for pattern matching without changing behavior.
+- Added bilingual documentation for `range.ts`, `types.ts`, and `match.ts`, and marked Plan 2 Task 1 complete.
 - Added the `check` command with rule ID, file-pattern, policy-count, and configuration diagnostics; bundled `picomatch` in the standalone CLI.
 - Made unsupported integer structure versions a warning and clarified the missing-config recovery message.
 - Added bilingual checker documentation and marked Plan 1 Task 7 complete.
