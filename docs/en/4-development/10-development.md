@@ -1,4 +1,4 @@
-Part 4 · Page 25 of 29 · Previous: [Repository snapshot](../3-code/200-review-snapshot.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
+Part 4 · Page 28 of 32 · Previous: [Findings validator](../3-code/220-findings-validate.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
 # Development
 
 ## Requirements and commands
@@ -26,6 +26,7 @@ Files in `src/` use Node modules prefixed with `node:`. Bun-specific APIs belong
 ## Branches and pull requests
 
 Work on a feature branch, run the checks above, and open a pull request for review before integration. The repository owner creates commits and pushes the branch. Every code change updates its matching English and Spanish documentation in the same branch, so the code and its guide are reviewed together.
-Part 4 · Page 25 of 29 · Previous: [Repository snapshot](../3-code/200-review-snapshot.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
+Part 4 · Page 28 of 32 · Previous: [Findings validator](../3-code/220-findings-validate.md) · Next: [Build script](15-build-script.md) · [Index](../README.md)
+
 
 

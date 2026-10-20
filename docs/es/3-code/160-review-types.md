@@ -1,4 +1,4 @@
-Parte 3 · Página 20 de 29 · Anterior: [Comparador de patrones](150-config-match.md) · Siguiente: [Rango a revisar](170-review-range.md) · [Índice](../README.md)
+Parte 3 · Página 21 de 32 · Anterior: [Comparador de patrones](150-config-match.md) · Siguiente: [Rango a revisar](170-review-range.md) · [Índice](../README.md)
 # Tipos de revisión
 
 **Archivo:** `src/review/types.ts` · 35 líneas · **Estado:** disponible
@@ -265,6 +265,7 @@ Estructura completa que delimita el alcance de la auditoría y sus cambios.
 ## Pruebas
 
 - `src/review/range.test.ts`: comprueba la forma de `ReviewRange` y `ChangedFile` en todos los modos de cálculo.
-Parte 3 · Página 20 de 29 · Anterior: [Comparador de patrones](150-config-match.md) · Siguiente: [Rango a revisar](170-review-range.md) · [Índice](../README.md)
+Parte 3 · Página 21 de 32 · Anterior: [Comparador de patrones](150-config-match.md) · Siguiente: [Rango a revisar](170-review-range.md) · [Índice](../README.md)
+
 
 

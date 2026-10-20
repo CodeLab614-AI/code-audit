@@ -1,4 +1,4 @@
-Parte 2 · Página 3 de 29 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+Parte 2 · Página 3 de 32 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
 # Arquitectura
 
 Bun es la herramienta de desarrollo: instala dependencias, ejecuta pruebas y scripts TypeScript, y empaqueta el CLI. Node.js ejecuta el archivo JavaScript compilado, así que el CLI no requiere Bun al usarse.
@@ -48,6 +48,17 @@ flowchart TD
     snapshotTest["src/review/snapshot.test.ts"] --> snapshot
     snapshotTest --> repoHelper
     snapshotTest --> paths
+    findingsSchema["src/findings/schema.ts"] --> types
+    findingsValidate["src/findings/validate.ts"] --> findingsSchema
+    findingsValidate --> rules
+    findingsValidate --> task
+    findingsValidate --> types
+    findingsValidate --> select
+    validateTest["src/findings/validate.test.ts"] --> findingsValidate
+    validateTest --> findingsSchema
+    validateTest --> repoHelper
+    validateTest --> task
+    validateTest --> select
     initTest["src/init/init.test.ts"] --> init
     initTest --> rules["src/config/rules.ts"]
     initTest --> task["src/config/task.ts"]
@@ -79,11 +90,14 @@ flowchart TD
 
 [`src/review/snapshot.ts`](../3-code/200-review-snapshot.md) toma y compara fotos del estado de Git y de los archivos del repositorio importando [`src/git/git.ts`](../3-code/100-git-git.md) y [`src/config/paths.ts`](../3-code/050-config-paths.md). Hoy ningún comando de la línea de comandos la usa todavía.
 
+[`src/findings/schema.ts`](../3-code/210-findings-schema.md) define la versión y tipos normalizados de hallazgos importando [`src/config/types.ts`](../3-code/060-config-types.md). [`src/findings/validate.ts`](../3-code/220-findings-validate.md) valida y normaliza hallazgos importando `src/findings/schema.ts`, [`src/config/rules.ts`](../3-code/080-config-rules.md), [`src/config/task.ts`](../3-code/090-config-task.md), [`src/config/types.ts`](../3-code/060-config-types.md) y [`src/review/select.ts`](../3-code/190-review-select.md). Hoy ningún comando de la línea de comandos los usa todavía.
+
 [`src/config/frontmatter.ts`](../3-code/040-config-frontmatter.md) interpreta un encabezado YAML y el cuerpo. Lo importan `src/config/rules.ts` y [`src/config/task.ts`](../3-code/090-config-task.md); las pruebas importan sus respectivos cargadores.
 
 El script de compilación agrupa el ejecutable que comienza en [`src/bin.ts`](../3-code/010-bin.md) dentro de un módulo JavaScript. Un módulo JavaScript (ESM) es un archivo que usa `import` y `export`. El comprobador valida las páginas en inglés y español.
 
-Las pruebas de Git, inicialización, rango y líneas cambiadas importan `src/git/git.ts` y [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` también comprueba los ejemplos generados con los cargadores de reglas y tareas. El ayudante ejecuta Git solo dentro de repositorios temporales de prueba. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts`, `src/review/select.test.ts` y `src/review/snapshot.test.ts` prueban sus respectivos módulos de forma directa.
-Parte 2 · Página 3 de 29 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+Las pruebas de Git, inicialización, rango y líneas cambiadas importan `src/git/git.ts` y [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` también comprueba los ejemplos generados con los cargadores de reglas y tareas. El ayudante ejecuta Git solo dentro de repositorios temporales de prueba. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts`, `src/review/select.test.ts`, `src/review/snapshot.test.ts` y `src/findings/validate.test.ts` prueban sus respectivos módulos de forma directa.
+Parte 2 · Página 3 de 32 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+
 
 

@@ -1,4 +1,4 @@
-Part 4 · Page 28 of 29 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+Part 4 · Page 31 of 32 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
 # Documentation standard
 
 Rules and templates for maintaining this documentation.
@@ -153,6 +153,7 @@ Part N · Page X of M · Previous: [Title](../README.md) · Next: [Title](../REA
 
 ## Tests
 ```
-Part 4 · Page 28 of 29 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+Part 4 · Page 31 of 32 · Previous: [Documentation checker](17-docs-check.md) · Next: [Roadmap](30-roadmap.md) · [Index](../README.md)
+
 
 

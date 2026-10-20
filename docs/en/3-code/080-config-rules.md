@@ -1,7 +1,7 @@
-Part 3 · Page 12 of 29 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 13 of 32 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
 # Rule loader
 
-**File:** `src/config/rules.ts` · 131 lines · **Status:** available
+**File:** `src/config/rules.ts` · 132 lines · **Status:** available
 
 `loadRules(root)` searches the five rule folders, parses each Markdown header, validates files independently and returns valid rules in stable path order with their diagnostics.
 
@@ -71,7 +71,8 @@ import type { Problem, Rule, RuleKind, Severity } from './types.js';
 import { FrontmatterError, parseFrontmatter } from './frontmatter.js';
 
 const RULE_FIELDS = new Set(['id', 'title', 'severity', 'applies_to', 'keywords']);
-const SEVERITIES: Record<string, Severity> = {
+/** Supported severity levels and localized aliases mapped to canonical severities. */
+export const SEVERITIES: Record<string, Severity> = {
   critical: 'critical', major: 'major', minor: 'minor',
   grave: 'critical', importante: 'major', menor: 'minor',
 };
@@ -276,6 +277,7 @@ $ echo $?
 - `src/config/rules.test.ts`: severity aliases, surrounding whitespace, and Spanish names.
 - `src/config/rules.test.ts`: required fields and `policies/` patterns.
 - `src/config/rules.test.ts`: deterministic problem ordering, malformed headers, invalid values, and unknown fields.
-Part 3 · Page 12 of 29 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 13 of 32 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+
 
 

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Fixed findings validation to treat null in optional fields as omitted without discards or notes, fixed checkRepoFile to accept files whose names start with double dots, restored complete JSDoc comments in schema documentation, and expanded architecture data formats with list element specifications.
+- Added findings schema and validation module (`validateFindings`, `FindingsInvalidError`, `FINDINGS_SCHEMA_VERSION`, normalized camelCase types, and exact discard reasons with quote verification and repository path checks).
+- Added bilingual documentation for `schema.ts`, `validate.ts`, and architecture data formats, and marked Plan 2 Task 5 complete.
+
 - Treated `ENOTDIR` errors as missing files in `takeSnapshot` when a tracked folder is replaced by a file of the same name.
 - Added repository snapshot module (`takeSnapshot`, `compareSnapshots`, `Snapshot`, `SnapshotChange`) recording Git HEAD, branch, staging index fingerprint, and non-ignored file states to detect repository modifications.
 - Added bilingual documentation for `src/review/snapshot.ts` and marked Plan 2 Task 4 complete.

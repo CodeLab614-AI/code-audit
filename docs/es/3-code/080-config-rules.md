@@ -1,7 +1,7 @@
-Parte 3 · Página 12 de 29 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+Parte 3 · Página 13 de 32 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
 # Cargador de reglas
 
-**Archivo:** `src/config/rules.ts` · 131 líneas · **Estado:** disponible
+**Archivo:** `src/config/rules.ts` · 132 líneas · **Estado:** disponible
 
 `loadRules(root)` recorre las cinco carpetas de reglas, interpreta cada encabezado Markdown, valida cada archivo por separado y devuelve reglas válidas en orden estable por ruta. Así devuelve reglas normalizadas sin exigir que quien la llama interprete YAML.
 
@@ -71,7 +71,8 @@ import type { Problem, Rule, RuleKind, Severity } from './types.js';
 import { FrontmatterError, parseFrontmatter } from './frontmatter.js';
 
 const RULE_FIELDS = new Set(['id', 'title', 'severity', 'applies_to', 'keywords']);
-const SEVERITIES: Record<string, Severity> = {
+/** Supported severity levels and localized aliases mapped to canonical severities. */
+export const SEVERITIES: Record<string, Severity> = {
   critical: 'critical', major: 'major', minor: 'minor',
   grave: 'critical', importante: 'major', menor: 'minor',
 };
@@ -276,6 +277,7 @@ $ echo $?
 - `src/config/rules.test.ts`: alias de gravedad, espacios alrededor y nombres españoles.
 - `src/config/rules.test.ts`: campos obligatorios y patrones de `policies/`.
 - `src/config/rules.test.ts`: orden determinista, encabezados rotos, valores inválidos y campos desconocidos.
-Parte 3 · Página 12 de 29 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+Parte 3 · Página 13 de 32 · Anterior: [Cargador de configuración del proyecto](070-config-config.md) · Siguiente: [Cargador de fichas de tarea](090-config-task.md) · [Índice](../README.md)
+
 
 

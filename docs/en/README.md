@@ -22,40 +22,43 @@ By the end of this part, you will know what the project contains and how to run 
 
 3. [Architecture](2-architecture/10-architecture.md) — Current modules and their actual connections.
 4. [Command line](2-architecture/20-cli.md) — Current commands, options, and exit codes.
+5. [Data formats](2-architecture/30-data-formats.md) — Contracts for findings.json and run.json.
 
 By the end of this part, you will understand how the existing modules work together and what the CLI does today.
 
 ## Part 3: Code
 
-5. [Program entry point](3-code/010-bin.md) — Starts the CLI and sets the process exit code.
-6. [Command line](3-code/020-cli.md) — Parses command-line arguments and writes output.
-7. [Exit codes and version](3-code/030-exit-codes-and-version.md) — Defines process codes and reads the package version.
-8. [Frontmatter reader](3-code/040-config-frontmatter.md) — Parses a YAML header and Markdown body.
-9. [Configuration paths](3-code/050-config-paths.md) — Names the configuration folders and kinds.
-10. [Configuration types](3-code/060-config-types.md) — Defines shared config, rule, and problem shapes.
-11. [Project configuration loader](3-code/070-config-config.md) — Reads and validates config.md.
-12. [Rule loader](3-code/080-config-rules.md) — Loads and validates Markdown rules.
-13. [Task loader](3-code/090-config-task.md) — Loads and validates Markdown task briefs.
-14. [Read-only Git interface](3-code/100-git-git.md) — Guards allowed Git commands and options.
-15. [Temporary repository test helpers](3-code/110-test-helpers-repo.md) — Creates isolated Git fixtures for tests.
-16. [Project initialization](3-code/120-init-init.md) — Creates project configuration without replacing files.
-17. [Initialization templates](3-code/130-init-templates.md) — Defines generated project files in English and Spanish.
-18. [Project checker](3-code/140-check-check.md) — Validates configuration, rules, and file patterns.
-19. [Pattern matcher](3-code/150-config-match.md) — Evaluates file paths against wildcard patterns.
-20. [Review types](3-code/160-review-types.md) — Defines changed file types and review scope.
-21. [Review range](3-code/170-review-range.md) — Determines commits, files, and lines included in a review.
-22. [Changed lines](3-code/180-review-changes.md) — Reads added and removed lines for each changed file.
-23. [Rule selection](3-code/190-review-select.md) — Chooses which rules apply based on changed files, lines, and task.
-24. [Repository snapshot](3-code/200-review-snapshot.md) — Captures and compares cryptographic and structural repository state.
+6. [Program entry point](3-code/010-bin.md) — Starts the CLI and sets the process exit code.
+7. [Command line](3-code/020-cli.md) — Parses command-line arguments and writes output.
+8. [Exit codes and version](3-code/030-exit-codes-and-version.md) — Defines process codes and reads the package version.
+9. [Frontmatter reader](3-code/040-config-frontmatter.md) — Parses a YAML header and Markdown body.
+10. [Configuration paths](3-code/050-config-paths.md) — Names the configuration folders and kinds.
+11. [Configuration types](3-code/060-config-types.md) — Defines shared config, rule, and problem shapes.
+12. [Project configuration loader](3-code/070-config-config.md) — Reads and validates config.md.
+13. [Rule loader](3-code/080-config-rules.md) — Loads and validates Markdown rules.
+14. [Task loader](3-code/090-config-task.md) — Loads and validates Markdown task briefs.
+15. [Read-only Git interface](3-code/100-git-git.md) — Guards allowed Git commands and options.
+16. [Temporary repository test helpers](3-code/110-test-helpers-repo.md) — Creates isolated Git fixtures for tests.
+17. [Project initialization](3-code/120-init-init.md) — Creates project configuration without replacing files.
+18. [Initialization templates](3-code/130-init-templates.md) — Defines generated project files in English and Spanish.
+19. [Project checker](3-code/140-check-check.md) — Validates configuration, rules, and file patterns.
+20. [Pattern matcher](3-code/150-config-match.md) — Evaluates file paths against wildcard patterns.
+21. [Review types](3-code/160-review-types.md) — Defines changed file types and review scope.
+22. [Review range](3-code/170-review-range.md) — Determines commits, files, and lines included in a review.
+23. [Changed lines](3-code/180-review-changes.md) — Reads added and removed lines for each changed file.
+24. [Rule selection](3-code/190-review-select.md) — Chooses which rules apply based on changed files, lines, and task.
+25. [Repository snapshot](3-code/200-review-snapshot.md) — Captures and compares cryptographic and structural repository state.
+26. [Findings schema](3-code/210-findings-schema.md) — Defines the schema version and normalized finding types.
+27. [Findings validator](3-code/220-findings-validate.md) — Validates, normalizes, and discards findings against the repository.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-25. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-26. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-27. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-28. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-29. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+28. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+29. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+30. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+31. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+32. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

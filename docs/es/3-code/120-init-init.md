@@ -1,4 +1,4 @@
-Parte 3 · Página 16 de 29 · Anterior: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · Siguiente: [Plantillas de inicialización](130-init-templates.md) · [Índice](../README.md)
+Parte 3 · Página 17 de 32 · Anterior: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · Siguiente: [Plantillas de inicialización](130-init-templates.md) · [Índice](../README.md)
 # Inicialización del proyecto
 
 **Archivo:** `src/init/init.ts` · 70 líneas · **Estado:** disponible
@@ -193,6 +193,7 @@ Al repetir la inicialización, los archivos generados se conservan y aparecen co
 
 `src/init/init.test.ts`: persistencia y selección del idioma, rechazo de valores no válidos antes de escribir, carga de fichas en ambos idiomas, repetición sin sobrescritura, CRLF y CR suelto, ejemplos de reglas README en ambos idiomas, normalización de rutas, CLI JSON y códigos de salida.
 
-Parte 3 · Página 16 de 29 · Anterior: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · Siguiente: [Plantillas de inicialización](130-init-templates.md) · [Índice](../README.md)
+Parte 3 · Página 17 de 32 · Anterior: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · Siguiente: [Plantillas de inicialización](130-init-templates.md) · [Índice](../README.md)
+
 
 
