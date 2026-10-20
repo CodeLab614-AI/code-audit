@@ -1,4 +1,4 @@
-Part 4 · Page 23 of 26 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
+Part 4 · Page 24 of 27 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
 # Build script
 
 **File:** `scripts/build.ts` · 40 lines · **Status:** available
@@ -138,5 +138,6 @@ Without the `finally` block, callers importing `buildArtifact` would remain in t
 ## Tests
 
 - `src/build.test.ts`: `does not contain absolute local paths`.
-Part 4 · Page 23 of 26 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
+Part 4 · Page 24 of 27 · Previous: [Development](10-development.md) · Next: [Documentation checker](17-docs-check.md) · [Index](../README.md)
+
 

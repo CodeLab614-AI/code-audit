@@ -1,4 +1,4 @@
-Part 3 · Page 20 of 26 · Previous: [Pattern matcher](150-config-match.md) · Next: [Review range](170-review-range.md) · [Index](../README.md)
+Part 3 · Page 20 of 27 · Previous: [Pattern matcher](150-config-match.md) · Next: [Review range](170-review-range.md) · [Index](../README.md)
 # Review types
 
 **File:** `src/review/types.ts` · 35 lines · **Status:** available
@@ -265,5 +265,6 @@ Complete structure defining review scope and changed files.
 ## Tests
 
 - `src/review/range.test.ts`: validates `ReviewRange` and `ChangedFile` shapes across all modes.
-Part 3 · Page 20 of 26 · Previous: [Pattern matcher](150-config-match.md) · Next: [Review range](170-review-range.md) · [Index](../README.md)
+Part 3 · Page 20 of 27 · Previous: [Pattern matcher](150-config-match.md) · Next: [Review range](170-review-range.md) · [Index](../README.md)
+
 

@@ -1,4 +1,4 @@
-Part 2 · Page 3 of 26 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+Part 2 · Page 3 of 27 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
 # Architecture
 
 Bun is the development toolkit: it installs dependencies, runs TypeScript tests and scripts, and bundles the CLI. Node.js runs the built JavaScript file, so running the CLI does not require Bun.
@@ -23,11 +23,16 @@ flowchart TD
     range --> match
     range --> reviewTypes["src/review/types.ts"]
     range --> configTypes["src/config/types.ts"]
+    changes["src/review/changes.ts"] --> git
+    changes --> reviewTypes
     checkTest["src/check/check.test.ts"] --> check
     checkTest --> repoHelper["src/test-helpers/repo.ts"]
     matchTest["src/config/match.test.ts"] --> match
     rangeTest["src/review/range.test.ts"] --> range
     rangeTest --> repoHelper
+    changesTest["src/review/changes.test.ts"] --> changes
+    changesTest --> range
+    changesTest --> repoHelper
     initTest["src/init/init.test.ts"] --> init
     initTest --> rules["src/config/rules.ts"]
     initTest --> task["src/config/task.ts"]
@@ -53,10 +58,13 @@ flowchart TD
 
 [`src/review/range.ts`](../3-code/170-review-range.md) computes review scope by importing `src/git/git.ts`, `src/config/match.ts`, [`src/config/types.ts`](../3-code/060-config-types.md), and [`src/review/types.ts`](../3-code/160-review-types.md). Currently no command line command imports it yet.
 
+[`src/review/changes.ts`](../3-code/180-review-changes.md) reads modified lines for each file by importing `src/git/git.ts` and [`src/review/types.ts`](../3-code/160-review-types.md). Currently no command line command imports it yet.
+
 [`src/config/frontmatter.ts`](../3-code/040-config-frontmatter.md) parses a YAML header and body. `src/config/rules.ts` and [`src/config/task.ts`](../3-code/090-config-task.md) import it; their tests import their respective loaders.
 
 The build script bundles the executable from [`src/bin.ts`](../3-code/010-bin.md) into a JavaScript module. A JavaScript module (ESM) is a file that uses `import` and `export`. The documentation checker validates the English and Spanish pages.
 
-The Git, initialization, and review range tests import `src/git/git.ts` and [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` also checks generated examples with the rule and task loaders. The test helper runs Git only in temporary fixture repositories. `src/config/match.test.ts` and `src/review/range.test.ts` test their respective modules directly.
-Part 2 · Page 3 of 26 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+The Git, initialization, review range, and changed lines tests import `src/git/git.ts` and [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` also checks generated examples with the rule and task loaders. The test helper runs Git only in temporary fixture repositories. `src/config/match.test.ts`, `src/review/range.test.ts`, and `src/review/changes.test.ts` test their respective modules directly.
+Part 2 · Page 3 of 27 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+
 

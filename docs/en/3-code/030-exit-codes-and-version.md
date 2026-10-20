@@ -1,4 +1,4 @@
-Part 3 · Page 7 of 26 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+Part 3 · Page 7 of 27 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
 # Exit codes and version
 
 **File:** `src/exit-codes.ts`, `src/version.ts` · 16 lines · **Status:** available
@@ -129,5 +129,6 @@ Without `as const`, TypeScript would widen the values and callers would lose the
 ## Tests
 
 - `src/cli.test.ts`: `prints the version and returns success`, `rejects unknown commands`, `reports that review is not available yet`.
-Part 3 · Page 7 of 26 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+Part 3 · Page 7 of 27 · Previous: [Command line](020-cli.md) · Next: [Frontmatter reader](040-config-frontmatter.md) · [Index](../README.md)
+
 

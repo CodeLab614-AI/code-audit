@@ -1,4 +1,4 @@
-Part 3 · Page 21 of 26 · Previous: [Review types](160-review-types.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 21 of 27 · Previous: [Review types](160-review-types.md) · Next: [Changed lines](180-review-changes.md) · [Index](../README.md)
 # Review range
 
 **File:** `src/review/range.ts` · 380 lines · **Status:** available
@@ -805,4 +805,5 @@ Occurs when the repository is a shallow clone (`git clone --depth`):
 - `src/review/range.test.ts`: filtering matching patterns in `config.ignore` and populating `ignoredByConfig`.
 - `src/review/range.test.ts`: `unpushed`, `since-run`, `since-ref`, and detached HEAD modes.
 - `src/review/range.test.ts`: error detection for `needs-start`, `bad-ref`, `base-not-found`, `empty`, `no-commits`, and `shallow`.
-Part 3 · Page 21 of 26 · Previous: [Review types](160-review-types.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 21 of 27 · Previous: [Review types](160-review-types.md) · Next: [Changed lines](180-review-changes.md) · [Index](../README.md)
+

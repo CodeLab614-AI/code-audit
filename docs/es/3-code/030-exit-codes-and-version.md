@@ -1,4 +1,4 @@
-Parte 3 · Página 7 de 26 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+Parte 3 · Página 7 de 27 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
 # Códigos de salida y versión
 
 **Archivo:** `src/exit-codes.ts`, `src/version.ts` · 16 líneas · **Estado:** disponible
@@ -129,5 +129,6 @@ Sin `as const`, TypeScript ampliaría los valores y los consumidores perderían 
 ## Pruebas
 
 El archivo de pruebas comprueba la versión y las respuestas del CLI.
-Parte 3 · Página 7 de 26 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+Parte 3 · Página 7 de 27 · Anterior: [Línea de comandos](020-cli.md) · Siguiente: [Lector de frontmatter](040-config-frontmatter.md) · [Índice](../README.md)
+
 

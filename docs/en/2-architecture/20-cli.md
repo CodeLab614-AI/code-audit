@@ -1,4 +1,4 @@
-Part 2 · Page 4 of 26 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+Part 2 · Page 4 of 27 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
 # Command line
 
 The command line interface (CLI) accepts `init`, `check`, and `review`, plus `--root`, `--language`, `--json`, `--help`, and `--version`. `check` validates the project and `review` still reports that it is not available.
@@ -35,5 +35,6 @@ The language value must contain letters and digits in nonempty groups separated 
 | 3 | Not a repository | `init` or `check` outside a working repository or without Git |
 | 10 | Internal error | Unexpected initialization or check failure |
 
-Part 2 · Page 4 of 26 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+Part 2 · Page 4 of 27 · Previous: [Architecture](10-architecture.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+
 
