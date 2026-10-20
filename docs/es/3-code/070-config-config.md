@@ -1,4 +1,4 @@
-Parte 3 · Página 11 de 27 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
+Parte 3 · Página 11 de 28 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
 # Cargador de configuración del proyecto
 
 **Archivo:** `src/config/config.ts` · 88 líneas · **Estado:** disponible
@@ -216,6 +216,6 @@ $ echo $?
 - `src/config/config.test.ts`: otro entero genera un aviso; un valor no entero genera un error.
 - `src/config/config.test.ts`: error exacto de `agent`.
 - `src/config/config.test.ts`: límites cero y no numéricos.
-Parte 3 · Página 11 de 27 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
+Parte 3 · Página 11 de 28 · Anterior: [Tipos de configuración](060-config-types.md) · Siguiente: [Cargador de reglas](080-config-rules.md) · [Índice](../README.md)
 
 

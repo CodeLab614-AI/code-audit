@@ -45,15 +45,16 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 20. [Tipos de revisión](3-code/160-review-types.md) — Define los tipos de archivos cambiados y alcance de revisión.
 21. [Rango a revisar](3-code/170-review-range.md) — Determina los commits, archivos y líneas que entran en la revisión.
 22. [Líneas cambiadas](3-code/180-review-changes.md) — Lee las líneas agregadas y eliminadas de cada archivo cambiado.
+23. [Selección de reglas](3-code/190-review-select.md) — Elige qué reglas aplican según archivos cambiados, líneas y tarea.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-23. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-24. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-25. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-26. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-27. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+24. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+25. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+26. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+27. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+28. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.

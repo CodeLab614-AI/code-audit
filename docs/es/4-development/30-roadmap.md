@@ -1,4 +1,4 @@
-Parte 4 · Página 27 de 27 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
+Parte 4 · Página 28 de 28 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
 # Hoja de ruta
 
 - **Tarea 1 — Hecha:** configuración de Bun, esqueleto del CLI y compilación a un solo archivo.
@@ -13,7 +13,8 @@ Parte 4 · Página 27 de 27 · Anterior: [Estándar de documentación](20-docume
 
 - **Tarea 1 — Hecha:** cálculo del rango a revisar (`computeRange`, `resolveBase`, tipos de revisión y comparador de patrones `createMatcher`).
 - **Tarea 2 — Hecha:** líneas cambiadas (`readChangedLines` y `ChangedLines` mediante diff unificado contra la copia de trabajo y lectura de archivos sin seguimiento).
-- **Planeado:** elegir las reglas aplicables, foto del repositorio, validar hallazgos y generar informes HTML y Markdown.
+- **Tarea 3 — Hecha:** selección de reglas (`selectRules`, `SelectedRule`, `SelectionReason` y `normalizeForKeywords` por políticas, patrones con renombrados y palabras clave con acentos y términos completos).
+- **Planeado:** foto del repositorio, validar hallazgos y generar informes HTML y Markdown.
 
 ## Plan 3: Mapa del código
 
@@ -24,6 +25,6 @@ Parte 4 · Página 27 de 27 · Anterior: [Estándar de documentación](20-docume
 **Planeado:** abrir nuevas sesiones de revisión y verificación con el mismo agente que inicia la skill; avisar cuando un cambio sea grande; entregar las instrucciones `SKILL.md` y las pruebas de la skill.
 
 Consulta la [página del comprobador de documentación](17-docs-check.md) para ver sus comprobaciones y ejemplos.
-Parte 4 · Página 27 de 27 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
+Parte 4 · Página 28 de 28 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
 
 

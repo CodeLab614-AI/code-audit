@@ -1,4 +1,4 @@
-Parte 1 · Página 1 de 27 · Siguiente: [Uso de code-audit hoy](20-usage.md) · [Índice](../README.md)
+Parte 1 · Página 1 de 28 · Siguiente: [Uso de code-audit hoy](20-usage.md) · [Índice](../README.md)
 # Qué es code-audit
 
 ## El problema
@@ -20,6 +20,6 @@ La meta es que cada proyecto escriba sus propias reglas técnicas, de negocio y 
 ## Qué falta
 
 La función de revisión descrita arriba todavía no está implementada; la [hoja de ruta](../4-development/30-roadmap.md) enumera el trabajo pendiente.
-Parte 1 · Página 1 de 27 · Siguiente: [Uso de code-audit hoy](20-usage.md) · [Índice](../README.md)
+Parte 1 · Página 1 de 28 · Siguiente: [Uso de code-audit hoy](20-usage.md) · [Índice](../README.md)
 
 

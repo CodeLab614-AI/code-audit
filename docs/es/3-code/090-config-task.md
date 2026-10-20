@@ -1,4 +1,4 @@
-Parte 3 · Página 13 de 27 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
+Parte 3 · Página 13 de 28 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
 # Cargador de fichas de tarea
 
 **Archivo:** `src/config/task.ts` · 167 líneas · **Estado:** disponible
@@ -414,6 +414,6 @@ console.log(JSON.stringify(await loadTask(root, 'colonHeading.md'), null, 2));
 - `src/config/task.test.ts`: bloques cercados, secciones desconocidas o repetidas y YAML roto.
 - `src/config/task.test.ts`: BOM, CRLF, rutas relativas y externas a la raíz, y archivos ausentes.
 
-Parte 3 · Página 13 de 27 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
+Parte 3 · Página 13 de 28 · Anterior: [Cargador de reglas](080-config-rules.md) · Siguiente: [Interfaz Git de solo lectura](100-git-git.md) · [Índice](../README.md)
 
 
