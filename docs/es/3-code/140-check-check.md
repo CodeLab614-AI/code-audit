@@ -1,7 +1,7 @@
-Parte 3 · Página 18 de 23 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 18 de 26 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Comparador de patrones](150-config-match.md) · [Índice](../README.md)
 # Comprobador del proyecto
 
-**Archivo:** `src/check/check.ts` · 72 líneas · **Estado:** disponible
+**Archivo:** `src/check/check.ts` · 67 líneas · **Estado:** disponible
 
 ## Índice de la página
 
@@ -20,7 +20,7 @@ Este archivo revisa las instrucciones guardadas para el proyecto. Comprueba que 
 
 ## Antes de leer el código
 
-Un patrón de archivos describe rutas, por ejemplo `src/**`. `picomatch` compara el patrón con cada ruta del repositorio. La opción `{ dot: true }` permite incluir archivos ocultos como `src/.env`.
+Un patrón de archivos describe rutas, por ejemplo `src/**`. [`src/config/match.ts`](150-config-match.md) crea una función con `createMatcher` que compara el patrón con cada ruta del repositorio usando `picomatch` y `{ dot: true }` para incluir archivos ocultos como `src/.env`.
 
 La opción `-z` de Git separa los nombres con un byte cero. Así conserva los espacios, acentos y saltos de línea que forman parte de un nombre.
 
@@ -32,19 +32,19 @@ flowchart TD
     Check --> Config["loadConfig"]
     Check --> Rules["loadRules"]
     Check --> Git["runGit: archivos versionados y nuevos visibles"]
-    Check --> Match["picomatch"]
+    Check --> Match["createMatcher en src/config/match.ts"]
     Check --> Problems["problemas ordenados y cantidades"]
 ```
 
 1. El CLI encuentra la raíz del repositorio y llama a `checkProject`.
 2. El comprobador carga la configuración y las reglas, y pide a Git los archivos versionados y los nuevos que no están ignorados.
-3. Detecta ids repetidos sin distinguir mayúsculas y patrones sin coincidencias.
+3. Detecta ids repetidos sin distinguir mayúsculas y patrones sin coincidencias usando `createMatcher`.
 4. Ordena los errores antes de los avisos y devuelve las cantidades.
 
 ## El código completo, comentado
 
 ```ts
-import picomatch from 'picomatch';
+import { createMatcher } from '../config/match.js';
 import { CONFIG_DIR } from '../config/paths.js';
 import { loadConfig } from '../config/config.js';
 import { loadRules } from '../config/rules.js';
@@ -81,13 +81,8 @@ export async function checkProject(root: string): Promise<{ problems: Problem[];
 
     if (rule.kind === 'policy') continue;
     for (const pattern of rule.appliesTo) {
-      let matches = false;
-      try {
-        const match = picomatch(pattern, { dot: true });
-        matches = files.some((file) => match(file));
-      } catch {
-        matches = false;
-      }
+      const matcher = createMatcher([pattern]);
+      const matches = files.some((file) => matcher(file) !== undefined);
       if (!matches) {
         problems.push({ level: 'warning', file: rule.file, message: `applies_to pattern matches no file: ${pattern}` });
       }
@@ -178,10 +173,10 @@ $ echo $?
 
 ### Usa
 
-- [`src/config/config.ts`](070-config-config.md), línea 18, carga la configuración del proyecto.
+- [`src/config/match.ts`](150-config-match.md), línea 1, crea el comparador de patrones.
+- [`src/config/config.ts`](070-config-config.md), línea 13, carga la configuración del proyecto.
 - [`src/config/rules.ts`](080-config-rules.md), línea 14, carga y valida las reglas.
-- [`src/git/git.ts`](100-git-git.md), línea 51, ejecuta el comando Git protegido.
-- `picomatch`, dependencia de ejecución incluida en el archivo compilado.
+- [`src/git/git.ts`](100-git-git.md), línea 16, ejecuta el comando Git protegido.
 
 ### Lo usan
 
@@ -192,4 +187,5 @@ $ echo $?
 
 `src/check/check.test.ts`: inicialización en ambos idiomas, ids repetidos, archivos versionados y nuevos, archivos ignorados, espacios y acentos, nombres con salto de línea, patrones sin coincidencias, umbral de políticas y errores combinados de los cargadores. `src/cli.test.ts`: salida normal y JSON, y códigos 0, 2 y 3.
 
-Parte 3 · Página 18 de 23 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 18 de 26 · Anterior: [Plantillas de inicialización](130-init-templates.md) · Siguiente: [Comparador de patrones](150-config-match.md) · [Índice](../README.md)
+

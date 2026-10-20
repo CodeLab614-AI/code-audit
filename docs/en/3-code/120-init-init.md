@@ -1,4 +1,4 @@
-Part 3 · Page 16 of 23 · Previous: [Temporary repository test helpers](110-test-helpers-repo.md) · Next: [Initialization templates](130-init-templates.md) · [Index](../README.md)
+Part 3 · Page 16 of 26 · Previous: [Temporary repository test helpers](110-test-helpers-repo.md) · Next: [Initialization templates](130-init-templates.md) · [Index](../README.md)
 # Project initialization
 
 **File:** `src/init/init.ts` · 70 lines · **Status:** available
@@ -193,4 +193,5 @@ A repeated initialization leaves the generated files intact and reports them as 
 
 `src/init/init.test.ts`: language persistence and selection, invalid values before writes, generated task loading in both languages, non-overwriting repeat call, CRLF and lone-CR handling, README rule examples in both languages, normalized ignore entries, JSON CLI, and exit codes.
 
-Part 3 · Page 16 of 23 · Previous: [Temporary repository test helpers](110-test-helpers-repo.md) · Next: [Initialization templates](130-init-templates.md) · [Index](../README.md)
+Part 3 · Page 16 of 26 · Previous: [Temporary repository test helpers](110-test-helpers-repo.md) · Next: [Initialization templates](130-init-templates.md) · [Index](../README.md)
+

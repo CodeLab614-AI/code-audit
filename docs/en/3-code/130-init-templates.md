@@ -1,4 +1,4 @@
-Part 3 · Page 17 of 23 · Previous: [Project initialization](120-init-init.md) · Next: [Project checker](140-check-check.md) · [Index](../README.md)
+Part 3 · Page 17 of 26 · Previous: [Project initialization](120-init-init.md) · Next: [Project checker](140-check-check.md) · [Index](../README.md)
 # Initialization templates
 
 **File:** `src/init/templates.ts` · 78 lines · **Status:** available
@@ -196,4 +196,5 @@ The generated `policies/README.md`, `rules/README.md`, `business/README.md`, `de
 
 `src/init/init.test.ts`: exact language persistence and Spanish selection for `ES` and `es-MX`; `loadRules` accepts all five README examples in English and Spanish; `loadTask` accepts both generated task templates with notes and no problems.
 
-Part 3 · Page 17 of 23 · Previous: [Project initialization](120-init-init.md) · Next: [Project checker](140-check-check.md) · [Index](../README.md)
+Part 3 · Page 17 of 26 · Previous: [Project initialization](120-init-init.md) · Next: [Project checker](140-check-check.md) · [Index](../README.md)
+

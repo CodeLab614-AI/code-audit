@@ -8688,6 +8688,9 @@ var ExitCode = {
   USAGE: 1,
   CONFIG_INVALID: 2,
   NOT_A_REPO: 3,
+  REVIEW_RANGE: 4,
+  REPO_CHANGED: 5,
+  FINDINGS_INVALID: 6,
   INTERNAL: 10
 };
 
@@ -9109,8 +9112,27 @@ function normalizeGitignoreLine(line) {
 }
 var GITIGNORE_LINES = [".agents/code-audit/tasks/", ".agents/code-audit/runs/"];
 
-// src/check/check.ts
+// src/config/match.ts
 var import_picomatch = __toESM(require_picomatch2(), 1);
+function createMatcher(patterns) {
+  const matchers = patterns.map((pattern) => {
+    try {
+      const match = import_picomatch.default(pattern, { dot: true });
+      return { pattern, match };
+    } catch {
+      return { pattern, match: () => false };
+    }
+  });
+  return (file) => {
+    for (const { pattern, match } of matchers) {
+      try {
+        if (match(file))
+          return pattern;
+      } catch {}
+    }
+    return;
+  };
+}
 
 // src/config/config.ts
 import { readFile as readFile2 } from "node:fs/promises";
@@ -9441,13 +9463,8 @@ async function checkProject(root) {
     if (rule.kind === "policy")
       continue;
     for (const pattern of rule.appliesTo) {
-      let matches = false;
-      try {
-        const match = import_picomatch.default(pattern, { dot: true });
-        matches = files.some((file) => match(file));
-      } catch {
-        matches = false;
-      }
+      const matcher = createMatcher([pattern]);
+      const matches = files.some((file) => matcher(file) !== undefined);
       if (!matches) {
         problems.push({ level: "warning", file: rule.file, message: `applies_to pattern matches no file: ${pattern}` });
       }

@@ -1,7 +1,7 @@
-Part 3 · Page 18 of 23 · Previous: [Initialization templates](130-init-templates.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 18 of 26 · Previous: [Initialization templates](130-init-templates.md) · Next: [Pattern matcher](150-config-match.md) · [Index](../README.md)
 # Project checker
 
-**File:** `src/check/check.ts` · 72 lines · **Status:** available
+**File:** `src/check/check.ts` · 67 lines · **Status:** available
 
 ## Page index
 
@@ -20,7 +20,7 @@ This file checks whether the project's instruction cards can be used consistentl
 
 ## Before reading the code
 
-A file pattern is a short description of paths such as `src/**`. `picomatch` compares that pattern with each repository path. The `{ dot: true }` option lets patterns include hidden files such as `src/.env`.
+A file pattern is a short description of paths such as `src/**`. [`src/config/match.ts`](150-config-match.md) creates a matcher function using `createMatcher` that compares that pattern with each repository path using `picomatch` and `{ dot: true }` to include hidden files such as `src/.env`.
 
 Git's `-z` option separates file names with a zero byte. This keeps spaces, accents, and line breaks inside a file name intact.
 
@@ -32,19 +32,19 @@ flowchart TD
     Check --> Config["loadConfig"]
     Check --> Rules["loadRules"]
     Check --> Git["runGit: tracked and new visible files"]
-    Check --> Match["picomatch"]
+    Check --> Match["createMatcher in src/config/match.ts"]
     Check --> Problems["ordered problems and counts"]
 ```
 
 1. The CLI finds the repository root and calls `checkProject`.
 2. The checker loads configuration and rules and asks Git for tracked and non-ignored new files.
-3. It finds duplicate IDs without case sensitivity and unmatched patterns.
+3. It finds duplicate IDs without case sensitivity and unmatched patterns using `createMatcher`.
 4. It orders errors before warnings and returns the counts.
 
 ## The complete, commented code
 
 ```ts
-import picomatch from 'picomatch';
+import { createMatcher } from '../config/match.js';
 import { CONFIG_DIR } from '../config/paths.js';
 import { loadConfig } from '../config/config.js';
 import { loadRules } from '../config/rules.js';
@@ -81,13 +81,8 @@ export async function checkProject(root: string): Promise<{ problems: Problem[];
 
     if (rule.kind === 'policy') continue;
     for (const pattern of rule.appliesTo) {
-      let matches = false;
-      try {
-        const match = picomatch(pattern, { dot: true });
-        matches = files.some((file) => match(file));
-      } catch {
-        matches = false;
-      }
+      const matcher = createMatcher([pattern]);
+      const matches = files.some((file) => matcher(file) !== undefined);
       if (!matches) {
         problems.push({ level: 'warning', file: rule.file, message: `applies_to pattern matches no file: ${pattern}` });
       }
@@ -178,10 +173,10 @@ $ echo $?
 
 ### Uses
 
-- [`src/config/config.ts`](070-config-config.md), line 18, loads project settings.
+- [`src/config/match.ts`](150-config-match.md), line 1, creates the pattern matcher.
+- [`src/config/config.ts`](070-config-config.md), line 13, loads project settings.
 - [`src/config/rules.ts`](080-config-rules.md), line 14, loads and validates rule files.
-- [`src/git/git.ts`](100-git-git.md), line 51, runs the guarded Git command.
-- `picomatch`, bundled from the runtime dependency.
+- [`src/git/git.ts`](100-git-git.md), line 16, runs the guarded Git command.
 
 ### Used by
 
@@ -192,4 +187,5 @@ $ echo $?
 
 `src/check/check.test.ts`: bilingual initialization, duplicate IDs, tracked and untracked files, ignored files, spaces and accents, newline-containing names, unmatched patterns, policy threshold, and combined loader errors. `src/cli.test.ts`: text and JSON output, exit codes 0, 2, and 3.
 
-Part 3 · Page 18 of 23 · Previous: [Initialization templates](130-init-templates.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 18 of 26 · Previous: [Initialization templates](130-init-templates.md) · Next: [Pattern matcher](150-config-match.md) · [Index](../README.md)
+

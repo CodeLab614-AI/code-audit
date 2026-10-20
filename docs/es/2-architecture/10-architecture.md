@@ -1,4 +1,4 @@
-Parte 2 · Página 3 de 23 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+Parte 2 · Página 3 de 26 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
 # Arquitectura
 
 Bun es la herramienta de desarrollo: instala dependencias, ejecuta pruebas y scripts TypeScript, y empaqueta el CLI. Node.js ejecuta el archivo JavaScript compilado, así que el CLI no requiere Bun al usarse.
@@ -17,9 +17,17 @@ flowchart TD
     check --> config["src/config/config.ts"]
     check --> rules["src/config/rules.ts"]
     check --> git["src/git/git.ts"]
-    check --> picomatch["picomatch"]
+    check --> match["src/config/match.ts"]
+    match --> picomatch["picomatch"]
+    range["src/review/range.ts"] --> git
+    range --> match
+    range --> reviewTypes["src/review/types.ts"]
+    range --> configTypes["src/config/types.ts"]
     checkTest["src/check/check.test.ts"] --> check
     checkTest --> repoHelper["src/test-helpers/repo.ts"]
+    matchTest["src/config/match.test.ts"] --> match
+    rangeTest["src/review/range.test.ts"] --> range
+    rangeTest --> repoHelper
     initTest["src/init/init.test.ts"] --> init
     initTest --> rules["src/config/rules.ts"]
     initTest --> task["src/config/task.ts"]
@@ -41,11 +49,14 @@ flowchart TD
     docsCheck["scripts/check-docs.ts"] --> docs["docs/en and docs/es"]
 ```
 
-`src/bin.ts` pasa los argumentos a `main` en [`src/cli.ts`](../3-code/020-cli.md). El CLI importa [`src/exit-codes.ts`](../3-code/030-exit-codes-and-version.md), [`src/version.ts`](../3-code/030-exit-codes-and-version.md), [`src/init/init.ts`](../3-code/120-init-init.md) y [`src/check/check.ts`](../3-code/140-check-check.md). El módulo de versión lee `package.json`. El inicializador importa [`src/git/git.ts`](../3-code/100-git-git.md), [`src/config/paths.ts`](../3-code/050-config-paths.md) y [`src/init/templates.ts`](../3-code/130-init-templates.md). El comprobador importa los cargadores de configuración y reglas, el ejecutor Git protegido y `picomatch`.
+`src/bin.ts` pasa los argumentos a `main` en [`src/cli.ts`](../3-code/020-cli.md). El CLI importa [`src/exit-codes.ts`](../3-code/030-exit-codes-and-version.md), [`src/version.ts`](../3-code/030-exit-codes-and-version.md), [`src/init/init.ts`](../3-code/120-init-init.md) y [`src/check/check.ts`](../3-code/140-check-check.md). El módulo de versión lee `package.json`. El inicializador importa [`src/git/git.ts`](../3-code/100-git-git.md), [`src/config/paths.ts`](../3-code/050-config-paths.md) y [`src/init/templates.ts`](../3-code/130-init-templates.md). El comprobador importa los cargadores de configuración y reglas, el ejecutor Git protegido y el comparador [`src/config/match.ts`](../3-code/150-config-match.md), que encapsula `picomatch`.
+
+[`src/review/range.ts`](../3-code/170-review-range.md) calcula el rango de revisión importando `src/git/git.ts`, `src/config/match.ts`, [`src/config/types.ts`](../3-code/060-config-types.md) y [`src/review/types.ts`](../3-code/160-review-types.md). Hoy ningún comando de la línea de comandos lo usa todavía.
 
 [`src/config/frontmatter.ts`](../3-code/040-config-frontmatter.md) interpreta un encabezado YAML y el cuerpo. Lo importan `src/config/rules.ts` y [`src/config/task.ts`](../3-code/090-config-task.md); las pruebas importan sus respectivos cargadores.
 
 El script de compilación agrupa el ejecutable que comienza en [`src/bin.ts`](../3-code/010-bin.md) dentro de un módulo JavaScript. Un módulo JavaScript (ESM) es un archivo que usa `import` y `export`. El comprobador valida las páginas en inglés y español.
 
-Las pruebas de Git e inicialización importan `src/git/git.ts` y [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` también comprueba los ejemplos generados con los cargadores de reglas y tareas. El ayudante ejecuta Git solo dentro de repositorios temporales de prueba.
-Parte 2 · Página 3 de 23 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+Las pruebas de Git, inicialización y rango importan `src/git/git.ts` y [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` también comprueba los ejemplos generados con los cargadores de reglas y tareas. El ayudante ejecuta Git solo dentro de repositorios temporales de prueba. `src/config/match.test.ts` y `src/review/range.test.ts` prueban sus respectivos módulos de forma directa.
+Parte 2 · Página 3 de 26 · Anterior: [Uso de code-audit hoy](../1-overview/20-usage.md) · Siguiente: [Línea de comandos](20-cli.md) · [Índice](../README.md)
+
