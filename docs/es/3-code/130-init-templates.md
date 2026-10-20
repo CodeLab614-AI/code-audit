@@ -1,4 +1,4 @@
-Parte 3 · Página 17 de 28 · Anterior: [Inicialización del proyecto](120-init-init.md) · Siguiente: [Comprobador del proyecto](140-check-check.md) · [Índice](../README.md)
+Parte 3 · Página 17 de 29 · Anterior: [Inicialización del proyecto](120-init-init.md) · Siguiente: [Comprobador del proyecto](140-check-check.md) · [Índice](../README.md)
 # Plantillas de inicialización
 
 **Archivo:** `src/init/templates.ts` · 78 líneas · **Estado:** disponible
@@ -196,6 +196,6 @@ Cada README generado (`policies/README.md`, `rules/README.md`, `business/README.
 
 `src/init/init.test.ts`: persistencia exacta del idioma y selección del español para `ES` y `es-MX`; `loadRules` acepta los cinco ejemplos de README en inglés y español; `loadTask` acepta ambas plantillas de tarea con notas y sin problemas.
 
-Parte 3 · Página 17 de 28 · Anterior: [Inicialización del proyecto](120-init-init.md) · Siguiente: [Comprobador del proyecto](140-check-check.md) · [Índice](../README.md)
+Parte 3 · Página 17 de 29 · Anterior: [Inicialización del proyecto](120-init-init.md) · Siguiente: [Comprobador del proyecto](140-check-check.md) · [Índice](../README.md)
 
 

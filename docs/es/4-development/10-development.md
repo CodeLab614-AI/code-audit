@@ -1,4 +1,4 @@
-Parte 4 · Página 24 de 28 · Anterior: [Selección de reglas](../3-code/190-review-select.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
+Parte 4 · Página 25 de 29 · Anterior: [Foto del repositorio](../3-code/200-review-snapshot.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
 # Desarrollo
 
 ## Requisitos y comandos
@@ -26,6 +26,6 @@ Los archivos de `src/` usan módulos de Node con prefijo `node:`. Las interfaces
 ## Ramas y solicitudes de integración
 
 El trabajo se hace en una rama de funcionalidad; después de ejecutar estas comprobaciones, se abre una solicitud de integración para revisar los cambios antes de incorporarlos. El propietario crea los commits y sube la rama. Cada cambio de código actualiza su documentación en inglés y español dentro de la misma rama, para revisar juntos el código y su guía.
-Parte 4 · Página 24 de 28 · Anterior: [Selección de reglas](../3-code/190-review-select.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
+Parte 4 · Página 25 de 29 · Anterior: [Foto del repositorio](../3-code/200-review-snapshot.md) · Siguiente: [Script de compilación](15-build-script.md) · [Índice](../README.md)
 
 

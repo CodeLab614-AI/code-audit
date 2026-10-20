@@ -1,4 +1,4 @@
-Parte 3 · Página 23 de 28 · Anterior: [Líneas cambiadas](180-review-changes.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 23 de 29 · Anterior: [Líneas cambiadas](180-review-changes.md) · Siguiente: [Foto del repositorio](200-review-snapshot.md) · [Índice](../README.md)
 # Selección de reglas
 
 **Archivo:** `src/review/select.ts` · 173 líneas · **Estado:** disponible
@@ -669,4 +669,4 @@ Salida de `selectRules`:
   - `converts uppercase to lowercase and strips accents via NFD`
   - `preserves whitespace and punctuation unchanged`
 
-Parte 3 · Página 23 de 28 · Anterior: [Líneas cambiadas](180-review-changes.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 23 de 29 · Anterior: [Líneas cambiadas](180-review-changes.md) · Siguiente: [Foto del repositorio](200-review-snapshot.md) · [Índice](../README.md)

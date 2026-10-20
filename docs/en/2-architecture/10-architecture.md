@@ -1,4 +1,4 @@
-Part 2 · Page 3 of 28 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+Part 2 · Page 3 of 29 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
 # Architecture
 
 Bun is the development toolkit: it installs dependencies, runs TypeScript tests and scripts, and bundles the CLI. Node.js runs the built JavaScript file, so running the CLI does not require Bun.
@@ -43,6 +43,11 @@ flowchart TD
     selectTest --> task
     selectTest --> reviewTypes
     selectTest --> changes
+    snapshot["src/review/snapshot.ts"] --> git
+    snapshot --> paths
+    snapshotTest["src/review/snapshot.test.ts"] --> snapshot
+    snapshotTest --> repoHelper
+    snapshotTest --> paths
     initTest["src/init/init.test.ts"] --> init
     initTest --> rules["src/config/rules.ts"]
     initTest --> task["src/config/task.ts"]
@@ -72,11 +77,13 @@ flowchart TD
 
 [`src/review/select.ts`](../3-code/190-review-select.md) selects which rules apply to the review by importing [`src/config/match.ts`](../3-code/150-config-match.md), [`src/config/types.ts`](../3-code/060-config-types.md), [`src/config/task.ts`](../3-code/090-config-task.md), [`src/review/types.ts`](../3-code/160-review-types.md), and [`src/review/changes.ts`](../3-code/180-review-changes.md). Today no CLI command uses it yet.
 
+[`src/review/snapshot.ts`](../3-code/200-review-snapshot.md) captures and compares snapshots of Git and repository file states by importing [`src/git/git.ts`](../3-code/100-git-git.md) and [`src/config/paths.ts`](../3-code/050-config-paths.md). Today no CLI command uses it yet.
+
 [`src/config/frontmatter.ts`](../3-code/040-config-frontmatter.md) parses a YAML header and body. `src/config/rules.ts` and [`src/config/task.ts`](../3-code/090-config-task.md) import it; their tests import their respective loaders.
 
 The build script bundles the executable from [`src/bin.ts`](../3-code/010-bin.md) into a JavaScript module. A JavaScript module (ESM) is a file that uses `import` and `export`. The documentation checker validates the English and Spanish pages.
 
-The Git, initialization, review range, and changed lines tests import `src/git/git.ts` and [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` also checks generated examples with the rule and task loaders. The test helper runs Git only in temporary fixture repositories. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts`, and `src/review/select.test.ts` test their respective modules directly.
-Part 2 · Page 3 of 28 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+The Git, initialization, review range, and changed lines tests import `src/git/git.ts` and [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` also checks generated examples with the rule and task loaders. The test helper runs Git only in temporary fixture repositories. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts`, `src/review/select.test.ts`, and `src/review/snapshot.test.ts` test their respective modules directly.
+Part 2 · Page 3 of 29 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
 
 
