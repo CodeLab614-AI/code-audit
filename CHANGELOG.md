@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Treated `ENOTDIR` errors as missing files in `takeSnapshot` when a tracked folder is replaced by a file of the same name.
+- Added repository snapshot module (`takeSnapshot`, `compareSnapshots`, `Snapshot`, `SnapshotChange`) recording Git HEAD, branch, staging index fingerprint, and non-ignored file states to detect repository modifications.
+- Added bilingual documentation for `src/review/snapshot.ts` and marked Plan 2 Task 4 complete.
+
 - Added rule selection module (`selectRules`, `SelectedRule`, `SelectionReason`, `normalizeForKeywords`) matching rules by policy, applies_to file patterns with renames, and full-word keywords in changed lines and task specifications.
 - Added bilingual documentation for `src/review/select.ts` and marked Plan 2 Task 3 complete.
 

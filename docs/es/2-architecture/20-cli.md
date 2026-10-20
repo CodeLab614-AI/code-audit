@@ -1,4 +1,4 @@
-Parte 2 · Página 4 de 28 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
+Parte 2 · Página 4 de 29 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
 # Línea de comandos
 
 El CLI acepta `init`, `check` y `review`, además de `--root`, `--language`, `--json`, `--help` y `--version`. `check` valida el proyecto y `review` sigue diciendo que aún no está disponible.
@@ -35,6 +35,6 @@ El idioma debe tener letras y números en grupos no vacíos separados por guione
 | 3 | No es un repositorio | `init` o `check` fuera de un repositorio o sin Git |
 | 10 | Error interno | Fallo inesperado durante `init` o `check` |
 
-Parte 2 · Página 4 de 28 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
+Parte 2 · Página 4 de 29 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
 
 

@@ -46,15 +46,16 @@ By the end of this part, you will understand how the existing modules work toget
 21. [Review range](3-code/170-review-range.md) — Determines commits, files, and lines included in a review.
 22. [Changed lines](3-code/180-review-changes.md) — Reads added and removed lines for each changed file.
 23. [Rule selection](3-code/190-review-select.md) — Chooses which rules apply based on changed files, lines, and task.
+24. [Repository snapshot](3-code/200-review-snapshot.md) — Captures and compares cryptographic and structural repository state.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-24. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-25. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-26. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-27. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-28. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+25. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+26. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+27. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+28. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+29. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

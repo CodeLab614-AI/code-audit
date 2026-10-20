@@ -1,4 +1,4 @@
-Part 3 · Page 18 of 28 · Previous: [Initialization templates](130-init-templates.md) · Next: [Pattern matcher](150-config-match.md) · [Index](../README.md)
+Part 3 · Page 18 of 29 · Previous: [Initialization templates](130-init-templates.md) · Next: [Pattern matcher](150-config-match.md) · [Index](../README.md)
 # Project checker
 
 **File:** `src/check/check.ts` · 67 lines · **Status:** available
@@ -187,6 +187,6 @@ $ echo $?
 
 `src/check/check.test.ts`: bilingual initialization, duplicate IDs, tracked and untracked files, ignored files, spaces and accents, newline-containing names, unmatched patterns, policy threshold, and combined loader errors. `src/cli.test.ts`: text and JSON output, exit codes 0, 2, and 3.
 
-Part 3 · Page 18 of 28 · Previous: [Initialization templates](130-init-templates.md) · Next: [Pattern matcher](150-config-match.md) · [Index](../README.md)
+Part 3 · Page 18 of 29 · Previous: [Initialization templates](130-init-templates.md) · Next: [Pattern matcher](150-config-match.md) · [Index](../README.md)
 
 

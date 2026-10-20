@@ -1,4 +1,4 @@
-Part 3 · Page 9 of 28 · Previous: [Frontmatter reader](040-config-frontmatter.md) · Next: [Configuration types](060-config-types.md) · [Index](../README.md)
+Part 3 · Page 9 of 29 · Previous: [Frontmatter reader](040-config-frontmatter.md) · Next: [Configuration types](060-config-types.md) · [Index](../README.md)
 # Configuration paths
 
 **File:** `src/config/paths.ts` · 13 lines · **Status:** available
@@ -122,6 +122,6 @@ bun -e 'import { CONFIG_DIR, RULE_DIRS } from "./src/config/paths.ts"; console.l
 ## Tests
 
 - `src/config/config.test.ts`: missing-file defaults.
-Part 3 · Page 9 of 28 · Previous: [Frontmatter reader](040-config-frontmatter.md) · Next: [Configuration types](060-config-types.md) · [Index](../README.md)
+Part 3 · Page 9 of 29 · Previous: [Frontmatter reader](040-config-frontmatter.md) · Next: [Configuration types](060-config-types.md) · [Index](../README.md)
 
 
