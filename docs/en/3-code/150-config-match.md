@@ -1,4 +1,4 @@
-Part 3 · Page 19 of 29 · Previous: [Project checker](140-check-check.md) · Next: [Review types](160-review-types.md) · [Index](../README.md)
+Part 3 · Page 20 of 32 · Previous: [Project checker](140-check-check.md) · Next: [Review types](160-review-types.md) · [Index](../README.md)
 # Pattern matcher
 
 **File:** `src/config/match.ts` · 28 lines · **Status:** available
@@ -146,6 +146,7 @@ Without `{ dot: true }`, hidden files like `src/.env` would not match patterns l
 - `src/config/match.test.ts`: safe handling of malformed patterns without throwing.
 - `src/config/match.test.ts`: precedence of earlier patterns.
 - `src/config/match.test.ts`: undefined result on empty patterns or non-matching paths.
-Part 3 · Page 19 of 29 · Previous: [Project checker](140-check-check.md) · Next: [Review types](160-review-types.md) · [Index](../README.md)
+Part 3 · Page 20 of 32 · Previous: [Project checker](140-check-check.md) · Next: [Review types](160-review-types.md) · [Index](../README.md)
+
 
 

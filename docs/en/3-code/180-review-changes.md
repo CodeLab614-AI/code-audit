@@ -1,4 +1,4 @@
-Part 3 · Page 22 of 29 · Previous: [Review range](170-review-range.md) · Next: [Rule selection](190-review-select.md) · [Index](../README.md)
+Part 3 · Page 23 of 32 · Previous: [Review range](170-review-range.md) · Next: [Rule selection](190-review-select.md) · [Index](../README.md)
 # Changed lines
 
 **File:** `src/review/changes.ts` · 118 lines · **Status:** available
@@ -394,5 +394,6 @@ Output from `readChangedLines`:
   - `SQL comment removal and line addition starting with ++ are parsed as content`
   - `unpushed mode on base branch with HEAD base only reflects uncommitted changes`
 
-Part 3 · Page 22 of 29 · Previous: [Review range](170-review-range.md) · Next: [Rule selection](190-review-select.md) · [Index](../README.md)
+Part 3 · Page 23 of 32 · Previous: [Review range](170-review-range.md) · Next: [Rule selection](190-review-select.md) · [Index](../README.md)
+
 

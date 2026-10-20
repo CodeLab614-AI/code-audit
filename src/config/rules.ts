@@ -5,7 +5,8 @@ import type { Problem, Rule, RuleKind, Severity } from './types.js';
 import { FrontmatterError, parseFrontmatter } from './frontmatter.js';
 
 const RULE_FIELDS = new Set(['id', 'title', 'severity', 'applies_to', 'keywords']);
-const SEVERITIES: Record<string, Severity> = {
+/** Supported severity levels and localized aliases mapped to canonical severities. */
+export const SEVERITIES: Record<string, Severity> = {
   critical: 'critical', major: 'major', minor: 'minor',
   grave: 'critical', importante: 'major', menor: 'minor',
 };

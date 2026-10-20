@@ -1,4 +1,4 @@
-Parte 3 · Página 24 de 29 · Anterior: [Selección de reglas](190-review-select.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 25 de 32 · Anterior: [Selección de reglas](190-review-select.md) · Siguiente: [Esquema de hallazgos](210-findings-schema.md) · [Índice](../README.md)
 # Foto del repositorio
 
 **Archivo:** `src/review/snapshot.ts` · 154 líneas · **Estado:** disponible
@@ -396,4 +396,5 @@ Salida completa de `compareSnapshots`:
   - `difficult filenames *.ts, [x].ts, tab names, and spaces with accents are preserved exactly`
   - `multiple simultaneous changes are ordered by head, branch, index, added, removed, modified with paths sorted`
 
-Parte 3 · Página 24 de 29 · Anterior: [Selección de reglas](190-review-select.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 25 de 32 · Anterior: [Selección de reglas](190-review-select.md) · Siguiente: [Esquema de hallazgos](210-findings-schema.md) · [Índice](../README.md)
+

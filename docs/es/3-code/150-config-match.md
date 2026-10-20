@@ -1,4 +1,4 @@
-Parte 3 · Página 19 de 29 · Anterior: [Comprobador del proyecto](140-check-check.md) · Siguiente: [Tipos de revisión](160-review-types.md) · [Índice](../README.md)
+Parte 3 · Página 20 de 32 · Anterior: [Comprobador del proyecto](140-check-check.md) · Siguiente: [Tipos de revisión](160-review-types.md) · [Índice](../README.md)
 # Comparador de patrones
 
 **Archivo:** `src/config/match.ts` · 28 líneas · **Estado:** disponible
@@ -146,6 +146,7 @@ Sin `{ dot: true }`, los archivos ocultos como `src/.env` no coincidirían con p
 - `src/config/match.test.ts`: manejo seguro de patrones inválidos sin lanzar excepciones.
 - `src/config/match.test.ts`: precedencia del primer patrón coincidente.
 - `src/config/match.test.ts`: respuesta indefinida ante patrones vacíos o sin coincidencias.
-Parte 3 · Página 19 de 29 · Anterior: [Comprobador del proyecto](140-check-check.md) · Siguiente: [Tipos de revisión](160-review-types.md) · [Índice](../README.md)
+Parte 3 · Página 20 de 32 · Anterior: [Comprobador del proyecto](140-check-check.md) · Siguiente: [Tipos de revisión](160-review-types.md) · [Índice](../README.md)
+
 
 
