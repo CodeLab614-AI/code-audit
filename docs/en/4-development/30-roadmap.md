@@ -1,4 +1,4 @@
-Part 4 · Page 26 of 26 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+Part 4 · Page 27 of 27 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
 # Roadmap
 
 - **Task 1 — Done:** Bun project setup, CLI skeleton, and single-file build.
@@ -12,7 +12,8 @@ Part 4 · Page 26 of 26 · Previous: [Documentation standard](20-documentation-s
 ## Plan 2: Review without AI
 
 - **Task 1 — Done:** Review range computation (`computeRange`, `resolveBase`, review types, and `createMatcher` pattern matcher).
-- **Planned:** Changed lines, select applicable rules, capture repository snapshot, validate findings, and generate HTML and Markdown reports.
+- **Task 2 — Done:** Changed lines (`readChangedLines` and `ChangedLines` via unified diff against the working tree and reading untracked files).
+- **Planned:** Select applicable rules, capture repository snapshot, validate findings, and generate HTML and Markdown reports.
 
 ## Plan 3: Code map
 
@@ -23,5 +24,6 @@ Part 4 · Page 26 of 26 · Previous: [Documentation standard](20-documentation-s
 **Planned:** Open new review and verification sessions with the same agent that launches the skill; report when a change is large; provide the skill's `SKILL.md` instructions and tests.
 
 See the [documentation checker page](17-docs-check.md) for its checks and examples.
-Part 4 · Page 26 of 26 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+Part 4 · Page 27 of 27 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+
 

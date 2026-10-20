@@ -1,4 +1,4 @@
-Part 1 · Page 2 of 26 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+Part 1 · Page 2 of 27 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
 # Use code-audit today
 
 ## Requirements
@@ -69,5 +69,6 @@ Updated .gitignore.
 To capture the paths as JSON, add `--json`. Running `init` again preserves the files and lists them as skipped. The [CLI architecture page](../2-architecture/20-cli.md) lists the current exit codes; the [initializer page](../3-code/120-init-init.md) shows the resulting tree and second-run output.
 
 Run `check` inside a Git repository or pass a path within it with `--root`. It prints each error and warning, then a count summary. Add `--json` for the complete result object. It returns 2 for errors, 0 for warnings only or no problems, and 3 outside a Git repository.
-Part 1 · Page 2 of 26 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+Part 1 · Page 2 of 27 · Previous: [What is code-audit](10-what-is-code-audit.md) · Next: [Architecture](../2-architecture/10-architecture.md) · [Index](../README.md)
+
 
