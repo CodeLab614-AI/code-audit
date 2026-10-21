@@ -1,4 +1,4 @@
-Parte 3 · Página 16 de 32 · Anterior: [Interfaz Git de solo lectura](100-git-git.md) · Siguiente: [Inicialización del proyecto](120-init-init.md) · [Índice](../README.md)
+Parte 3 · Página 16 de 34 · Anterior: [Interfaz Git de solo lectura](100-git-git.md) · Siguiente: [Inicialización del proyecto](120-init-init.md) · [Índice](../README.md)
 # Ayudantes de prueba para repositorios temporales
 
 **Archivo:** `src/test-helpers/repo.ts` · 41 líneas · **Estado:** disponible
@@ -138,7 +138,7 @@ El ayudante dependería del nombre y correo Git globales del equipo. Configurarl
 - `src/git/git.test.ts`: cada prueba crea un repositorio temporal y lo elimina en `finally`.
 - `src/git/git.test.ts`: identidad, commits, archivos anidados y repositorio bare.
 
-Parte 3 · Página 16 de 32 · Anterior: [Interfaz Git de solo lectura](100-git-git.md) · Siguiente: [Inicialización del proyecto](120-init-init.md) · [Índice](../README.md)
+Parte 3 · Página 16 de 34 · Anterior: [Interfaz Git de solo lectura](100-git-git.md) · Siguiente: [Inicialización del proyecto](120-init-init.md) · [Índice](../README.md)
 
 
 

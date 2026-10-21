@@ -1,4 +1,4 @@
-Parte 3 · Página 26 de 32 · Anterior: [Foto del repositorio](200-review-snapshot.md) · Siguiente: [Validador de hallazgos](220-findings-validate.md) · [Índice](../README.md)
+Parte 3 · Página 26 de 34 · Anterior: [Foto del repositorio](200-review-snapshot.md) · Siguiente: [Validador de hallazgos](220-findings-validate.md) · [Índice](../README.md)
 # Esquema de hallazgos
 
 **Archivo:** `src/findings/schema.ts` · 65 líneas · **Estado:** disponible
@@ -206,5 +206,5 @@ Sin `export const FINDINGS_SCHEMA_VERSION = 1`, la validación no dispondría de
 
 - `src/findings/validate.test.ts`: verifica que `FINDINGS_SCHEMA_VERSION` coincida con la versión validada.
 
-Parte 3 · Página 26 de 32 · Anterior: [Foto del repositorio](200-review-snapshot.md) · Siguiente: [Validador de hallazgos](220-findings-validate.md) · [Índice](../README.md)
+Parte 3 · Página 26 de 34 · Anterior: [Foto del repositorio](200-review-snapshot.md) · Siguiente: [Validador de hallazgos](220-findings-validate.md) · [Índice](../README.md)
 

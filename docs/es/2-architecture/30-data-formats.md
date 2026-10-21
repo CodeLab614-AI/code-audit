@@ -1,4 +1,4 @@
-Parte 2 · Página 5 de 32 · Anterior: [Línea de comandos](20-cli.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
+Parte 2 · Página 5 de 34 · Anterior: [Línea de comandos](20-cli.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
 # Formatos de datos
 
 Este documento define la estructura y el contrato de validación de los archivos de intercambio de datos de `code-audit`, comenzando por `findings.json` versión 1.
@@ -238,5 +238,5 @@ El siguiente ejemplo corresponde a la ejecución del plan con la totalidad de lo
 }
 ```
 
-Parte 2 · Página 5 de 32 · Anterior: [Línea de comandos](20-cli.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
+Parte 2 · Página 5 de 34 · Anterior: [Línea de comandos](20-cli.md) · Siguiente: [Entrada del programa](../3-code/010-bin.md) · [Índice](../README.md)
 

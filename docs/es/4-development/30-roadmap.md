@@ -1,4 +1,4 @@
-Parte 4 · Página 32 de 32 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
+Parte 4 · Página 34 de 34 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
 # Hoja de ruta
 
 - **Tarea 1 — Hecha:** configuración de Bun, esqueleto del CLI y compilación a un solo archivo.
@@ -16,7 +16,8 @@ Parte 4 · Página 32 de 32 · Anterior: [Estándar de documentación](20-docume
 - **Tarea 3 — Hecha:** selección de reglas (`selectRules`, `SelectedRule`, `SelectionReason` y `normalizeForKeywords` por políticas, patrones con renombrados y palabras clave con acentos y términos completos).
 - **Tarea 4 — Hecha:** foto del repositorio (`takeSnapshot`, `compareSnapshots`, `Snapshot` y `SnapshotChange` para registrar y comparar el estado de Git, el índice y los archivos no ignorados).
 - **Tarea 5 — Hecha:** esquema y validación de `findings.json` (`validateFindings`, `FindingsInvalidError`, `FINDINGS_SCHEMA_VERSION`, tipos normalizados y descarte exacto con comprobación de citas y límites de ruta).
-- **Planeado:** modelo de informe, textos fijos y generación de informes HTML y Markdown.
+- **Tarea 6 — Hecha:** modelo del informe, veredicto y textos fijos (`ReportModel`, `buildReportModel`, `Verdict`, `computeVerdict`, `resolveReportLanguage` y catálogo `TEXTS`).
+- **Planeado:** generación de informes HTML y Markdown, y corridas de revisión con `--prepare` y `--finish`.
 
 ## Plan 3: Mapa del código
 
@@ -27,7 +28,7 @@ Parte 4 · Página 32 de 32 · Anterior: [Estándar de documentación](20-docume
 **Planeado:** abrir nuevas sesiones de revisión y verificación con el mismo agente que inicia la skill; avisar cuando un cambio sea grande; entregar las instrucciones `SKILL.md` y las pruebas de la skill.
 
 Consulta la [página del comprobador de documentación](17-docs-check.md) para ver sus comprobaciones y ejemplos.
-Parte 4 · Página 32 de 32 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
+Parte 4 · Página 34 de 34 · Anterior: [Estándar de documentación](20-documentation-standard.md) · (última) · [Índice](../README.md)
 
 
 

@@ -1,4 +1,4 @@
-Part 3 · Page 25 of 32 · Previous: [Rule selection](190-review-select.md) · Next: [Findings schema](210-findings-schema.md) · [Index](../README.md)
+Part 3 · Page 25 of 34 · Previous: [Rule selection](190-review-select.md) · Next: [Findings schema](210-findings-schema.md) · [Index](../README.md)
 # Repository snapshot
 
 **File:** `src/review/snapshot.ts` · 154 lines · **Status:** available
@@ -396,5 +396,5 @@ Complete output of `compareSnapshots`:
   - `difficult filenames *.ts, [x].ts, tab names, and spaces with accents are preserved exactly`
   - `multiple simultaneous changes are ordered by head, branch, index, added, removed, modified with paths sorted`
 
-Part 3 · Page 25 of 32 · Previous: [Rule selection](190-review-select.md) · Next: [Findings schema](210-findings-schema.md) · [Index](../README.md)
+Part 3 · Page 25 of 34 · Previous: [Rule selection](190-review-select.md) · Next: [Findings schema](210-findings-schema.md) · [Index](../README.md)
 

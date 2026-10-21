@@ -1,4 +1,4 @@
-Part 3 · Page 27 of 32 · Previous: [Findings schema](210-findings-schema.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 27 of 34 · Previous: [Findings schema](210-findings-schema.md) · Next: [Report model](230-report-model.md) · [Index](../README.md)
 # Findings validator
 
 **File:** `src/findings/validate.ts` · 654 lines · **Status:** available
@@ -1199,5 +1199,5 @@ Output:
 
 - `src/findings/validate.test.ts`: validates the plan example with zero discards, total file rejection, quote mismatches, CRLF and tab normalization, path escapes, unselected rules, severity aliases, multi-line quotes, idea limits, BOM headers, external symlinks, ENOTDIR errors, deterministic ordering, and positional discard identifiers.
 
-Part 3 · Page 27 of 32 · Previous: [Findings schema](210-findings-schema.md) · Next: [Development](../4-development/10-development.md) · [Index](../README.md)
+Part 3 · Page 27 of 34 · Previous: [Findings schema](210-findings-schema.md) · Next: [Report model](230-report-model.md) · [Index](../README.md)
 

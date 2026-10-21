@@ -1,4 +1,4 @@
-Parte 3 · Página 22 de 32 · Anterior: [Tipos de revisión](160-review-types.md) · Siguiente: [Líneas cambiadas](180-review-changes.md) · [Índice](../README.md)
+Parte 3 · Página 22 de 34 · Anterior: [Tipos de revisión](160-review-types.md) · Siguiente: [Líneas cambiadas](180-review-changes.md) · [Índice](../README.md)
 # Rango a revisar
 
 **Archivo:** `src/review/range.ts` · 380 líneas · **Estado:** disponible
@@ -805,6 +805,6 @@ Ocurre cuando el repositorio fue clonado con un límite de profundidad (`git clo
 - `src/review/range.test.ts`: exclusión por patrones en `config.ignore` y registro en `ignoredByConfig`.
 - `src/review/range.test.ts`: modos `unpushed`, `since-run`, `since-ref` y HEAD desconectado.
 - `src/review/range.test.ts`: detección de errores `needs-start`, `bad-ref`, `base-not-found`, `empty`, `no-commits` y `shallow`.
-Parte 3 · Página 22 de 32 · Anterior: [Tipos de revisión](160-review-types.md) · Siguiente: [Líneas cambiadas](180-review-changes.md) · [Índice](../README.md)
+Parte 3 · Página 22 de 34 · Anterior: [Tipos de revisión](160-review-types.md) · Siguiente: [Líneas cambiadas](180-review-changes.md) · [Índice](../README.md)
 
 

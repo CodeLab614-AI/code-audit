@@ -1,4 +1,4 @@
-Part 3 · Page 16 of 32 · Previous: [Read-only Git interface](100-git-git.md) · Next: [Project initialization](120-init-init.md) · [Index](../README.md)
+Part 3 · Page 16 of 34 · Previous: [Read-only Git interface](100-git-git.md) · Next: [Project initialization](120-init-init.md) · [Index](../README.md)
 # Temporary repository test helpers
 
 **File:** `src/test-helpers/repo.ts` · 41 lines · **Status:** available
@@ -138,7 +138,7 @@ The commit helper would depend on the machine-wide Git name and email. Setting b
 - `src/git/git.test.ts`: each test creates a temporary repository and removes it in `finally` cleanup.
 - `src/git/git.test.ts`: repository identity, commits, nested files, and bare repository behavior.
 
-Part 3 · Page 16 of 32 · Previous: [Read-only Git interface](100-git-git.md) · Next: [Project initialization](120-init-init.md) · [Index](../README.md)
+Part 3 · Page 16 of 34 · Previous: [Read-only Git interface](100-git-git.md) · Next: [Project initialization](120-init-init.md) · [Index](../README.md)
 
 
 

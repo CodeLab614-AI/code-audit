@@ -1,4 +1,4 @@
-Parte 3 · Página 15 de 32 · Anterior: [Cargador de fichas de tarea](090-config-task.md) · Siguiente: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · [Índice](../README.md)
+Parte 3 · Página 15 de 34 · Anterior: [Cargador de fichas de tarea](090-config-task.md) · Siguiente: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · [Índice](../README.md)
 # Interfaz Git de solo lectura
 
 **Archivo:** `src/git/git.ts` · 183 líneas · **Estado:** disponible
@@ -335,7 +335,7 @@ Algunos usos válidos coinciden con los controles conservadores y se rechazan. `
 - `src/git/git.test.ts`: comandos que leen stdin, rutas de trabajo inválidas y límites de salida para pruebas.
 - Una prueba temporal con Node confirma por separado que su error de maxBuffer se convierte en `GitError`.
 
-Parte 3 · Página 15 de 32 · Anterior: [Cargador de fichas de tarea](090-config-task.md) · Siguiente: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · [Índice](../README.md)
+Parte 3 · Página 15 de 34 · Anterior: [Cargador de fichas de tarea](090-config-task.md) · Siguiente: [Ayudantes de prueba para repositorios temporales](110-test-helpers-repo.md) · [Índice](../README.md)
 
 
 
