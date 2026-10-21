@@ -1,4 +1,4 @@
-Part 3 · Page 26 of 32 · Previous: [Repository snapshot](200-review-snapshot.md) · Next: [Findings validator](220-findings-validate.md) · [Index](../README.md)
+Part 3 · Page 26 of 34 · Previous: [Repository snapshot](200-review-snapshot.md) · Next: [Findings validator](220-findings-validate.md) · [Index](../README.md)
 # Findings schema
 
 **File:** `src/findings/schema.ts` · 65 lines · **Status:** available
@@ -206,5 +206,5 @@ Without `export const FINDINGS_SCHEMA_VERSION = 1`, the validator lacks a unifie
 
 - `src/findings/validate.test.ts`: validates that `FINDINGS_SCHEMA_VERSION` matches accepted findings data.
 
-Part 3 · Page 26 of 32 · Previous: [Repository snapshot](200-review-snapshot.md) · Next: [Findings validator](220-findings-validate.md) · [Index](../README.md)
+Part 3 · Page 26 of 34 · Previous: [Repository snapshot](200-review-snapshot.md) · Next: [Findings validator](220-findings-validate.md) · [Index](../README.md)
 

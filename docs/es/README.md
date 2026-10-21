@@ -50,15 +50,17 @@ Al terminar esta parte entenderás cómo colaboran los módulos existentes y qu�
 25. [Foto del repositorio](3-code/200-review-snapshot.md) — Captura y compara el estado criptográfico y estructural del repositorio.
 26. [Esquema de hallazgos](3-code/210-findings-schema.md) — Define la versión y tipos normalizados de hallazgos.
 27. [Validador de hallazgos](3-code/220-findings-validate.md) — Valida, normaliza y descarta hallazgos contra el repositorio.
+28. [Modelo del informe](3-code/230-report-model.md) — Construye el modelo de vista para informes HTML y Markdown.
+29. [Textos fijos e idioma](3-code/240-report-i18n.md) — Centraliza cadenas fijas, traducciones y resolución de idioma.
 
 Al terminar esta parte podrás seguir cada archivo fuente actual y sus pruebas.
 
 ## Parte 4: Desarrollo
 
-28. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
-29. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
-30. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
-31. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
-32. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
+30. [Desarrollo](4-development/10-development.md) — Requisitos, comprobaciones y flujo de solicitud de integración.
+31. [Script de compilación](4-development/15-build-script.md) — Crea el CLI independiente para Node.js.
+32. [Comprobador de documentación](4-development/17-docs-check.md) — Valida la documentación pública y sus referencias al código.
+33. [Estándar de documentación](4-development/20-documentation-standard.md) — Reglas para mantener estas páginas.
+34. [Hoja de ruta](4-development/30-roadmap.md) — El trabajo que falta en el proyecto.
 
 Al terminar esta parte sabrás compilar, comprobar y mantener el proyecto actual.

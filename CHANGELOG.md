@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Fixed empty criteria task text handling with `criteriaNone`, adjusted `criteriaMet` and range line count plural agreements, corrected `rangeUnpushed` wording and English `rangeBranch` split phrasing, ensured `fileProblems` returns no issues on empty input, and preserved question and exclamation marks in titles with strict 80-character maximum cap.
+- Added report view model, review verdict calculation, and bilingual static copy dictionary (`ReportModel`, `buildReportModel`, `Verdict`, `computeVerdict`, `resolveReportLanguage`, and `TEXTS`).
+- Added bilingual documentation for `src/report/model.ts` and `src/report/i18n.ts`, and marked Plan 2 Task 6 complete.
+
 - Fixed findings validation to treat null in optional fields as omitted without discards or notes, fixed checkRepoFile to accept files whose names start with double dots, restored complete JSDoc comments in schema documentation, and expanded architecture data formats with list element specifications.
 - Added findings schema and validation module (`validateFindings`, `FindingsInvalidError`, `FINDINGS_SCHEMA_VERSION`, normalized camelCase types, and exact discard reasons with quote verification and repository path checks).
 - Added bilingual documentation for `schema.ts`, `validate.ts`, and architecture data formats, and marked Plan 2 Task 5 complete.

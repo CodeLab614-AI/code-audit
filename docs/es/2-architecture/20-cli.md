@@ -1,4 +1,4 @@
-Parte 2 · Página 4 de 32 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Formatos de datos](30-data-formats.md) · [Índice](../README.md)
+Parte 2 · Página 4 de 34 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Formatos de datos](30-data-formats.md) · [Índice](../README.md)
 # Línea de comandos
 
 El CLI acepta `init`, `check` y `review`, además de `--root`, `--language`, `--json`, `--help` y `--version`. `check` valida el proyecto y `review` sigue diciendo que aún no está disponible.
@@ -35,7 +35,7 @@ El idioma debe tener letras y números en grupos no vacíos separados por guione
 | 3 | No es un repositorio | `init` o `check` fuera de un repositorio o sin Git |
 | 10 | Error interno | Fallo inesperado durante `init` o `check` |
 
-Parte 2 · Página 4 de 32 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Formatos de datos](30-data-formats.md) · [Índice](../README.md)
+Parte 2 · Página 4 de 34 · Anterior: [Arquitectura](10-architecture.md) · Siguiente: [Formatos de datos](30-data-formats.md) · [Índice](../README.md)
 
 
 

@@ -1,4 +1,4 @@
-Part 3 · Page 13 of 32 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 13 of 34 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
 # Rule loader
 
 **File:** `src/config/rules.ts` · 132 lines · **Status:** available
@@ -277,7 +277,7 @@ $ echo $?
 - `src/config/rules.test.ts`: severity aliases, surrounding whitespace, and Spanish names.
 - `src/config/rules.test.ts`: required fields and `policies/` patterns.
 - `src/config/rules.test.ts`: deterministic problem ordering, malformed headers, invalid values, and unknown fields.
-Part 3 · Page 13 of 32 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
+Part 3 · Page 13 of 34 · Previous: [Project configuration loader](070-config-config.md) · Next: [Task loader](090-config-task.md) · [Index](../README.md)
 
 
 

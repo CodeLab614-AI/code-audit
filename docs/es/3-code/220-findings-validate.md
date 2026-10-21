@@ -1,4 +1,4 @@
-Parte 3 · Página 27 de 32 · Anterior: [Esquema de hallazgos](210-findings-schema.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 27 de 34 · Anterior: [Esquema de hallazgos](210-findings-schema.md) · Siguiente: [Modelo del informe](230-report-model.md) · [Índice](../README.md)
 # Validador de hallazgos
 
 **Archivo:** `src/findings/validate.ts` · 654 líneas · **Estado:** disponible
@@ -1199,5 +1199,5 @@ Salida:
 
 - `src/findings/validate.test.ts`: valida el ejemplo del plan con 0 descartados, rechazo total del archivo, citas incorrectas, saltos CRLF y tabuladores, rutas fuera del repo, reglas no seleccionadas, alias de gravedad, citas multilínea, límite de ideas, marcas BOM, enlaces simbólicos externos, casos ENOTDIR, ordenación determinista y generación de identificadores posicionales.
 
-Parte 3 · Página 27 de 32 · Anterior: [Esquema de hallazgos](210-findings-schema.md) · Siguiente: [Desarrollo](../4-development/10-development.md) · [Índice](../README.md)
+Parte 3 · Página 27 de 34 · Anterior: [Esquema de hallazgos](210-findings-schema.md) · Siguiente: [Modelo del informe](230-report-model.md) · [Índice](../README.md)
 

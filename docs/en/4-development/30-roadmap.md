@@ -1,4 +1,4 @@
-Part 4 · Page 32 of 32 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+Part 4 · Page 34 of 34 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
 # Roadmap
 
 - **Task 1 — Done:** Bun project setup, CLI skeleton, and single-file build.
@@ -16,7 +16,8 @@ Part 4 · Page 32 of 32 · Previous: [Documentation standard](20-documentation-s
 - **Task 3 — Done:** Rule selection (`selectRules`, `SelectedRule`, `SelectionReason`, and `normalizeForKeywords` for policies, patterns with renames, and whole-word / accent-insensitive keywords).
 - **Task 4 — Done:** Repository snapshot (`takeSnapshot`, `compareSnapshots`, `Snapshot`, and `SnapshotChange` to record and compare Git state, staging index, and non-ignored files).
 - **Task 5 — Done:** Schema and validation for `findings.json` (`validateFindings`, `FindingsInvalidError`, `FINDINGS_SCHEMA_VERSION`, normalized types, and exact discards with quote and path verification).
-- **Planned:** Report model, fixed texts, and HTML and Markdown report generation.
+- **Task 6 — Done:** Report model, verdict, and fixed texts catalog (`ReportModel`, `buildReportModel`, `Verdict`, `computeVerdict`, `resolveReportLanguage`, and `TEXTS`).
+- **Planned:** HTML and Markdown report generation and review runs with `--prepare` and `--finish`.
 
 ## Plan 3: Code map
 
@@ -27,7 +28,7 @@ Part 4 · Page 32 of 32 · Previous: [Documentation standard](20-documentation-s
 **Planned:** Open new review and verification sessions with the same agent that launches the skill; report when a change is large; provide the skill's `SKILL.md` instructions and tests.
 
 See the [documentation checker page](17-docs-check.md) for its checks and examples.
-Part 4 · Page 32 of 32 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
+Part 4 · Page 34 of 34 · Previous: [Documentation standard](20-documentation-standard.md) · (last) · [Index](../README.md)
 
 
 

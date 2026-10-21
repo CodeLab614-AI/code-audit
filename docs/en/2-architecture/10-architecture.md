@@ -1,4 +1,4 @@
-Part 2 · Page 3 of 32 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+Part 2 · Page 3 of 34 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
 # Architecture
 
 Bun is the development toolkit: it installs dependencies, runs TypeScript tests and scripts, and bundles the CLI. Node.js runs the built JavaScript file, so running the CLI does not require Bun.
@@ -59,6 +59,17 @@ flowchart TD
     validateTest --> repoHelper
     validateTest --> task
     validateTest --> select
+    reportI18n["src/report/i18n.ts"]
+    reportModel["src/report/model.ts"] --> reportI18n
+    reportModel --> task
+    reportModel --> configTypes
+    reportModel --> findingsSchema
+    reportModel --> reviewTypes
+    reportModel --> select
+    reportModelTest["src/report/model.test.ts"] --> reportModel
+    reportModelTest --> reportI18n
+    reportModelTest --> repoHelper
+    reportI18nTest["src/report/i18n.test.ts"] --> reportI18n
     initTest["src/init/init.test.ts"] --> init
     initTest --> rules["src/config/rules.ts"]
     initTest --> task["src/config/task.ts"]
@@ -92,12 +103,14 @@ flowchart TD
 
 [`src/findings/schema.ts`](../3-code/210-findings-schema.md) defines the schema version and normalized finding types, importing [`src/config/types.ts`](../3-code/060-config-types.md). [`src/findings/validate.ts`](../3-code/220-findings-validate.md) validates and normalizes findings, importing `src/findings/schema.ts`, [`src/config/rules.ts`](../3-code/080-config-rules.md), [`src/config/task.ts`](../3-code/090-config-task.md), [`src/config/types.ts`](../3-code/060-config-types.md), and [`src/review/select.ts`](../3-code/190-review-select.md). Today no command line interface command uses them yet.
 
+[`src/report/i18n.ts`](../3-code/240-report-i18n.md) defines the bilingual static string catalog and English fallback resolution. [`src/report/model.ts`](../3-code/230-report-model.md) builds the unified report view data model, importing `src/report/i18n.ts`, [`src/config/types.ts`](../3-code/060-config-types.md), [`src/config/task.ts`](../3-code/090-config-task.md), [`src/findings/schema.ts`](../3-code/210-findings-schema.md), [`src/review/types.ts`](../3-code/160-review-types.md), and [`src/review/select.ts`](../3-code/190-review-select.md). Today no CLI command uses them yet.
+
 [`src/config/frontmatter.ts`](../3-code/040-config-frontmatter.md) parses a YAML header and body. `src/config/rules.ts` and [`src/config/task.ts`](../3-code/090-config-task.md) import it; their tests import their respective loaders.
 
 The build script bundles the executable from [`src/bin.ts`](../3-code/010-bin.md) into a JavaScript module. A JavaScript module (ESM) is a file that uses `import` and `export`. The documentation checker validates the English and Spanish pages.
 
-The Git, initialization, review range, and changed lines tests import `src/git/git.ts` and [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` also checks generated examples with the rule and task loaders. The test helper runs Git only in temporary fixture repositories. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts`, `src/review/select.test.ts`, `src/review/snapshot.test.ts`, and `src/findings/validate.test.ts` test their respective modules directly.
-Part 2 · Page 3 of 32 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
+The Git, initialization, review range, and changed lines tests import `src/git/git.ts` and [`src/test-helpers/repo.ts`](../3-code/110-test-helpers-repo.md). `src/init/init.test.ts` also checks generated examples with the rule and task loaders. The test helper runs Git only in temporary fixture repositories. `src/config/match.test.ts`, `src/review/range.test.ts`, `src/review/changes.test.ts`, `src/review/select.test.ts`, `src/review/snapshot.test.ts`, `src/findings/validate.test.ts`, `src/report/model.test.ts`, and `src/report/i18n.test.ts` test their respective modules directly.
+Part 2 · Page 3 of 34 · Previous: [Use code-audit today](../1-overview/20-usage.md) · Next: [Command line](20-cli.md) · [Index](../README.md)
 
 
 

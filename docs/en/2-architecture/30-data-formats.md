@@ -1,4 +1,4 @@
-Part 2 · Page 5 of 32 · Previous: [Command line](20-cli.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+Part 2 · Page 5 of 34 · Previous: [Command line](20-cli.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
 # Data formats
 
 This document defines the structure and validation contracts for `code-audit` data exchange files, beginning with `findings.json` schema version 1.
@@ -238,5 +238,5 @@ The following example illustrates the plan execution payload with all fields suc
 }
 ```
 
-Part 2 · Page 5 of 32 · Previous: [Command line](20-cli.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
+Part 2 · Page 5 of 34 · Previous: [Command line](20-cli.md) · Next: [Program entry point](../3-code/010-bin.md) · [Index](../README.md)
 

@@ -1,4 +1,4 @@
-Part 3 · Page 11 of 32 · Previous: [Configuration paths](050-config-paths.md) · Next: [Project configuration loader](070-config-config.md) · [Index](../README.md)
+Part 3 · Page 11 of 34 · Previous: [Configuration paths](050-config-paths.md) · Next: [Project configuration loader](070-config-config.md) · [Index](../README.md)
 # Configuration types
 
 **File:** `src/config/types.ts` · 38 lines · **Status:** available
@@ -260,7 +260,7 @@ No production module consumes these results today; the tests named in each field
 - `src/config/config.test.ts`: defaults and config validation.
 - `src/config/rules.test.ts`: rule normalization and diagnostics.
 
-Part 3 · Page 11 of 32 · Previous: [Configuration paths](050-config-paths.md) · Next: [Project configuration loader](070-config-config.md) · [Index](../README.md)
+Part 3 · Page 11 of 34 · Previous: [Configuration paths](050-config-paths.md) · Next: [Project configuration loader](070-config-config.md) · [Index](../README.md)
 
 
 

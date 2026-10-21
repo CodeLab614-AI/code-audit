@@ -50,15 +50,17 @@ By the end of this part, you will understand how the existing modules work toget
 25. [Repository snapshot](3-code/200-review-snapshot.md) — Captures and compares cryptographic and structural repository state.
 26. [Findings schema](3-code/210-findings-schema.md) — Defines the schema version and normalized finding types.
 27. [Findings validator](3-code/220-findings-validate.md) — Validates, normalizes, and discards findings against the repository.
+28. [Report model](3-code/230-report-model.md) — Builds the view model for HTML and Markdown reports.
+29. [Fixed texts and language](3-code/240-report-i18n.md) — Centralizes fixed strings, translations, and language resolution.
 
 By the end of this part, you will be able to follow each current source file and its tests.
 
 ## Part 4: Development
 
-28. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
-29. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
-30. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
-31. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
-32. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
+30. [Development](4-development/10-development.md) — Requirements, checks, and pull request workflow.
+31. [Build script](4-development/15-build-script.md) — Creates the standalone Node.js CLI.
+32. [Documentation checker](4-development/17-docs-check.md) — Validates the public documentation and code references.
+33. [Documentation standard](4-development/20-documentation-standard.md) — Rules for maintaining these pages.
+34. [Roadmap](4-development/30-roadmap.md) — Work that remains for the project.
 
 By the end of this part, you will know how to build, check, and maintain the current project.

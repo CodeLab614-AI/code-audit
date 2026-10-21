@@ -1,4 +1,4 @@
-Parte 1 · Página 2 de 32 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
+Parte 1 · Página 2 de 34 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
 # Uso de code-audit hoy
 
 ## Requisitos
@@ -69,7 +69,7 @@ Updated .gitignore.
 Agrega `--json` para recibir las rutas como JSON. En una segunda ejecución se conservan los archivos y se muestran como omitidos. La [página de arquitectura del CLI](../2-architecture/20-cli.md) enumera los códigos actuales; la [página del inicializador](../3-code/120-init-init.md) muestra el árbol resultante y la segunda salida.
 
 Ejecuta `check` dentro de un repositorio Git o pasa con `--root` una ruta interna. Muestra cada error y aviso, y luego un resumen. Agrega `--json` para recibir el objeto completo. Devuelve 2 si hay errores, 0 si solo hay avisos o no hay problemas, y 3 fuera de un repositorio Git.
-Parte 1 · Página 2 de 32 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
+Parte 1 · Página 2 de 34 · Anterior: [Qué es code-audit](10-what-is-code-audit.md) · Siguiente: [Arquitectura](../2-architecture/10-architecture.md) · [Índice](../README.md)
 
 
 

@@ -1,4 +1,4 @@
-Parte 4 · Página 29 de 32 · Anterior: [Desarrollo](10-development.md) · Siguiente: [Comprobador de documentación](17-docs-check.md) · [Índice](../README.md)
+Parte 4 · Página 31 de 34 · Anterior: [Desarrollo](10-development.md) · Siguiente: [Comprobador de documentación](17-docs-check.md) · [Índice](../README.md)
 # Script de compilación
 
 **Archivo:** `scripts/build.ts` · 40 líneas · **Estado:** disponible
@@ -138,7 +138,7 @@ Sin el bloque `finally`, quien importe `buildArtifact` permanecería en la raíz
 ## Pruebas
 
 La prueba del script comprueba que el archivo compilado no incluya rutas locales absolutas.
-Parte 4 · Página 29 de 32 · Anterior: [Desarrollo](10-development.md) · Siguiente: [Comprobador de documentación](17-docs-check.md) · [Índice](../README.md)
+Parte 4 · Página 31 de 34 · Anterior: [Desarrollo](10-development.md) · Siguiente: [Comprobador de documentación](17-docs-check.md) · [Índice](../README.md)
 
 
 
